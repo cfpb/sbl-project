@@ -52,6 +52,7 @@
 1. As a SBL Help user, ...
 
 #### Technical requirements
+
 1. User management API
     1. Writes user data back to Keycloak
 1. Institutions API
@@ -79,6 +80,7 @@
    optimized for first-time users, and acting as more of a gate to insure the user is fully
    configured prior to entering the rest of the system.
 
+
 ### RegTech home
 
 #### User stories
@@ -96,6 +98,7 @@
 
 1. In what ways is the **User profile** different from first-time login screen.
 
+
 ### Institution list
 
 #### User stories
@@ -112,7 +115,10 @@
     1. Filing status for SBL and HMDA for the current filing season.
     1. User association status? Only when waiting for approval?
 
+
 ### Institution profile
+
+#### User stories
 
 1. As a filer, I would like to view my institution data as CFPB understands it.
 1. As a filer, I would like clear instruction on how to change read-only institution fields.
@@ -128,15 +134,130 @@
 1. Data will be _mostly_ read-only, with possible exceptions for:
     1. FI contact info (name, phone, email, etc.)
 
-## SBL filing app
-1. Institution list
-    1. Show current filing season's filing status.
-    1. Provides link to **Begin filing** if not started.
-1. Previous filing seasons list.
-    1. **Q:** Do we need to think about this year 1?
-    
 
-1. SBL single line validator
+## SBL filing app
+
+### SBL Home
+
+#### User stories
+
+1. As a filer, I can see a list of active institutions I need to file for this filing season.
+1. As a filer, I can see a list of inactive institutions I have filed for in the past.
+1. As a filer, I can see the current filing status for each of my institutions.
+1. As a filer, I can easily tell when a filing season starts and ends.
+1. As a filer, I can select an institution to start the filing process.
+1. As a filer, I can select an institution to view past filings.
+1. As a filer, I can view the institution data snapshot for a past filing season.
+1. As a filer, I can select an institution to restart a filing I've previously completed.
+
+#### Questions
+
+1. How much consideration do we need to give now to all of the 2nd year+ scenarios?
+    1. A filer is told by SEFL they need to re-file after an exam.
+    1. A filer didn't file for a past year.
+1. Are we going to have a 3-year window where we allow refiling like HMDA?
+
+
+### Confirm institution data
+
+#### User stories
+
+1. As a filer, I can confirm my institution data is accurate for given filing period.
+1. As a filer, I want clear instructions on what to do to if my institution data is inaccurate.
+
+#### Questions
+
+1. Are there institution data fields that the user can fix themselves?
+    1. Can they do it on this screen, or do they go back to the **Institution profile**
+       page in RegTech Home?
+1. Does a user have to go through this screen every time the upload a new version?
+    1. Seems like the answer should be _no_, but then how does the flow work?
+
+#### Notes
+
+1. This is one way SBL is different from HMDA. HMDA has the "Transmittal Sheet" as
+   the first record of their file, which contains their institution data for a given
+   filing season. So, we can't really "do what HMDA does" for this one.
+
+
+### Upload file
+
+1. As a filer, I can upload my FI's SBLAR data for a given filing period.
+1. As a filer, I can view the status of my submission while it is being processed.
+1. As a filer, I can view the results of my submission once processing is complete.
+1. As a filer, I can get clear error messages if the file failed to be processed.
+
+#### Questions
+
+1. What are the statuses visible to the end user?
+    - Uploading
+    - Upload failed
+    - Processing failed (ex: file is an invalid format)
+    - Validating data
+    - Validation complete
+
+
+### Validation review
+
+#### User stories
+
+1. As a filer, I can see a list of all validations raised on a given submission.
+1. As a filer, I can cannot proceed with my submission if I have any error-level validations.
+1. As a filer, I can proceed with my submission if I only have warning-level validations.
+1. As a filer, I can view all info required to resolve a given validations.
+    1. Validation id
+    1. Validation name
+    1. Validation description
+    1. Validation severity (error vs. warning)
+    1. Link to the FIG
+    1. Row number
+    1. Related columns
+    1. Column data for each failed record
+1. As a filer, I can download a CSV validations report.
+
+#### Questions
+
+1. Should errors and validations be separate steps in the process like HMDA?
+1. If we go with a multi-staged parsing routine, where we check for formatting/syntax errors
+   first, then logical errors, should those be a separate steps, or would those just fall
+   both be on the "errors" step, and we just accept that users with syntax errors may get
+   logical errors on the same screen after resolving syntactical errors?
+
+
+### Finalize filing
+
+#### User stories
+
+1. As a filer, I want to submit ("sign" in HMDA-speak) a given submission as my SBL
+   filing for a given filing season.
+1. As a filer, I want an receipt-like identifier for my completed filing.
+1. As a filer, I would like an email-based confirmation that my filing is complete.
+
+
+## Post-filing data analysis
+
+### User stores
+1. As a CFPB analyst, I want finalized (aka "signed") SBL data to be available for analysis.
+    1. FI data
+    1. SBLAR data
+
+
+## Anonymous validation
+
+### Single-line validator
+
+#### User stories
+
+1. As a filer, I would like to check my SBL data for errors prior to submission, so I can
+   ensure I have acceptable data in advance of the filing deadline.
+1. As a filer, I have instructions detailing which validations cannot be performed while
+   validating anonymously.
+
+#### Questions
+
+1. Would this just be an API, or is there a UI for this as well?
+1. Is this really just a "single line" validator, or do we allow batch as well?
+
 
 # Questions
 
@@ -144,16 +265,21 @@
     1. Can we leave all RegTech filing apps visible to all users, and they
        can voluntarily decide which they need to file for?
 1. What are our filing statuses?
-    - Not started - No submissions for the season.
-    - In progress - One or more submissions, but not signed.
-        - **Q:** How does _Accept FI data_
+    - Not started
+    - Institution data confirmed
+    - Submission in progress - One or more submissions, but not signed.
         - **Q:** Do we need to show submission-level status?
-            - Failed upload
-            - Uploaded
-            - Validating
+            - Not started
+            - Uploading...
+            - Upload complete
+            - Validating...
+            - Validation complete 
+            - Signed
+        - **Q:** Do we need sub-statuses for **Validation complete**, or can that just be derived from validation results?
+            - Success
             - Failed formatting validations
             - Failed logic validations
-            - Awaiting warning acceptance
-            - Awaiting signature
-            - Signed
+        - **Q:** Do we need statuses for steps in between 
+            - Awaiting warning acceptance (is this needed?)
+            - Awaiting signature (is this needed?)
     - Complete - Once a given submission has been signed.
