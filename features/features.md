@@ -270,7 +270,7 @@
 
 ## Post-filing data analysis
 
-### User stores
+### User stories
 1. As a CFPB analyst, I want finalized (aka "signed") SBL data to be available for analysis.
     1. FI data
     1. SBLAR data
