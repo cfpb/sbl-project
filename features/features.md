@@ -16,7 +16,7 @@
 
 # Features
 
-## CFPB shared data filing home (name TBD)
+## CFPB shared data filing platform home (name TBD)
 
 ### Shared landing page (unauthenticated)
 
@@ -49,17 +49,16 @@
 ### Complete user profile (first-time user)
 
 #### User stories
-[x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process (First name, Last name)
+- [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process (First name, Last name)
     - ~~- Work phone?~~ - We will collect a financial institution contact phone number at the sign and submit step.
-[x] As a filer, I would like to associate myself with one or more FIs, so that I can manage all of the filings I’m responsible for in one place. 
-[x] As a a filer, I want to be able to search for and select my financial institution(s) by LEI, so that I can file on behalf of that institution.
-[x] As a filer, I want to be able to search for and select my financial institution(s) by name, so that I can file on behalf of that institution. 
-[x] As a filer whose institution is not already known to the CFPB, I want to be provided information on how to register my FI with GLEIF so I can create an account associated with that FI.
-[x] As a filer, I want to choose which institution(s) I want to be associated with from a pre-populated list, so I don’t need to look up my FI’s LEI info during the registration process.
+- [x] As a filer, I would like to associate myself with one or more FIs, so that I can manage all of the filings I’m responsible for in one place. 
+- [x] As a a filer, I want to be able to search for and select my financial institution(s) by LEI, so that I can file on behalf of that institution.
+- [x] As a filer, I want to be able to search for and select my financial institution(s) by name, so that I can file on behalf of that institution. 
+- [x] As a filer whose institution is not already known to the CFPB, I want to be provided information on how to register my FI with GLEIF so I can create an account associated with that FI.
+- [x] As a filer, I want to choose which institution(s) I want to be associated with from a pre-populated list, so I don’t need to look up my FI’s LEI info during the registration process.
 
-1. [Dev user story] As a filer, I want filings for my FI to be viewable only by people logged in and associated with my FI, so that only trusted users are seeing and modifying my filings.
-[ ] As a filer, I would like instructions on what to do if my email domain is not registered with the CFPB, so that I can create a user profile and access the filing platform.  In this instance does the selection have to go to SBL help for review/approval? 
-
+- [ ] ?[Dev user story] As a filer, I want filings for my FI to be viewable only by people logged in and associated with my FI, so that only trusted users are seeing and modifying my filings.
+- [x] As a filer, I would like instructions on what to do if my email domain is not registered with the CFPB, so that I can create a user profile and access the filing platform.  (In this instance does the selection have to go to SBL help for review/approval?) 
 
 #### Technical requirements
 
@@ -104,56 +103,65 @@
 
 #### Notes
 
-1. This/these screen(s) should be very similar to the **User profile** screen, perhaps just
+1. This/these screen(s) should be very similar to the **Manage user profile** screen, perhaps just
    optimized for first-time users, and acting as more of a gate to insure the user is fully
    configured prior to entering the rest of the system.
 
 
-### CFPB data filing platform
+### Shared landing page (authenticated)
 
 #### User stories
+Add user stories 
 
-1. User can get an overview of all things they can do.
-    1. File for SBL
-    1. File for HMDA
-    1. View their User Profile
-    1. View their Institutions
-1. User can see notifications for actions they need to take.
+#### Content requirements
+1. Overview of what a user can do:
+- [x] File for SBL
+- [x] File for HMDA
+- [x] Access to manage user profile page
+- [x] Access individual financial institution details
+- [x] Notification that a user has successfully completed their user profile.
+- [x] A way for a user to review and request changes to their user profile
+- [x] Navigation for getting to the place for filing HMDA versus SBL data
+- [ ] ? Indication that tells a user that they have successfully logged in to the platform (Login/Logout in header area)? 
+- [ ] ? User can see notifications for actions they need to take.
 
-### User profile
+### Request changes to user profile
 
 #### User stories
-1. As a filer, I want to view the list of FIs I’m associated with, so I know which FIs I need to file for.
-2.  As a filer, I would like to know which FIs are already associated with my email domain.
+- [x] As a filer, I want to view the list of FIs I’m associated with, so I know which FIs I need to file for.
+- [x] * As a filer, I want to view the information contained in my user profile, so that I can make sure that it's accurate.
+- [x] * As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.  
+- [ ] [Should we move this to "Complete user profile"?] As a filer, I would like to know which FIs are already associated with my email domain
+
+#### Content requirements
+
+A user can view:
+- First name and last name
+- Email address 
+- Associated financial institutions
+- Instructions on how to request changes to their user profile details
 
 #### Questions
+1. In what ways is the **Request changes to user profile** different from the **Create user profile** screen?
 
-1. In what ways is the **User profile** different from first-time login screen.
-
-
-### Institution list
+### List of associated financial institutions (we should review this as a team)
 
 #### User stories
-
 1. As a filer, I would like to see list of all my associated institutions.
-1. As a filer, I would like to select an institution from the list to view its **Institution profile**.
-1. As a filer, I would like to see 
+1. As a filer, I would like to select an institution from the list to view its **Financial institution details**.
 
 #### Questions
-
 1. What details should be in this list?
     1. Name, LEI
     1. Status: Active, Deactivated
     1. Filing status for SBL and HMDA for the current filing season.
     1. User association status? Only when waiting for approval?
 
-
-### Institution profile
+### View financial institution profile (we should review this as a team)
 
 #### User stories
-
-1. As a filer, I would like to view my institution data as CFPB understands it.
-1. As a filer, I would like clear instruction on how to change read-only institution fields.
+1. As a filer, I would like to view my financial institution data as the CFPB understands it.
+1. As a filer, I would like clear instructions on how to change read-only financial institution fields.
 1. As a filer, I would like to view the history of changes to my institution data.
     1. Who: person or automation w/ data source
     1. What: Which fields changed from what to what
@@ -166,21 +174,21 @@
 1. Data will be _mostly_ read-only, with possible exceptions for:
     1. FI contact info (name, phone, email, etc.)
 
+## Small business lending data filing app
 
-## SBL filing app
-
-### SBL Home
+### Small business lending data filing home
 
 #### User stories
 
-1. As a filer, I can see a list of active institutions I need to file for this filing season.
-1. As a filer, I can see a list of inactive institutions I have filed for in the past.
-1. As a filer, I can see the current filing status for each of my institutions.
-1. As a filer, I can easily tell when a filing season starts and ends.
-1. As a filer, I can select an institution to start the filing process.
-1. As a filer, I can select an institution to view past filings.
-1. As a filer, I can view the institution data snapshot for a past filing season.
-1. As a filer, I can select an institution to restart a filing I've previously completed.
+- [x] As a filer, I can see a list of active institutions I need to file for this filing season.
+- [x] As a filer, I can see the current filing status for each of my institutions.
+- [x] As a filer, I can easily tell when a filing season starts and ends.
+- [x] As a filer, I can select an institution to start the filing process.
+- [x] As a filer, I can select an institution to view past filings.
+- [x] As a filer, I can view the institution data snapshot for a past filing season.
+- [x] As a filer, I can select an institution to restart a filing I've previously completed.
+
+- [ ] As a filer, I can see a list of inactive institutions I have filed for in the past.
 
 #### Questions
 
@@ -188,7 +196,6 @@
     1. A filer is told by SEFL they need to re-file after an exam.
     1. A filer didn't file for a past year.
 1. Are we going to have a 3-year window where we allow refiling like HMDA?
-
 
 ### Confirm institution data
 
@@ -228,8 +235,7 @@
     - Validating data
     - Validation complete
 
-
-### Validation review
+### Review errors and Verify warnings
 
 #### User stories
 
@@ -256,7 +262,7 @@
    logical errors on the same screen after resolving syntactical errors?
 
 
-### Finalize filing
+### Sign and submit
 
 #### User stories
 
