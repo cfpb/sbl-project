@@ -4,7 +4,7 @@
     1. **FI Standard User** - Users under the flat authorization structure.
         - Default type of FI user.
         - FI(s) have NOT opted-in to the self-admin feature.
-    1. **FI Admin** - Users who can manage subordinate users.
+    1. **FI Admin** - Users who can manage subordinate users
         - FI(s) HAVE opted-in to 
     1. **FI Subordinate** - Users managed by FI Admins.
          - Cannot self-register
@@ -14,21 +14,33 @@
 1. External Analysts
 1. Other regulators
 
+Where should we store the source of truth for what each of these users can do in the system? There are a number of user stories related to FI admins in the SBL data collection backlog board under "Authentication and authorization" column.
+
 # Features
 
-## CFPB shared data filing platform home (name TBD)
+## CFPB shared data filing platform
+
+Includes: 
+- Authentication and authorization
+- User profile completion
+- Financial institution association
+- User profile management
+- Financial institution details
 
 ### Shared landing page (unauthenticated)
 
 #### User stories
-1.  As a filer, I would like instructions on how to submit my filing data to the CFPB, so that I can comply with regulatory requirements. 
-1.  As a filer, I would like instructions on how to create a Login.gov account and user profile, so that I can access the filing platform.
-1.  As a filer, I would like to log in to the CFPB's filing app with my Login.gov credentials, so that I can trust that my information is secure. 
-1.  As a filer, I want to understand the steps I need to follow in order to create an account, so that I can access the filing platform.
-1.  As a filer, I want to understand what Login.gov is, so that I can trust that my information is safe and secure.
-1.  As a filer, I want to know what email address I must use when I create an account with Login.gov, so that I can gain access to the filing platform.
-1.  As a filer, I want to have a shared user profile across CFPB data filing platforms, so that I can more easily manage my filings.
-1.  As a filer, I want to know where to go for help with setting up my account, so that I can access the filing platform. 
+- [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
+- [x] As a filer, I want to be able to create an account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
+- [x] As a filer, I want to have a shared user profile across CFPB data filing platforms, so that I can more easily manage my filings.
+- [x] As a filer, I would like instructions on how to create a Login.gov account and user profile, so that I can access the filing platform.
+- [x] As a filer, I would like to log in to the CFPB's filing app with my Login.gov credentials, so that I can trust that my information is secure. 
+- [x] As a filer, I want to understand the steps I need to follow in order to create an account, so that I can access the filing platform.
+- [x] As a filer, I want to understand what Login.gov is, so that I can trust that my information is safe and secure.
+- [x] As a filer, I want to know what email address I must use when I create an account with Login.gov, so that I can gain access to the filing platform.
+- [x] As a filer, I want to know where to go for help with setting up my account, so that I can access the filing platform.
+
+- [ ] As a filer, I would like instructions on how to submit my filing data to the CFPB, so that I can comply with regulatory requirements. 
 
 #### Technical requirements
 1. We need to select a mean of hosting static sites
@@ -40,25 +52,32 @@
         1. Does CloudFront CDN provide any value?
 
 #### Content requirements
-1. Orient a user to the fact that they are on a shared filing platform for lending data. 
-1. Information on what is needed to create an account, log in to the filing platform, and begin the filing process (LEI, Login.gov account using financial institution email address)
-1. Information on Login.gov and why we use it.
-1. Communicate that although users may have an exiting Login.gov account for other things, in order to access the filing platform they need to create a Login.gov account that is tied to their FI email address.
-1. Information on what a user should do if they need technical help (they can go to the FAQ page or they can submit a question to SBL help via the help form).
+1. Orient a user to the fact that they are on a shared filing platform for lending data.
+2. Information on what is needed to create an account, log in to the filing platform, and begin the filing process (LEI, Login.gov account using financial institution email address).
+3. Information on Login.gov and why we use it.
+4. Communicate that although users may have an exiting Login.gov account for other things, in order to access the filing platform they need to create a Login.gov account that is tied to their FI email address.
+5. Information on what a user should do if they need technical help (they can go to the FAQ page or they can submit a question to SBL help via the help form).
 
 ### Complete user profile (first-time user)
 
 #### User stories
 - [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process (First name, Last name)
-    - ~~- Work phone?~~ - We will collect a financial institution contact phone number at the sign and submit step.
-- [x] As a filer, I would like to associate myself with one or more FIs, so that I can manage all of the filings I’m responsible for in one place. 
+- [x] As a filer, I want to associate my account with a financial institution, so I can file on behalf of that institution. 
+- [x] As a filer, I would like to associate myself with one or more FIs, so that I can manage all of the filings I’m responsible for in one place.
 - [x] As a a filer, I want to be able to search for and select my financial institution(s) by LEI, so that I can file on behalf of that institution.
-- [x] As a filer, I want to be able to search for and select my financial institution(s) by name, so that I can file on behalf of that institution. 
+- [x] As a filer, I want to be able to search for and select my financial institution(s) by name, so that I can file on behalf of that institution.
+- [x] As a filer, I want to choose which institution(s) I want to be associated with from a pre-populated list (based on email domain), so that I don’t need to look up my FI’s LEI info during the registration process. 
 - [x] As a filer whose institution is not already known to the CFPB, I want to be provided information on how to register my FI with GLEIF so I can create an account associated with that FI.
 - [x] As a filer, I want to choose which institution(s) I want to be associated with from a pre-populated list, so I don’t need to look up my FI’s LEI info during the registration process.
+- [x] *As a filer, I would like to receive a notification if I try to complete my profile using a personal email address, so that I know to go back to Login.gov and login with my financial institution email address.
+- [x] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information.
+- [x] (This is currently being added to the prototype - wireframe has been designed) As a filer, I would like to know which FIs are already associated with my email domain, so that I don't have to search by financial institution name or LEI.
+
 
 - [ ] ?[Dev user story] As a filer, I want filings for my FI to be viewable only by people logged in and associated with my FI, so that only trusted users are seeing and modifying my filings.
-- [x] As a filer, I would like instructions on what to do if my email domain is not registered with the CFPB, so that I can create a user profile and access the filing platform.  (In this instance does the selection have to go to SBL help for review/approval?) 
+- [ ] [Need further review] As a filer, I would like instructions on what to do if my email domain is not registered with the CFPB, so that I can create a user profile and access the filing platform. (In this instance does the selection have to go to SBL help for review/approval?)
+- [ ] [Need further review] As a filer, I want to be able to log out of my account at the end of a session, to keep it secure. Add timeout period for session?
+
 
 #### Technical requirements
 
@@ -73,7 +92,7 @@
     1. No, their only option is to file an SBL Help ticket or wait for their institution to show up in the system (this would be if they have recently registered with GLEIF). 
 
 1. What's the UX for a user who can self-associate with some FIs, but not all?
-    1. Can they go into the app, and subsequent FI associations can just be handled in the **User profile** page?
+    1. Can they go into the app, and subsequent FI associations can just be handled in the **Request changes to user profile** page?
 
 1. Do we need a user-to-fi approval state that's visible to the user?
     1. waiting-for-approval
@@ -89,9 +108,10 @@
     1. Aside from FI association, the confirmation of submission email would go to this email address.  
 
 1. For the “Associate with a financial institution” what is the default list - do we show every institution in our database or do we narrow it down initially? 
-    1. Prioritize the FIs that match their email domain, show all FIs in database so users can search by bank name or LEI to add other FIs whose domain does not initially match
+    1. Prioritize the FIs that match their email domain (TBD)
+    1. Show all FIs in database so users can search by bank name or LEI to add other FIs whose domain does not initially match 
 
-1. What if we start with showing all financial institutions in our database so users can search by financial institution name or LEI? Then we can decide whether there is a user benefit to prioritizing the results by email domain.   
+1. What if we start with showing all financial institutions in our database so users can search by financial institution name or LEI? Then we can decide whether there is a user benefit to prioritizing the results by email domain?   
 
 1. Can we get the email domains associated with all existing LEIs from GLEIF? 
     1. If so our database of known financial institutions and LEIs will match GLEIF’s data. 
@@ -100,13 +120,41 @@
 1. Is a user's email address in our system associated with the primary Login.gov email address at the time of completing their user profile or is it automatically updated in our system when a user changes their email in Login.gov? 
     1. Requires some testing with Login.gov; we should always have the user’s current Login.gov email address & not require them to complete a new user profile + re-do FI associations if their Login.gov email address changes (based on user id)
     1. Based on this we should have messaging that lets a filer know that any changes to their email address should be made in Login.gov
+  
+## Financial institution association scenarios
+
+1) The user has logged in to Login.gov with a personal email address.
+Do we want an explicit blacklist of email domains (gmail.com, yahoo.com, hotmail.com, etc.) to tell users up-front that we don't support non-FI email addresses, or do we want to just let the SBL Help process take care of letting them they'll have to use a different email address?
+
+>> If the user has logged in to Login.gov with a personal email address that’s in our blacklist...
+>> then we show an error message and ask the user to go back to Login.gov to use their FI email address.
+
+2) The user has logged in to Login.gov with their financial institution email address but we do not have their financial institution's email domain in our system and we do have their financial institution/LEI in our system. 
+
+>> If we do not have their FI email domain in our system, but we have their FI/LEI...
+>> then the user would use the search feature to find their FI and select it, which then routes to SBL Help for approval, and we should display a message on this complete user profile page that tells the user this approval process is occurring; they will have to wait for an email from SBL Help that their account is approved and they are able to proceed.
+
+3) The user has logged in to Login.gov with their financial institution email address but we do not have their financial institution's email domain in our system and we do not have their financial institution/LEI in our system.
+This should only occur in the following cases: 1) entity has not registered, 2) our data from GLEIF does not contain the entity because they registered recently.
+
+>> If the user logs in with their FI email address but we do not have their domain in our system, and we do not have their FI/LEI in our system
+>> then we’re showing them an error message that tells them they either need to register for an LEI with GLEIF, or that if they recently registered for an LEI it’s not in our system yet and they should check back in _____ days?
+
+4) The user has logged in to Login.gov with their financial institution email address and we do have their email domain in our system and we do have their financial institution/LEI in our system. This will predominantly be those filers from HMDA. This could also happen outside of just HMDA FIs if we're able to get domain data from GLEIF or NIC or ... somebody
+
+>> If the user logs in with their FI email address and we do have their domain in our system, and we do have their FI/LEI
+>> then the search feature should filter prioritize the results to display only the results that match their email domain, the user can use the search features to further narrow their results as needed based on FI name or LEI
+
+5) The user has logged in to Login.gov with their financial institution email address and we do have their email domain in our system and we do not have their financial institution/LEI in our system.
+This scenario _probably_ isn't possible if we structure the data appropriately...and even if it is, it should be considered a bug if that state gets makes it out to the UI. It's a good one to think about, though. If we have Fis and domains as a many-to-many relationship...🤔 theoretically possible I suppose.
+
+>> If the user logs in with their FI email and we do have their email domain in our system and do not have their FI/LEI in our system
+>> then this is a bug and the user should contact SBL Help.
 
 #### Notes
-
-1. This/these screen(s) should be very similar to the **Manage user profile** screen, perhaps just
+1. This/these screen(s) should be very similar to the **Request changes to user profile** screen, perhaps just
    optimized for first-time users, and acting as more of a gate to insure the user is fully
    configured prior to entering the rest of the system.
-
 
 ### Shared landing page (authenticated)
 
@@ -114,7 +162,7 @@
 Add user stories 
 
 #### Content requirements
-1. Overview of what a user can do:
+Overview of what a user can do:
 - [x] File for SBL
 - [x] File for HMDA
 - [x] Access to manage user profile page
@@ -122,8 +170,9 @@ Add user stories
 - [x] Notification that a user has successfully completed their user profile.
 - [x] A way for a user to review and request changes to their user profile
 - [x] Navigation for getting to the place for filing HMDA versus SBL data
-- [ ] ? Indication that tells a user that they have successfully logged in to the platform (Login/Logout in header area)? 
-- [ ] ? User can see notifications for actions they need to take.
+
+- [ ] Indication that tells a user that they have successfully logged in to the platform (Login/Logout in header area)?
+- [ ] User can see notifications for actions they need to take.
 
 ### Request changes to user profile
 
@@ -131,7 +180,6 @@ Add user stories
 - [x] As a filer, I want to view the list of FIs I’m associated with, so I know which FIs I need to file for.
 - [x] * As a filer, I want to view the information contained in my user profile, so that I can make sure that it's accurate.
 - [x] * As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.  
-- [ ] [Should we move this to "Complete user profile"?] As a filer, I would like to know which FIs are already associated with my email domain
 
 #### Content requirements
 
@@ -188,7 +236,7 @@ A user can view:
 - [x] As a filer, I can view the institution data snapshot for a past filing season.
 - [x] As a filer, I can select an institution to restart a filing I've previously completed.
 
-- [ ] As a filer, I can see a list of inactive institutions I have filed for in the past.
+- [ ] ? As a filer, I can see a list of inactive institutions I have filed for in the past.
 
 #### Questions
 
@@ -270,6 +318,7 @@ A user can view:
    filing for a given filing season.
 1. As a filer, I want an receipt-like identifier for my completed filing.
 1. As a filer, I would like an email-based confirmation that my filing is complete.
+2. As a filer, I would like to provide my financial institution contact phone number, so that the CFPB can contact the appropriate person with questions about my financial institution's filing. 
 
 
 ## Post-filing data analysis
