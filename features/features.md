@@ -121,35 +121,26 @@ Includes:
     1. Requires some testing with Login.gov; we should always have the user’s current Login.gov email address & not require them to complete a new user profile + re-do FI associations if their Login.gov email address changes (based on user id)
     1. Based on this we should have messaging that lets a filer know that any changes to their email address should be made in Login.gov
   
-## Financial institution association scenarios
+#### Financial institution association scenarios
 
 1) The user has logged in to Login.gov with a personal email address.
 Do we want an explicit blacklist of email domains (gmail.com, yahoo.com, hotmail.com, etc.) to tell users up-front that we don't support non-FI email addresses, or do we want to just let the SBL Help process take care of letting them they'll have to use a different email address?
-
->> If the user has logged in to Login.gov with a personal email address that’s in our blacklist...
->> then we show an error message and ask the user to go back to Login.gov to use their FI email address.
+If the user has logged in to Login.gov with a personal email address that’s in our blacklist...then we show an error message and ask the user to go back to Login.gov to use their FI email address.
 
 2) The user has logged in to Login.gov with their financial institution email address but we do not have their financial institution's email domain in our system and we do have their financial institution/LEI in our system. 
-
->> If we do not have their FI email domain in our system, but we have their FI/LEI...
->> then the user would use the search feature to find their FI and select it, which then routes to SBL Help for approval, and we should display a message on this complete user profile page that tells the user this approval process is occurring; they will have to wait for an email from SBL Help that their account is approved and they are able to proceed.
+If we do not have their FI email domain in our system, but we have their FI/LEI...
+then the user would use the search feature to find their FI and select it, which then routes to SBL Help for approval, and we should display a message on this complete user profile page that tells the user this approval process is occurring; they will have to wait for an email from SBL Help that their account is approved and they are able to proceed.
 
 3) The user has logged in to Login.gov with their financial institution email address but we do not have their financial institution's email domain in our system and we do not have their financial institution/LEI in our system.
 This should only occur in the following cases: 1) entity has not registered, 2) our data from GLEIF does not contain the entity because they registered recently.
-
->> If the user logs in with their FI email address but we do not have their domain in our system, and we do not have their FI/LEI in our system
->> then we’re showing them an error message that tells them they either need to register for an LEI with GLEIF, or that if they recently registered for an LEI it’s not in our system yet and they should check back in _____ days?
+If the user logs in with their FI email address but we do not have their domain in our system, and we do not have their FI/LEI in our system then we’re showing them an error message that tells them they either need to register for an LEI with GLEIF, or that if they recently registered for an LEI it’s not in our system yet and they should check back in _____ days?
 
 4) The user has logged in to Login.gov with their financial institution email address and we do have their email domain in our system and we do have their financial institution/LEI in our system. This will predominantly be those filers from HMDA. This could also happen outside of just HMDA FIs if we're able to get domain data from GLEIF or NIC or ... somebody
-
->> If the user logs in with their FI email address and we do have their domain in our system, and we do have their FI/LEI
->> then the search feature should filter prioritize the results to display only the results that match their email domain, the user can use the search features to further narrow their results as needed based on FI name or LEI
+If the user logs in with their FI email address and we do have their domain in our system, and we do have their FI/LEI then the search feature should filter prioritize the results to display only the results that match their email domain, the user can use the search features to further narrow their results as needed based on FI name or LEI
 
 5) The user has logged in to Login.gov with their financial institution email address and we do have their email domain in our system and we do not have their financial institution/LEI in our system.
 This scenario _probably_ isn't possible if we structure the data appropriately...and even if it is, it should be considered a bug if that state gets makes it out to the UI. It's a good one to think about, though. If we have Fis and domains as a many-to-many relationship...🤔 theoretically possible I suppose.
-
->> If the user logs in with their FI email and we do have their email domain in our system and do not have their FI/LEI in our system
->> then this is a bug and the user should contact SBL Help.
+If the user logs in with their FI email and we do have their email domain in our system and do not have their FI/LEI in our system then this is a bug and the user should contact SBL Help.
 
 #### Notes
 1. This/these screen(s) should be very similar to the **Request changes to user profile** screen, perhaps just
