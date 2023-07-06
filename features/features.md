@@ -1,19 +1,19 @@
 ## User types / personas
 
 **Filing platform user** 
-- Anyone who can login to the RegTech system.
+- Anyone who can login to the CFPB shared data filing platform
 
 **Standard user**
-- Users under the flat authorization structure.
-    - Default type of FI user.
-    - FI(s) have NOT opted-in to the self-admin feature.
+- Users under the flat authorization structure
+    - Default type of financial institution user
+    - Financial institution(s) that have NOT opted-in to the self-admin feature
 
-**FI administrator**
-- Users who can manage subordinate users
-    - FI(s) HAVE opted-in to 
+**Financial institution administrator**
+- Financial institution users who can manage subordinate users
+    - Financial institution(s) HAVE opted-in
 
 **Managed user** 
-- Users managed by FI Admins.
+- Users managed by financial institution administrators.
     - Cannot self-register
     - Cannot manage which institutions they are associated with.
 
@@ -23,18 +23,16 @@
   - External Analysts
   - Other regulators
 
-Where should we store the source of truth for what each of these users can do in the system? There are a number of user stories related to FI admins in the SBL data collection backlog board under "Authentication and authorization" column.
+Where should we store the source of truth for what each of these users can do in the system? There are a number of user stories related to financial institution admins in the SBL data collection backlog board under "Authentication and authorization" column.
 - [Filing platform roles matrix] (link to internal file)
 
 <br></br>
 # CFPB shared data filing platform
-The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA apps to file their data.  
+The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login through Login,gov, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.  
 
-### Features
-Includes: 
+### Includes:
 - Authentication and authorization
-- User profile completion
-- Financial institution association
+- User profile completion/Financial institution association
 - User profile management
 - Financial institution details
 
@@ -57,7 +55,7 @@ Includes:
         1. Does CloudFront CDN provide any value?
           
 ### Content requirements
-1. Orient the user to the fact that they are on a shared filing platform for lending data.
+1. Orient the user to the fact that they are on a shared filing platform for lending data (e.g. SBL, HMDA, NBR).
 2. Inform the user of what is needed to create an account (LEI), log in to the filing platform (Login.gov account), and begin the filing process.
 3. Information on Login.gov and why we use it (keep information safe and secure).
 4. Inform the user that in order to access the filing platform they will need to create a Login.gov account that is tied to their FI email address (not a personal email address).
@@ -71,16 +69,16 @@ Includes:
 - [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process. 
 - [x] As a filer, I want to be able to associate myself with one or more financial institutions, so that I can file on behalf of the institution(s) I am responsible for.
 - [x] As a a filer, I want to be able to search for and select my financial institution(s) by financial instituion name and/or LEI, so that I can file on behalf of the institution(s) I am responsible for. 
-- [x] As a filer whose institution is not already known to the CFPB, I want to be provided information on how to register my financial institution with GLEIF, so that I can create an account associated with that FI.
+- [x] As a filer whose institution is not already known to the CFPB, I want to be provided information on how to register my financial institution with GLEIF, so that I can create an account associated with that financial institution.
 - [x] As a filer, I want to be alerted if I try to complete my profile using a personal email address, so that I know to go back to Login.gov and login with my financial institution email address.
 - [x] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information.
-- [x] As a filer, I want to choose which institution(s) I want to be associated with from a pre-populated list (based on email domain), so I don’t need to look up my FI’s LEI info during the registration process.
+- [x] As a filer, I want to choose which institution(s) I want to be associated with from a pre-populated list (based on email domain), so I don’t need to look up my financial institution’s LEI during the registration process.
 
 **Needs further review:** 
-- [ ] [Dev user story] As a filer, I want filings for my financial institution to be viewable only by people logged in and associated with my FI, so that only trusted users are seeing and modifying my filings.
-- [ ] [Need further review] As a filer, I want to be able to log out of my account at the end of a session, to keep it secure. Add timeout period for session?
+- [ ] [Dev user story] As a filer, I want filings for my financial institution to be viewable only by people logged in and associated with my financial institution, so that only trusted users are seeing and modifying my filings.
+- [ ] [Need further review] As a filer, I want to be able to log out of my account at the end of a session, to keep it secure. Add timeout period for session? Login/Logout in the header area?
 - [ ] [Need further review] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information. This is already built into the new system - Login.gov, user profile, etc.
-- [ ] [Needs further review] As a financial institution/FI POC, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.  
+- [ ] [Needs further review] As a financial institution point of contact, I want there to be a credible process for ensuring that users are really associated with financial institutions, so that malicious actors can’t sabotage my filing process.  
 
 ### Technical requirements
 1. User management API
@@ -89,24 +87,25 @@ Includes:
     1. Retrieve institution data by LEI, name, and email domain.
 
 **Content requirements:** 
-- [ ] Inform the user of what they should do if their email domain is not registered with the CFPB (In this instance does the selection have to go to SBL help for review/approval?)
-- [ ] Notification content for each of the possible financial institution association scenarios 
+- [ ] Inform the user of what they should do if their financial institution is not registered with GLEIF (need LEI)
+- [ ] Notification content/messaging for each of the possible financial institution association scenarios 
 
 ### Questions
 **What's the UX for a user who cannot self-associate with at least one FI? Can they even proceed into the app?** 
 - No, their only option is to file an SBL Help ticket or wait for their institution to show up in the system (this would be if they have recently registered with GLEIF). 
 
 **What's the UX for a user who can self-associate with some FIs, but not all? Can they go into the app, and subsequent FI associations can just be handled in the **Request changes to user profile** page?**
+- Yes, they could do that. Or, in our current design they could also self associate in the "Complete user profile" page
 
 **Do we need a user-to-fi approval state that's visible to the user?**
 - Waiting-for-approval
 - Approved
+We currently have a success message that shows up the first time a new user is authenticated and completes their user profile. We have not discussed an approval state within the context of the "Complete user profile" page or the "Request changes to your user profile" but we should. We will probably also need notifications for when a user submits changes to SBH help (clicks "Request changes" button.
 
 **To what extent can we streamline the process of what HMDA does today?**
 - Auto-create a Salesforce ticket?
 - Proactively call users?
-- _Some_ means of viewing a queue/list of users who've logged in, but
-      cannot use the system due no institution associations.
+- _Some_ means of viewing a queue/list of users who've logged in, but cannot use the system due no institution associations.
 
 **Is the email address used for anything other than associating a user with a financial institution?**
 - Submission confirmations go to the email address on file. 
@@ -132,26 +131,26 @@ Includes:
 
 **1) The user has logged in to Login.gov with a personal email address.**
 - Build an explicit blacklist of personal email domains (gmail.com, yahoo.com, hotmail.com, etc.) to tell users up-front that we don't support non-FI email addresses
-- In this scenario if the email domain is in our blacklist an error message woudl show up under the email field that asks the user to go back to Login.gov and login with their FI email address.
+- In this scenario if the email domain is in our blacklist an error message would show up under the email field that asks the user to go back to Login.gov and login with their FI email address.
 
-#### The user has logged in to Login.gov with their financial institution email address but...: 
+#### The user has logged in to Login.gov with their financial institution email address but: 
 
-**2) We do not have their financial institution's email domain in our system, but we have their financial institution/LEI.** 
+**2) We DO NOT have their financial institution's email domain in our system, but we DO have their financial institution/LEI.** 
 - In this scenario the user would use the search feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
 - A message displays on the complete user profile page that tells the user this approval process is occurring and that they will have to wait for an email from SBL Help that their account is approved and they are able to proceed.
 
-**3) We do not have their financial institution's email domain OR their financial institution/LEI in our system.**
+**3) We DO NOT have their financial institution's email domain OR their financial institution/LEI in our system.**
 - This should only occur in the following cases:
   - The entity has not registered,
   - Our data from GLEIF does not contain the entity because they registered recently
 - In this scenario the error message should tell the user that they either need to register for an LEI with GLEIF, or that if they recently registered for an LEI it’s not in our system yet and they should check back in _____ days?
 
-**4) We do have their email domain AND their financial institution/LEI in our system.**
+**4) We DO have their email domain AND their financial institution/LEI in our system.**
 - This will predominantly be those filers from HMDA. This could also happen outside of just HMDA FIs if we're able to get domain data from GLEIF or NIC or ... somebody
 - In this scenario the user would use the search feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
 - Prioritizing email domain matches has been discussed but UI/UX/FEWD recommend seeing how the basic non-prioritized list functions before adding this additional level. We discussed and are concerned that prioritizing the ordering of the list may add complexity that isn't needed. 
 
-**5) We do have their email domain in our system and we do not have their financial institution/LEI in our system.**
+**5) We DO have their email domain in our system and we DO NOT have their financial institution/LEI in our system.**
 - This scenario _probably_ isn't possible if we structure the data appropriately...and even if it is, it should be considered a bug if that state gets makes it out to the UI. It's a good one to think about, though. If we have Fis and domains as a many-to-many relationship...🤔 theoretically possible I suppose.
 - If the user logs in with their FI email and we do have their email domain in our system and do not have their FI/LEI in our system then this is a bug and the user should contact SBL Help.
 
@@ -178,7 +177,7 @@ Overview of what a user can do:
 - [ ] Indication that tells a user that they have successfully logged in to the platform (Login/Logout in header area)?
 - [ ] User can see notifications for actions they need to take.
 
-## Request changes to user profile
+## Request changes to your user profile
 
 ### User stories
 - [x] As a filer, I want to view the list of financial institutions I’m associated with, so I know which financial institutions I need to file for.
@@ -189,21 +188,22 @@ Overview of what a user can do:
 
 ### Content requirements
 A user can view:
-- First name and last name
+- First name
+- Last name
 - Email address 
 - Associated financial institutions
 - Instructions on how to request changes to their user profile details
 
 ### Questions
-**In what ways is the **Request changes to user profile** different from the **Complete user profile** screen?**
+**In what ways is the **Request changes to your user profile** different from the **Complete user profile** screen?**
 - The **Complete user profile** screen, is optimized for first-time users, and acting as more of a gate to insure the user is fully configured prior to entering the rest of the system.
-- The **Request changes to user profile** should be used to check what user profile details we have on file and request any changes.
+- The **Request changes to your user profile** should be used to check what user profile details we have on file and request any changes.
 - A user will first see the details that we have on file and then be able to fill out a form to make changes.
 - Changes will go to SBL help for processing.  
 
 ## Financial institution details (we should review this as a team)
 
-#### User stories
+### User stories
 1. As a filer, I would like to view my financial institution data as the CFPB understands it.
 1. As a filer, I would like clear instructions on how to change read-only financial institution fields.
 1. As a filer, I would like to view the history of changes to my institution data.
@@ -218,7 +218,7 @@ A user can view:
 1. Data will be _mostly_ read-only, with possible exceptions for:
     1. FI contact info (name, phone, email, etc.)
   
-#### Questions
+### Questions
 1. What details should be in this list?
     1. Name, LEI
     1. Status: Active, Deactivated
@@ -226,6 +226,13 @@ A user can view:
     1. User association status? Only when waiting for approval?
 
 # Small business lending data filing app
+
+### Includes:
+- Small business lending data filing home
+- Upload file
+- Review errors
+- Verify warnings
+- Sign and submit
 
 ## Small business lending data filing home
 
@@ -238,13 +245,12 @@ A user can view:
 - [x] As a filer, I can select an institution to view past filings.
 - [x] As a filer, I can view the institution data snapshot for a past filing season.
 - [x] As a filer, I can select an institution to restart a filing I've previously completed.
-- [ ] 
 
 **Content requirements:** 
 - Comprehensive instructions on the steps of the filing process. 
 
 **Needs further review:** 
-- [ ] ? As a filer, I can see a list of inactive institutions I have filed for in the past.
+- [ ] As a filer, I can see a list of inactive institutions I have filed for in the past.
 
 ### Questions
 1. How much consideration do we need to give now to all of the 2nd year+ scenarios?
@@ -284,7 +290,6 @@ A user can view:
     - Validating data
     - Validation complete
 
-<br></br>
 ## Review errors and Verify warnings
 
 ### User stories
@@ -309,7 +314,6 @@ A user can view:
    both be on the "errors" step, and we just accept that users with syntax errors may get
    logical errors on the same screen after resolving syntactical errors?
 
-<br></br>
 ## Sign and submit
 
 ### User stories
@@ -367,7 +371,7 @@ A user can view:
     - 
 
 
-## Additional user stories 
+# Additional user stories 
 These user stories have been pulled from the GH board but are not prioritized yet for MVP. 
 
 ## FI Administrator
@@ -380,7 +384,6 @@ These user stories have been pulled from the GH board but are not prioritized ye
 
 ## SBL Help
 Who do we need to talk to about the experience within SBL help for the SBL help administrators and platform users? 
-
 ### User stories
 - As a SBL/SBL Help administrator, I want to be able to view the list of registered users so I can get more information about a specific user if needed. Will FI admin also manage FI association?
 - As an administrator, I want to be able to view the list of users’ associations.
