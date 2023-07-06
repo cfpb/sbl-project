@@ -1,6 +1,3 @@
-# CFPB shared data filing platform
-The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA apps to file their data.  
-
 ## User types / personas
 
 **Filing platform user** 
@@ -29,8 +26,11 @@ The shared data filing platform will be used by filers of small business lending
 Where should we store the source of truth for what each of these users can do in the system? There are a number of user stories related to FI admins in the SBL data collection backlog board under "Authentication and authorization" column.
 - [Filing platform roles matrix] (link to internal file)
 
-## Shared data platform
+<br></br>
+# CFPB shared data filing platform
+The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA apps to file their data.  
 
+### Features
 Includes: 
 - Authentication and authorization
 - User profile completion
@@ -38,9 +38,9 @@ Includes:
 - User profile management
 - Financial institution details
 
-### Shared landing page (unauthenticated)
+## Shared landing page (unauthenticated)
 
-#### User stories
+### User stories
 - [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
 - [x] As a filer, I want to be able to create an account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
 - [x] As a filer, I want to have a shared user profile across CFPB data filing platforms, so that I can more easily manage my filings.
@@ -54,7 +54,7 @@ Includes:
 **Needs further review:** 
 - [ ] As a filer, I would like instructions on how to submit my filing data to the CFPB, so that I can comply with regulatory requirements. 
 
-#### Technical requirements
+### Technical requirements
 1. We need to select a mean of hosting static sites
     - Option:
         1. Nginx on Kubernetes
@@ -63,17 +63,16 @@ Includes:
     - Questions:
         1. Does CloudFront CDN provide any value?
           
-#### Content requirements
+### Content requirements
 1. Orient a user to the fact that they are on a shared filing platform for lending data.
 2. Information on what is needed to create an account, log in to the filing platform, and begin the filing process (LEI, Login.gov account using financial institution email address).
 3. Information on Login.gov and why we use it.
 4. Communicate that although users may have an exiting Login.gov account for other things, in order to access the filing platform they need to create a Login.gov account that is tied to their FI email address.
 5. Information on what a user should do if they need technical help (they can go to the FAQ page or they can submit a question to SBL help via the help form).
 
-<br></br>
-### Complete user profile (first-time user)
+## Complete user profile (first-time user)
 
-#### User stories
+### User stories
 - [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process (First name, Last name).
 - [x] As a filer, I want to associate my account with a financial institution, so I can file on behalf of that institution. 
 - [x] As a filer, I would like to associate myself with one or more FIs, so that I can manage all of the filings I’m responsible for in one place.
@@ -92,13 +91,13 @@ Includes:
 - [ ] [Need further review] As a filer, I want to be able to log out of my account at the end of a session, to keep it secure. Add timeout period for session?
 
 
-#### Technical requirements
+### Technical requirements
 1. User management API
     1. Writes user data back to Keycloak
 1. Institutions API
     1. Retrieve institution data by LEI, name, and email domain.
 
-#### Questions
+### Questions
 **What's the UX for a user who cannot self-associate with at least one FI? Can they even proceed into the app?** 
 No, their only option is to file an SBL Help ticket or wait for their institution to show up in the system (this would be if they have recently registered with GLEIF). 
 
@@ -134,14 +133,13 @@ No, their only option is to file an SBL Help ticket or wait for their institutio
 - + Add new email (requires email validation link, re-sign in with original email+password+2FA)
 - Can delete original email address
 
-<br></br>
-#### Financial institution association scenarios and results
+### Financial institution association scenarios and results
 
 **1) The user has logged in to Login.gov with a personal email address.**
 - Build an explicit blacklist of personal email domains (gmail.com, yahoo.com, hotmail.com, etc.) to tell users up-front that we don't support non-FI email addresses
 - In this scenario if the email domain is in our blacklist an error message woudl show up under the email field that asks the user to go back to Login.gov and login with their FI email address.
 
-##### The user has logged in to Login.gov with their financial institution email address but...: 
+#### The user has logged in to Login.gov with their financial institution email address but...: 
 
 **2) We do not have their financial institution's email domain in our system, but we have their financial institution/LEI.** 
 - In this scenario the user would use the search feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
@@ -162,18 +160,17 @@ No, their only option is to file an SBL Help ticket or wait for their institutio
 - This scenario _probably_ isn't possible if we structure the data appropriately...and even if it is, it should be considered a bug if that state gets makes it out to the UI. It's a good one to think about, though. If we have Fis and domains as a many-to-many relationship...🤔 theoretically possible I suppose.
 - If the user logs in with their FI email and we do have their email domain in our system and do not have their FI/LEI in our system then this is a bug and the user should contact SBL Help.
 
-#### Notes
+### Notes
 1. This/these screen(s) should be very similar to the **Request changes to user profile** screen, perhaps just
    optimized for first-time users, and acting as more of a gate to insure the user is fully
    configured prior to entering the rest of the system.
 
-<br></br>
-### Shared landing page (authenticated)
+## Shared landing page (authenticated)
 
-#### User stories
+### User stories
 Add user stories 
 
-#### Content requirements
+### Content requirements
 Overview of what a user can do:
 - [x] File for SBL
 - [x] File for HMDA
@@ -187,32 +184,30 @@ Overview of what a user can do:
 - [ ] Indication that tells a user that they have successfully logged in to the platform (Login/Logout in header area)?
 - [ ] User can see notifications for actions they need to take.
 
-### Request changes to user profile
+## Request changes to user profile
 
-#### User stories
+### User stories
 - [x] As a filer, I want to view the list of FIs I’m associated with, so I know which FIs I need to file for.
 - [x] * As a filer, I want to view the information contained in my user profile, so that I can make sure that it's accurate.
-- [x] * As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.  
+- [x] * As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.
+- [x] As a filer, I would like to see list of all my associated institutions.
+- [x] As a filer, I would like to select an institution from the list to view its **Financial institution details**.
 
-#### Content requirements
+### Content requirements
 A user can view:
 - First name and last name
 - Email address 
 - Associated financial institutions
 - Instructions on how to request changes to their user profile details
 
-#### Questions
-1. In what ways is the **Request changes to user profile** different from the **Complete user profile** screen? The **Complete user profile** screen, is optimized for first-time users, and acting as more of a gate to insure the user is fully
-   configured prior to entering the rest of the system. The **Request changes to user profile** should be used to check what user profile details we have on file and request any changes. A user will first see the details that we have on file and then be able to fill out a form to make changes. Changes will go to SBL help for processing.  
+### Questions
+**In what ways is the **Request changes to user profile** different from the **Complete user profile** screen?**
+- The **Complete user profile** screen, is optimized for first-time users, and acting as more of a gate to insure the user is fully configured prior to entering the rest of the system.
+- The **Request changes to user profile** should be used to check what user profile details we have on file and request any changes.
+- A user will first see the details that we have on file and then be able to fill out a form to make changes.
+- Changes will go to SBL help for processing.  
 
-#### List of associated financial institutions (this list shows up on the user profile page)
-
-#### User stories
-1. As a filer, I would like to see list of all my associated institutions.
-1. As a filer, I would like to select an institution from the list to view its **Financial institution details**.
-
-<br></br>
-### Financial institution details (we should review this as a team)
+## Financial institution details (we should review this as a team)
 
 #### User stories
 1. As a filer, I would like to view my financial institution data as the CFPB understands it.
@@ -236,12 +231,11 @@ A user can view:
     1. Filing status for SBL and HMDA for the current filing season.
     1. User association status? Only when waiting for approval?
 
-<br></br>
-## Small business lending data filing app
+# Small business lending data filing app
 
-### Small business lending data filing home
+## Small business lending data filing home
 
-#### User stories
+### User stories
 
 - [x] As a filer, I can see a list of active institutions I need to file for this filing season.
 - [x] As a filer, I can see the current filing status for each of my institutions.
@@ -254,39 +248,37 @@ A user can view:
 **Needs further review:** 
 - [ ] ? As a filer, I can see a list of inactive institutions I have filed for in the past.
 
-#### Questions
+### Questions
 1. How much consideration do we need to give now to all of the 2nd year+ scenarios?
     1. A filer is told by SEFL they need to re-file after an exam.
     1. A filer didn't file for a past year.
 1. Are we going to have a 3-year window where we allow refiling like HMDA?
 
-<br></br>
-### Confirm financial institution details for given filing period
+## Confirm financial institution details for given filing period
 
-#### User stories
+### User stories
 1. As a filer, I can confirm my institution data is accurate for given filing period.
 1. As a filer, I want clear instructions on what to do to if my institution data is inaccurate.
 
-#### Questions
+### Questions
 1. Are there institution data fields that the user can fix themselves?
     1. Can they do it on this screen, or do they go back to the **Institution profile**
        page in RegTech Home?
 1. Does a user have to go through this screen every time the upload a new version?
     1. Seems like the answer should be _no_, but then how does the flow work?
 
-#### Notes
+### Notes
 1. This is one way SBL is different from HMDA. HMDA has the "Transmittal Sheet" as
    the first record of their file, which contains their institution data for a given
    filing season. So, we can't really "do what HMDA does" for this one.
 
-
-### Upload file
+## Upload file
 1. As a filer, I can upload my FI's SBLAR data for a given filing period.
 1. As a filer, I can view the status of my submission while it is being processed.
 1. As a filer, I can view the results of my submission once processing is complete.
 1. As a filer, I can get clear error messages if the file failed to be processed.
 
-#### Questions
+### Questions
 1. What are the statuses visible to the end user?
     - Uploading
     - Upload failed
@@ -295,9 +287,9 @@ A user can view:
     - Validation complete
 
 <br></br>
-### Review errors and Verify warnings
+## Review errors and Verify warnings
 
-#### User stories
+### User stories
 1. As a filer, I can see a list of all validations raised on a given submission.
 1. As a filer, I can cannot proceed with my submission if I have any error-level validations.
 1. As a filer, I can proceed with my submission if I only have warning-level validations.
@@ -312,7 +304,7 @@ A user can view:
     1. Column data for each failed record
 1. As a filer, I can download a CSV validations report.
 
-#### Questions
+### Questions
 1. Should errors and validations be separate steps in the process like HMDA?
 1. If we go with a multi-staged parsing routine, where we check for formatting/syntax errors
    first, then logical errors, should those be a separate steps, or would those just fall
@@ -320,39 +312,38 @@ A user can view:
    logical errors on the same screen after resolving syntactical errors?
 
 <br></br>
-### Sign and submit
+## Sign and submit
 
-#### User stories
+### User stories
 1. As a filer, I want to submit ("sign" in HMDA-speak) a given submission as my SBL
    filing for a given filing season.
 1. As a filer, I want an receipt-like identifier for my completed filing.
 1. As a filer, I would like an email-based confirmation that my filing is complete.
 2. As a filer, I would like to provide my financial institution contact phone number, so that the CFPB can contact the appropriate person with questions about my financial institution's filing. 
 
-<br></br>
-## Post-filing data analysis
+# Post-filing data analysis
 
 ### User stories
 1. As a CFPB analyst, I want finalized (aka "signed") SBL data to be available for analysis.
     1. FI data
     1. SBLAR data
 
-<br></br>
-## Anonymous validation
+# Anonymous validation
 
 ### Single-line validator
 
-#### User stories
+### User stories
 1. As a filer, I would like to check my SBL data for errors prior to submission, so I can
    ensure I have acceptable data in advance of the filing deadline.
 1. As a filer, I have instructions detailing which validations cannot be performed while
    validating anonymously.
 
-#### Questions
+### Questions
 1. Would this just be an API, or is there a UI for this as well?
 1. Is this really just a "single line" validator, or do we allow batch as well?
 
-# Questions
+
+### Questions
 1. Do we need to differentiate HMDA vs. SBL users at all?
     1. Can we leave all RegTech filing apps visible to all users, and they
        can voluntarily decide which they need to file for?
