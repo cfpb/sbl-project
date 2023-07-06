@@ -202,21 +202,21 @@ A user can view:
 - A user will first see the details that we have on file and then be able to fill out a form to make changes.
 - Changes will go to SBL help for processing.  
 
-## Financial institution details (we should review this as a team)
+## Financial institution details
 
 ### User stories
-- [x] As a filer, I would like to view my financial institution data as the CFPB understands it.
-- [x] As a filer, I would like clear instructions on how to change read-only financial institution fields.
-- [x] As a filer, I would like to view the history of changes to my institution data.
+- [ ] As a filer, I would like to view my financial institution data as the CFPB understands it.
+- [ ] As a filer, I would like clear instructions on how to change read-only financial institution fields.
+- [ ] As a filer, I would like to view the history of changes to my institution data.
     1. Who: person or automation w/ data source
     1. What: Which fields changed from what to what
     1. When: Timestamp
     1. Why: automation or human note
-- [x] Common institution data across all RegTech apps.
-- [x] Defaults to latest version of institution data.
-- [x] Clearly delineates shared vs. HMDA and SBL-specific data fields
-- [x] Full history of all data changes is available.
-- [x] Data will be _mostly_ read-only, with possible exceptions for:
+- [ ] Common institution data across all RegTech apps.
+- [ ] Defaults to latest version of institution data.
+- [ ] Clearly delineates shared vs. HMDA and SBL-specific data fields
+- [ ] Full history of all data changes is available.
+- [ ] Data will be _mostly_ read-only, with possible exceptions for:
     1. FI contact info (name, phone, email, etc.)
   
 ### Questions
