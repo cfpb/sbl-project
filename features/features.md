@@ -70,7 +70,7 @@ Includes:
 4. Communicate that although users may have an exiting Login.gov account for other things, in order to access the filing platform they need to create a Login.gov account that is tied to their FI email address.
 5. Information on what a user should do if they need technical help (they can go to the FAQ page or they can submit a question to SBL help via the help form).
 
-
+<br></br>
 ### Complete user profile (first-time user)
 
 #### User stories
@@ -125,15 +125,16 @@ No, their only option is to file an SBL Help ticket or wait for their institutio
 - If so our database of known financial institutions and LEIs will match GLEIF’s data. 
 - Still unknown. David is working on this. 
 
-**Is a user's email address in our system associated with the primary Login.gov email address at the time of completing their user profile or is it automatically updated in our system when a user changes their email in Login.gov? 
+**Is a user's email address in our system associated with the primary Login.gov email address at the time of completing their user profile or is it automatically updated in our system when a user changes their email in Login.gov?** 
 - Requires some testing with Login.gov; we should always have the user’s current Login.gov email address & not require them to complete a new user profile + re-do FI associations if their Login.gov email address changes (based on user id)
 - Based on this we should have messaging that lets a filer know that any changes to their email address should be made in Login.gov
 
-Login.gov process for updating an email address:
+**Login.gov process for updating an email address:**
 - Go to Login.gov & log in with email+password+2FA
 - + Add new email (requires email validation link, re-sign in with original email+password+2FA)
 - Can delete original email address
-  
+
+<br></br>
 #### Financial institution association scenarios and results
 
 **1) The user has logged in to Login.gov with a personal email address.**
@@ -166,7 +167,7 @@ Login.gov process for updating an email address:
    optimized for first-time users, and acting as more of a gate to insure the user is fully
    configured prior to entering the rest of the system.
 
-
+<br></br>
 ### Shared landing page (authenticated)
 
 #### User stories
@@ -201,24 +202,17 @@ A user can view:
 - Instructions on how to request changes to their user profile details
 
 #### Questions
-1. In what ways is the **Request changes to user profile** different from the **Create user profile** screen?
+1. In what ways is the **Request changes to user profile** different from the **Complete user profile** screen? The **Complete user profile** screen, is optimized for first-time users, and acting as more of a gate to insure the user is fully
+   configured prior to entering the rest of the system. The **Request changes to user profile** should be used to check what user profile details we have on file and request any changes. A user will first see the details that we have on file and then be able to fill out a form to make changes. Changes will go to SBL help for processing.  
 
-
-### List of associated financial institutions (we should review this as a team)
+#### List of associated financial institutions (this list shows up on the user profile page)
 
 #### User stories
 1. As a filer, I would like to see list of all my associated institutions.
 1. As a filer, I would like to select an institution from the list to view its **Financial institution details**.
 
-#### Questions
-1. What details should be in this list?
-    1. Name, LEI
-    1. Status: Active, Deactivated
-    1. Filing status for SBL and HMDA for the current filing season.
-    1. User association status? Only when waiting for approval?
-
-
-### View financial institution profile (we should review this as a team)
+<br></br>
+### Financial institution details (we should review this as a team)
 
 #### User stories
 1. As a filer, I would like to view my financial institution data as the CFPB understands it.
@@ -234,7 +228,15 @@ A user can view:
 1. Full history of all data changes is available.
 1. Data will be _mostly_ read-only, with possible exceptions for:
     1. FI contact info (name, phone, email, etc.)
+  
+#### Questions
+1. What details should be in this list?
+    1. Name, LEI
+    1. Status: Active, Deactivated
+    1. Filing status for SBL and HMDA for the current filing season.
+    1. User association status? Only when waiting for approval?
 
+<br></br>
 ## Small business lending data filing app
 
 ### Small business lending data filing home
@@ -258,8 +260,8 @@ A user can view:
     1. A filer didn't file for a past year.
 1. Are we going to have a 3-year window where we allow refiling like HMDA?
 
-
-### Confirm financial institution details
+<br></br>
+### Confirm financial institution details for given filing period
 
 #### User stories
 1. As a filer, I can confirm my institution data is accurate for given filing period.
@@ -292,7 +294,7 @@ A user can view:
     - Validating data
     - Validation complete
 
-
+<br></br>
 ### Review errors and Verify warnings
 
 #### User stories
@@ -317,7 +319,7 @@ A user can view:
    both be on the "errors" step, and we just accept that users with syntax errors may get
    logical errors on the same screen after resolving syntactical errors?
 
-
+<br></br>
 ### Sign and submit
 
 #### User stories
@@ -327,7 +329,7 @@ A user can view:
 1. As a filer, I would like an email-based confirmation that my filing is complete.
 2. As a filer, I would like to provide my financial institution contact phone number, so that the CFPB can contact the appropriate person with questions about my financial institution's filing. 
 
-
+<br></br>
 ## Post-filing data analysis
 
 ### User stories
@@ -335,7 +337,7 @@ A user can view:
     1. FI data
     1. SBLAR data
 
-
+<br></br>
 ## Anonymous validation
 
 ### Single-line validator
@@ -349,7 +351,6 @@ A user can view:
 #### Questions
 1. Would this just be an API, or is there a UI for this as well?
 1. Is this really just a "single line" validator, or do we allow batch as well?
-
 
 # Questions
 1. Do we need to differentiate HMDA vs. SBL users at all?
