@@ -84,11 +84,14 @@ Includes:
 - [x] *As a filer, I would like to receive a notification if I try to complete my profile using a personal email address, so that I know to go back to Login.gov and login with my financial institution email address.
 - [x] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information.
 - [x] (This is currently being added to the prototype - wireframe has been designed) As a filer, I would like to know which FIs are already associated with my email domain, so that I don't have to search by financial institution name or LEI.
+- [x] As a filer, I want the association process to be automatic if possible, so I can start the filing process without waiting for involvement from SBL Help.
 
 **Needs further review:** 
-- [ ] ?[Dev user story] As a filer, I want filings for my FI to be viewable only by people logged in and associated with my FI, so that only trusted users are seeing and modifying my filings.
+- [ ] [Dev user story] As a filer, I want filings for my FI to be viewable only by people logged in and associated with my FI, so that only trusted users are seeing and modifying my filings.
 - [ ] [Need further review] As a filer, I would like instructions on what to do if my email domain is not registered with the CFPB, so that I can create a user profile and access the filing platform. (In this instance does the selection have to go to SBL help for review/approval?)
 - [ ] [Need further review] As a filer, I want to be able to log out of my account at the end of a session, to keep it secure. Add timeout period for session?
+- [ ] [Need further review] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information. This is already built into the new system - Login.gov, user profile, etc.
+- [ ] As a filer, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.  
 
 
 ### Technical requirements
@@ -366,3 +369,22 @@ A user can view:
             - Awaiting warning acceptance (is this needed?)
             - Awaiting signature (is this needed?)
     - Complete - Once a given submission has been signed.
+    - 
+
+
+## Additional user stories 
+These user stories have been pulled from the GH board but are not prioritized yet for MVP. 
+
+## FI Administrator
+### User stories
+- As an administrator, I want to view a registered user's details.
+- As an administrator, I want to be able to discontinue an individual's access if they leave my FI, so they don't have inappropriate access to the filing system.
+- As administrator, I want to be able to see which account was responsible for each action our FI has taken in the system, so I know who to hold accountable.
+- As an administrator, I want to be able to communicate with users (probably via email), so that I can get any necessary information for the verification process. Investigate??
+- As a FI administrator, I want to be able to impersonate a user in the system, so that I can more easily help them with issues they encounter. SBL Help Desk impersonations.
+
+## SBL Help
+### User stories
+- As a SBL/SBL Help administrator, I want to be able to view the list of registered users so I can get more information about a specific user if needed. Will FI admin also manage FI association?
+- As an administrator, I want to be able to view the list of users’ associations.
+
