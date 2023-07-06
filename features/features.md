@@ -42,14 +42,10 @@ Includes:
 
 ### User stories
 - [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
-- [x] As a filer, I want to be able to create an account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
-- [x] As a filer, I would like to log in to the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
-- [x] As a filer, I want to have a shared user profile across CFPB data filing platforms, so that I can more easily manage my filings.
-- [x] As a filer, I want to understand the requirements for logging in and creating an account, so that I can access the filing platform.
-- [x] As a filer, I want to know where to go for help with setting up my account, so that I can access the filing platform.
-
-**Needs further review:** 
-- [ ] (Move to filing app section) As a filer, I would like instructions on how to submit my filing data to the CFPB, so that I can comply with regulatory requirements. 
+- [x] As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
+- [x] As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
+- [x] As a filer, I want to create a shared user profile across CFPB data filing platforms, so that I can more easily manage my filings.
+- [x] As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform.
 
 ### Technical requirements
 1. We need to select a mean of hosting static sites
@@ -67,27 +63,24 @@ Includes:
 4. Inform the user that in order to access the filing platform they will need to create a Login.gov account that is tied to their FI email address (not a personal email address).
 5. Inform the user that they must log in to Login.gov using their financial institution email address. 
 6. Inform the user of what they should do if they need technical help (they can go to the FAQ page or they can submit a question to SBL help via the help form).
+7. Inform the user of the requirements for logging in and creating an account.
 
 ## Complete user profile (first-time user)
 
 ### User stories
-- [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process.
-- [x] As a filer, I want to be able to associate my account with a financial institution, so I can file on behalf of that institution. 
+- [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process. 
 - [x] As a filer, I want to be able to associate myself with one or more financial institutions, so that I can file on behalf of the institution(s) I am responsible for.
-- [x] As a a filer, I want to be able to search for and select my financial institution(s) by LEI, so that I can file on behalf of the institution(s) I am responsible for. 
-- [x] As a filer, I want to be able to search for and select my financial institution(s) by name, so that I can file on behalf of the institution(s) I am responsible for. 
-- [x] As a filer, I want to be able to select which institution(s) to associate with from a pre-populated list (based on email domain), so I don’t need to look up my FI’s LEI information during the registration process. 
+- [x] As a a filer, I want to be able to search for and select my financial institution(s) by financial instituion name and/or LEI, so that I can file on behalf of the institution(s) I am responsible for. 
 - [x] As a filer whose institution is not already known to the CFPB, I want to be provided information on how to register my financial institution with GLEIF, so that I can create an account associated with that FI.
 - [x] As a filer, I want to be alerted if I try to complete my profile using a personal email address, so that I know to go back to Login.gov and login with my financial institution email address.
 - [x] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information.
-- [ ] As a filer, I want to choose which institution(s) I want to be associated with from a pre-populated list, so I don’t need to look up my FI’s LEI info during the registration process.
-- [ ] As a filer, I would like to know which financial institutions are already associated with my email address, so that I don't have to search by financial institution name or LEI.
+- [x] As a filer, I want to choose which institution(s) I want to be associated with from a pre-populated list (based on email domain), so I don’t need to look up my FI’s LEI info during the registration process.
 
 **Needs further review:** 
 - [ ] [Dev user story] As a filer, I want filings for my financial institution to be viewable only by people logged in and associated with my FI, so that only trusted users are seeing and modifying my filings.
 - [ ] [Need further review] As a filer, I want to be able to log out of my account at the end of a session, to keep it secure. Add timeout period for session?
 - [ ] [Need further review] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information. This is already built into the new system - Login.gov, user profile, etc.
-- [ ] [Dev user story] As a filer, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.  
+- [ ] [Needs further review] As a financial institution/FI POC, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.  
 
 ### Technical requirements
 1. User management API
@@ -170,17 +163,16 @@ Includes:
 ## Shared landing page (authenticated)
 
 ### User stories
-- [x] As a filer who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I want to be able to have a single FI profile that is shared among the CFPB systems, so I don’t have to maintain the same information in multiple places. 
+- [x] As a filer who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I would like my financial institution details to be centrally managed, so that I don’t have to maintain the same information in multiple places. 
+- [x] As a filer  who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I want to be able to have a single user profile that is shared among the CFPB platforms, so that I don’t have to maintain the same information in multiple places. 
 
 ### Content requirements
 Overview of what a user can do:
-- [x] File for SBL
-- [x] File for HMDA
-- [x] Access to manage user profile page
-- [x] Access individual financial institution details
-- [x] Notification that a user has successfully completed their user profile.
-- [x] A way for a user to review and request changes to their user profile
-- [x] Navigation for getting to the place for filing HMDA versus SBL data
+- [x] Navigate to "File for SBL"
+- [x] Navigate to "File for HMDA"
+- [x] Access to "Request changes to user profile" page
+- [x] Access to "View financial institution details" page
+- [x] Notification that a user has successfully completed their user profile (appears on first visit)
 
 **Needs further review:** 
 - [ ] Indication that tells a user that they have successfully logged in to the platform (Login/Logout in header area)?
@@ -189,11 +181,11 @@ Overview of what a user can do:
 ## Request changes to user profile
 
 ### User stories
-- [x] As a filer, I want to view the list of FIs I’m associated with, so I know which FIs I need to file for.
-- [x] * As a filer, I want to view the information contained in my user profile, so that I can make sure that it's accurate.
-- [x] * As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.
-- [x] As a filer, I would like to see list of all my associated institutions.
-- [x] As a filer, I would like to select an institution from the list to view its **Financial institution details**.
+- [x] As a filer, I want to view the list of financial institutions I’m associated with, so I know which financial institutions I need to file for.
+- [x] As a filer, I want to view the information contained in my user profile, so that I can make sure that it's accurate.
+- [x] As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.
+- [x] As a filer, I would like to see list of all my associated financial institutions, so that I know which financial institutions I need to file for. 
+- [x] As a filer, I would like to select a financial institution from the list of financial institutions I'm associated with, so that I can view the individual financail to view the financial institution details. 
 
 ### Content requirements
 A user can view:
@@ -246,6 +238,10 @@ A user can view:
 - [x] As a filer, I can select an institution to view past filings.
 - [x] As a filer, I can view the institution data snapshot for a past filing season.
 - [x] As a filer, I can select an institution to restart a filing I've previously completed.
+- [ ] 
+
+**Content requirements:** 
+- Comprehensive instructions on the steps of the filing process. 
 
 **Needs further review:** 
 - [ ] ? As a filer, I can see a list of inactive institutions I have filed for in the past.
@@ -383,7 +379,12 @@ These user stories have been pulled from the GH board but are not prioritized ye
 - As a FI administrator, I want to be able to impersonate a user in the system, so that I can more easily help them with issues they encounter. SBL Help Desk impersonations.
 
 ## SBL Help
+Who do we need to talk to about the experience within SBL help for the SBL help administrators and platform users? 
+
 ### User stories
 - As a SBL/SBL Help administrator, I want to be able to view the list of registered users so I can get more information about a specific user if needed. Will FI admin also manage FI association?
 - As an administrator, I want to be able to view the list of users’ associations.
+- As a filer, I want to get help with setting up my account, so that I can access the filing platform.
+- As a filer, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.
+
 
