@@ -41,16 +41,17 @@ Includes:
 ### Shared landing page (unauthenticated)
 
 #### User stories
-- [X] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
+- [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
 - [x] As a filer, I want to be able to create an account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
 - [x] As a filer, I want to have a shared user profile across CFPB data filing platforms, so that I can more easily manage my filings.
 - [x] As a filer, I would like instructions on how to create a Login.gov account and user profile, so that I can access the filing platform.
-- [x] As a filer, I would like to log in to the CFPB's filing app with my Login.gov credentials, so that I can trust that my information is secure. 
+- [x] As a filer, I would like to log in to the CFPB's filing app with my Login.gov credentials, so that I can trust that my information is secure.
 - [x] As a filer, I want to understand the steps I need to follow in order to create an account, so that I can access the filing platform.
 - [x] As a filer, I want to understand what Login.gov is, so that I can trust that my information is safe and secure.
 - [x] As a filer, I want to know what email address I must use when I create an account with Login.gov, so that I can gain access to the filing platform.
 - [x] As a filer, I want to know where to go for help with setting up my account, so that I can access the filing platform.
 
+**Needs further review:** 
 - [ ] As a filer, I would like instructions on how to submit my filing data to the CFPB, so that I can comply with regulatory requirements. 
 
 #### Technical requirements
@@ -73,7 +74,7 @@ Includes:
 ### Complete user profile (first-time user)
 
 #### User stories
-- [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process (First name, Last name)
+- [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process (First name, Last name).
 - [x] As a filer, I want to associate my account with a financial institution, so I can file on behalf of that institution. 
 - [x] As a filer, I would like to associate myself with one or more FIs, so that I can manage all of the filings I’m responsible for in one place.
 - [x] As a a filer, I want to be able to search for and select my financial institution(s) by LEI, so that I can file on behalf of that institution.
