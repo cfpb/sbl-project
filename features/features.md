@@ -55,13 +55,13 @@ The shared data filing platform will be used by filers of small business lending
         1. Does CloudFront CDN provide any value?
           
 ### Content requirements
-1. Orient the user to the fact that they are on a shared filing platform for lending data (e.g. SBL, HMDA, NBR).
-2. Inform the user of what is needed to create an account (LEI), log in to the filing platform (Login.gov account), and begin the filing process.
-3. Information on Login.gov and why we use it (keep information safe and secure).
-4. Inform the user that in order to access the filing platform they will need to create a Login.gov account that is tied to their FI email address (not a personal email address).
-5. Inform the user that they must log in to Login.gov using their financial institution email address. 
-6. Inform the user of what they should do if they need technical help (they can go to the FAQ page or they can submit a question to SBL help via the help form).
-7. Inform the user of the requirements for logging in and creating an account.
+- Orient the user to the fact that they are on a shared filing platform for lending data (e.g. SBL, HMDA, NBR).
+- Inform the user of what is needed to create an account (LEI), log in to the filing platform (Login.gov account), and begin the filing process.
+- Information on Login.gov and why we use it (keep information safe and secure).
+- Inform the user that in order to access the filing platform they will need to create a Login.gov account that is tied to their FI email address (not a personal email address).
+- Inform the user that they must log in to Login.gov using their financial institution email address. 
+- Inform the user of what they should do if they need technical help (they can go to the FAQ page or they can submit a question to SBL help via the help form).
+- Inform the user of the requirements for logging in and creating an account.
 
 ## Complete user profile (first-time user)
 
@@ -204,18 +204,18 @@ A user can view:
 ## Financial institution details (we should review this as a team)
 
 ### User stories
-1. As a filer, I would like to view my financial institution data as the CFPB understands it.
-1. As a filer, I would like clear instructions on how to change read-only financial institution fields.
-1. As a filer, I would like to view the history of changes to my institution data.
+- [x] As a filer, I would like to view my financial institution data as the CFPB understands it.
+- [x] As a filer, I would like clear instructions on how to change read-only financial institution fields.
+- [x] As a filer, I would like to view the history of changes to my institution data.
     1. Who: person or automation w/ data source
     1. What: Which fields changed from what to what
     1. When: Timestamp
     1. Why: automation or human note
-1. Common institution data across all RegTech apps.
-1. Defaults to latest version of institution data.
-1. Clearly delineates shared vs. HMDA and SBL-specific data fields
-1. Full history of all data changes is available.
-1. Data will be _mostly_ read-only, with possible exceptions for:
+- [x] Common institution data across all RegTech apps.
+- [x] Defaults to latest version of institution data.
+- [x] Clearly delineates shared vs. HMDA and SBL-specific data fields
+- [x] Full history of all data changes is available.
+- [x] Data will be _mostly_ read-only, with possible exceptions for:
     1. FI contact info (name, phone, email, etc.)
   
 ### Questions
@@ -261,8 +261,8 @@ A user can view:
 ## Confirm financial institution details for given filing period
 
 ### User stories
-1. As a filer, I can confirm my institution data is accurate for given filing period.
-1. As a filer, I want clear instructions on what to do to if my institution data is inaccurate.
+- [x] As a filer, I can confirm my institution data is accurate for given filing period.
+- [x] As a filer, I want clear instructions on what to do to if my institution data is inaccurate.
 
 ### Questions
 1. Are there institution data fields that the user can fix themselves?
@@ -293,10 +293,10 @@ A user can view:
 ## Review errors and Verify warnings
 
 ### User stories
-1. As a filer, I can see a list of all validations raised on a given submission.
-1. As a filer, I can cannot proceed with my submission if I have any error-level validations.
-1. As a filer, I can proceed with my submission if I only have warning-level validations.
-1. As a filer, I can view all info required to resolve a given validations.
+- [x] As a filer, I can see a list of all validations raised on a given submission.
+- [x] As a filer, I can cannot proceed with my submission if I have any error-level validations.
+- [x] As a filer, I can proceed with my submission if I only have warning-level validations.
+- [x] As a filer, I can view all info required to resolve a given validations.
     1. Validation id
     1. Validation name
     1. Validation description
@@ -317,16 +317,16 @@ A user can view:
 ## Sign and submit
 
 ### User stories
-1. As a filer, I want to submit ("sign" in HMDA-speak) a given submission as my SBL
+- [x] As a filer, I want to submit ("sign" in HMDA-speak) a given submission as my SBL
    filing for a given filing season.
-1. As a filer, I want an receipt-like identifier for my completed filing.
-1. As a filer, I would like an email-based confirmation that my filing is complete.
-2. As a filer, I would like to provide my financial institution contact phone number, so that the CFPB can contact the appropriate person with questions about my financial institution's filing. 
+- [x] As a filer, I want an receipt-like identifier for my completed filing.
+- [x] As a filer, I would like an email-based confirmation that my filing is complete.
+- [x] As a filer, I would like to provide my financial institution contact phone number, so that the CFPB can contact the appropriate person with questions about my financial institution's filing. 
 
 # Post-filing data analysis
 
 ### User stories
-1. As a CFPB analyst, I want finalized (aka "signed") SBL data to be available for analysis.
+- [x] As a CFPB analyst, I want finalized (aka "signed") SBL data to be available for analysis.
     1. FI data
     1. SBLAR data
 
@@ -335,15 +335,14 @@ A user can view:
 ### Single-line validator
 
 ### User stories
-1. As a filer, I would like to check my SBL data for errors prior to submission, so I can
+- [x] As a filer, I would like to check my SBL data for errors prior to submission, so I can
    ensure I have acceptable data in advance of the filing deadline.
-1. As a filer, I have instructions detailing which validations cannot be performed while
+- [x] As a filer, I have instructions detailing which validations cannot be performed while
    validating anonymously.
 
 ### Questions
 1. Would this just be an API, or is there a UI for this as well?
 1. Is this really just a "single line" validator, or do we allow batch as well?
-
 
 ### Questions
 1. Do we need to differentiate HMDA vs. SBL users at all?
@@ -368,26 +367,22 @@ A user can view:
             - Awaiting warning acceptance (is this needed?)
             - Awaiting signature (is this needed?)
     - Complete - Once a given submission has been signed.
-    - 
-
-
+   
 # Additional user stories 
 These user stories have been pulled from the GH board but are not prioritized yet for MVP. 
 
 ## FI Administrator
 ### User stories
-- As an administrator, I want to view a registered user's details.
-- As an administrator, I want to be able to discontinue an individual's access if they leave my FI, so they don't have inappropriate access to the filing system.
-- As administrator, I want to be able to see which account was responsible for each action our FI has taken in the system, so I know who to hold accountable.
-- As an administrator, I want to be able to communicate with users (probably via email), so that I can get any necessary information for the verification process. Investigate??
-- As a FI administrator, I want to be able to impersonate a user in the system, so that I can more easily help them with issues they encounter. SBL Help Desk impersonations.
+- [x] As an administrator, I want to view a registered user's details.
+- [x] As an administrator, I want to be able to discontinue an individual's access if they leave my FI, so they don't have inappropriate access to the filing system.
+- [x] As administrator, I want to be able to see which account was responsible for each action our FI has taken in the system, so I know who to hold accountable.
+- [x] As an administrator, I want to be able to communicate with users (probably via email), so that I can get any necessary information for the verification process. Investigate??
+- [x] As a FI administrator, I want to be able to impersonate a user in the system, so that I can more easily help them with issues they encounter. SBL Help Desk impersonations.
 
 ## SBL Help
 Who do we need to talk to about the experience within SBL help for the SBL help administrators and platform users? 
 ### User stories
-- As a SBL/SBL Help administrator, I want to be able to view the list of registered users so I can get more information about a specific user if needed. Will FI admin also manage FI association?
-- As an administrator, I want to be able to view the list of users’ associations.
-- As a filer, I want to get help with setting up my account, so that I can access the filing platform.
-- As a filer, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.
-
-
+- [x] As a SBL/SBL Help administrator, I want to be able to view the list of registered users so I can get more information about a specific user if needed. Will FI admin also manage FI association?
+- [x] As an administrator, I want to be able to view the list of users’ associations.
+- [x] As a filer, I want to get help with setting up my account, so that I can access the filing platform.
+- [x] As a filer, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.
