@@ -69,7 +69,7 @@ Where should we store the source of truth for what each of these users can do in
 ### User stories
 - [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process. 
 - [x] As a filer, I want to be able to associate myself with one or more financial institutions, so that I can file on behalf of the institution(s) I am responsible for.
-- [x] As a a filer, I want to be able to search for and select my financial institution(s) by financial instituion name and/or LEI, so that I can file on behalf of the institution(s) I am responsible for. 
+- [x] As a a filer, I want to be able to search for and select my financial institution(s) by financial institution name and/or LEI, so that I can file on behalf of the institution(s) I am responsible for. 
 - [x] As a filer whose institution is not already known to the CFPB, I want to be provided information on how to register my financial institution with GLEIF, so that I can create an account associated with that financial institution.
 - [x] As a filer, I want to be alerted if I try to complete my profile using a personal email address, so that I know to go back to Login.gov and login with my financial institution email address.
 - [x] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information.
@@ -239,13 +239,13 @@ A user can view:
 ## Small business lending data filing home
 
 ### User stories
-- [x] As a filer, I can see a list of active institutions I need to file for this filing season.
-- [x] As a filer, I can see the current filing status for each of my institutions.
-- [x] As a filer, I can easily tell when a filing season starts and ends.
-- [x] As a filer, I can select an institution to start the filing process.
-- [x] As a filer, I can select an institution to view past filings.
-- [x] As a filer, I can view the institution data snapshot for a past filing season.
-- [x] As a filer, I can select an institution to restart a filing I've previously completed.
+- [ ] As a filer, I can see a list of active institutions I need to file for this filing season.
+- [ ] As a filer, I can see the current filing status for each of my institutions.
+- [ ] As a filer, I can easily tell when a filing season starts and ends.
+- [ ] As a filer, I can select an institution to start the filing process.
+- [ ] As a filer, I can select an institution to view past filings.
+- [ ] As a filer, I can view the institution data snapshot for a past filing season.
+- [ ] As a filer, I can select an institution to restart a filing I've previously completed.
 
 ### Content requirements: 
 - Comprehensive instructions on the steps of the filing process. 
@@ -262,8 +262,8 @@ A user can view:
 ## Confirm financial institution details for given filing period
 
 ### User stories
-- [x] As a filer, I can confirm my institution data is accurate for given filing period.
-- [x] As a filer, I want clear instructions on what to do to if my institution data is inaccurate.
+- [ ] As a filer, I can confirm my institution data is accurate for given filing period.
+- [ ] As a filer, I want clear instructions on what to do to if my institution data is inaccurate.
 
 ### Questions
 1. Are there institution data fields that the user can fix themselves?
@@ -319,16 +319,16 @@ Should this be one section or should it be separated out between "Review errors"
 ## Sign and submit
 
 ### User stories
-- [x] As a filer, I want to submit ("sign" in HMDA-speak) a given submission as my SBL
+- [ ] As a filer, I want to submit ("sign" in HMDA-speak) a given submission as my SBL
    filing for a given filing season.
-- [x] As a filer, I want an receipt-like identifier for my completed filing.
-- [x] As a filer, I would like an email-based confirmation that my filing is complete.
-- [x] As a filer, I would like to provide my financial institution contact phone number, so that the CFPB can contact the appropriate person with questions about my financial institution's filing. 
+- [ ] As a filer, I want an receipt-like identifier for my completed filing.
+- [ ] As a filer, I would like an email-based confirmation that my filing is complete.
+- [ ] As a filer, I would like to provide my financial institution contact phone number, so that the CFPB can contact the appropriate person with questions about my financial institution's filing. 
 
 # Post-filing data analysis
 
 ### User stories
-- [x] As a CFPB analyst, I want finalized (aka "signed") SBL data to be available for analysis.
+- [ ] As a CFPB analyst, I want finalized (aka "signed") SBL data to be available for analysis.
     1. FI data
     1. SBLAR data
 
@@ -337,9 +337,9 @@ Should this be one section or should it be separated out between "Review errors"
 ### Single-line validator
 
 ### User stories
-- [x] As a filer, I would like to check my SBL data for errors prior to submission, so I can
+- [ ] As a filer, I would like to check my SBL data for errors prior to submission, so I can
    ensure I have acceptable data in advance of the filing deadline.
-- [x] As a filer, I have instructions detailing which validations cannot be performed while
+- [ ] As a filer, I have instructions detailing which validations cannot be performed while
    validating anonymously.
 
 ### Questions
@@ -376,16 +376,16 @@ These user stories have been pulled from the GH board but are not prioritized ye
 
 ## FI Administrator
 ### User stories
-- [x] As an administrator, I want to view a registered user's details.
-- [x] As an administrator, I want to be able to discontinue an individual's access if they leave my FI, so they don't have inappropriate access to the filing system.
-- [x] As administrator, I want to be able to see which account was responsible for each action our FI has taken in the system, so I know who to hold accountable.
-- [x] As an administrator, I want to be able to communicate with users (probably via email), so that I can get any necessary information for the verification process. Investigate??
-- [x] As a FI administrator, I want to be able to impersonate a user in the system, so that I can more easily help them with issues they encounter. SBL Help Desk impersonations.
+- [ ] As an administrator, I want to view a registered user's details.
+- [ ] As an administrator, I want to be able to discontinue an individual's access if they leave my FI, so they don't have inappropriate access to the filing system.
+- [ ] As administrator, I want to be able to see which account was responsible for each action our FI has taken in the system, so I know who to hold accountable.
+- [ ] As an administrator, I want to be able to communicate with users (probably via email), so that I can get any necessary information for the verification process. Investigate??
+- [ ] As a FI administrator, I want to be able to impersonate a user in the system, so that I can more easily help them with issues they encounter. SBL Help Desk impersonations.
 
 ## SBL Help
 Who do we need to talk to about the experience within SBL help for the SBL help administrators and platform users? 
 ### User stories
-- [x] As a SBL/SBL Help administrator, I want to be able to view the list of registered users so I can get more information about a specific user if needed. Will FI admin also manage FI association?
-- [x] As an administrator, I want to be able to view the list of users’ associations.
-- [x] As a filer, I want to get help with setting up my account, so that I can access the filing platform.
-- [x] As a filer, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.
+- [ ] As a SBL/SBL Help administrator, I want to be able to view the list of registered users so I can get more information about a specific user if needed. Will FI admin also manage FI association?
+- [ ] As an administrator, I want to be able to view the list of users’ associations.
+- [ ] As a filer, I want to get help with setting up my account, so that I can access the filing platform.
+- [ ] As a filer, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.
