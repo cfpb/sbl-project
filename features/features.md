@@ -171,7 +171,7 @@ No, their only option is to file an SBL Help ticket or wait for their institutio
 ## Shared landing page (authenticated)
 
 ### User stories
-Add user stories 
+- [x] As a filer who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I want to be able to have a single FI profile that is shared among the CFPB systems, so I don’t have to maintain the same information in multiple places. 
 
 ### Content requirements
 Overview of what a user can do:
