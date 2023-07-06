@@ -1,3 +1,13 @@
+# CFPB shared data filing platform
+The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login through Login,gov, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.  
+
+#### Includes:
+- Authentication and authorization
+- User profile completion
+- Financial institution association
+- User profile management
+- Financial institution details
+
 ## User types / personas
 
 **Filing platform user** 
@@ -13,9 +23,9 @@
     - Financial institution(s) HAVE opted-in
 
 **Managed user** 
-- Users managed by financial institution administrators.
+- Users managed by financial institution administrators
     - Cannot self-register
-    - Cannot manage which institutions they are associated with.
+    - Cannot manage which institutions they are associated with
 
 **Other user types**
   - SBL Help
@@ -26,15 +36,6 @@
 Where should we store the source of truth for what each of these users can do in the system? There are a number of user stories related to financial institution admins in the SBL data collection backlog board under "Authentication and authorization" column.
 - [Filing platform roles matrix] (link to internal file)
 
-<br></br>
-# CFPB shared data filing platform
-The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login through Login,gov, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.  
-
-### Includes:
-- Authentication and authorization
-- User profile completion/Financial institution association
-- User profile management
-- Financial institution details
 
 ## Shared landing page (unauthenticated)
 
@@ -86,7 +87,7 @@ The shared data filing platform will be used by filers of small business lending
 1. Institutions API
     1. Retrieve institution data by LEI, name, and email domain.
 
-**Content requirements:** 
+### Content requirements: 
 - [ ] Inform the user of what they should do if their financial institution is not registered with GLEIF (need LEI)
 - [ ] Notification content/messaging for each of the possible financial institution association scenarios 
 
@@ -225,9 +226,10 @@ A user can view:
     1. Filing status for SBL and HMDA for the current filing season.
     1. User association status? Only when waiting for approval?
 
+<br></br>
 # Small business lending data filing app
 
-### Includes:
+#### Includes:
 - Small business lending data filing home
 - Upload file
 - Review errors
@@ -237,7 +239,6 @@ A user can view:
 ## Small business lending data filing home
 
 ### User stories
-
 - [x] As a filer, I can see a list of active institutions I need to file for this filing season.
 - [x] As a filer, I can see the current filing status for each of my institutions.
 - [x] As a filer, I can easily tell when a filing season starts and ends.
@@ -246,7 +247,7 @@ A user can view:
 - [x] As a filer, I can view the institution data snapshot for a past filing season.
 - [x] As a filer, I can select an institution to restart a filing I've previously completed.
 
-**Content requirements:** 
+### Content requirements: 
 - Comprehensive instructions on the steps of the filing process. 
 
 **Needs further review:** 
@@ -291,12 +292,13 @@ A user can view:
     - Validation complete
 
 ## Review errors and Verify warnings
+Should this be one section or should it be separated out between "Review errors" and "Verify warnings"?
 
 ### User stories
-- [x] As a filer, I can see a list of all validations raised on a given submission.
-- [x] As a filer, I can cannot proceed with my submission if I have any error-level validations.
-- [x] As a filer, I can proceed with my submission if I only have warning-level validations.
-- [x] As a filer, I can view all info required to resolve a given validations.
+- [ ] As a filer, I can see a list of all validations raised on a given submission.
+- [ ] As a filer, I can cannot proceed with my submission if I have any error-level validations.
+- [ ] As a filer, I can proceed with my submission if I only have warning-level validations.
+- [ ] As a filer, I can view all info required to resolve a given validations.
     1. Validation id
     1. Validation name
     1. Validation description
@@ -305,7 +307,7 @@ A user can view:
     1. Row number
     1. Related columns
     1. Column data for each failed record
-1. As a filer, I can download a CSV validations report.
+- [ ] As a filer, I can download a CSV validations report.
 
 ### Questions
 1. Should errors and validations be separate steps in the process like HMDA?
@@ -368,6 +370,7 @@ A user can view:
             - Awaiting signature (is this needed?)
     - Complete - Once a given submission has been signed.
    
+
 # Additional user stories 
 These user stories have been pulled from the GH board but are not prioritized yet for MVP. 
 
