@@ -67,13 +67,13 @@ Where should we store the source of truth for what each of these users can do in
 ## Complete user profile (first-time user)
 
 ### User stories
-- [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process. 
-- [x] As a filer, I want to be able to associate myself with one or more financial institutions, so that I can file on behalf of the institution(s) I am responsible for.
-- [x] As a a filer, I want to be able to search for and select my financial institution(s) by financial institution name and/or LEI, so that I can file on behalf of the institution(s) I am responsible for. 
-- [x] As a filer whose institution is not already known to the CFPB, I want to be provided information on how to register my financial institution with GLEIF, so that I can create an account associated with that financial institution.
-- [x] As a filer, I want to be alerted if I try to complete my profile using a personal email address, so that I know to go back to Login.gov and login with my financial institution email address.
-- [x] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information.
-- [x] As a filer, I want to choose which institution(s) I want to be associated with from a pre-populated list (based on email domain), so I don’t need to look up my financial institution’s LEI during the registration process.
+- [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process.
+- [x] As a filer, I would like to be able to associate myself with one or more financial institutions, so that I can file on behalf of the institution(s) I am responsible for.
+- [x] As a a filer, I would like to be able to search for and select my financial institution(s) by financial institution name and/or LEI, so that I can file on behalf of the institution(s) I am responsible for.
+- [x] As a filer whose institution is not already known to the CFPB, I want information on how to register my financial institution with GLEIF, so that I can create an account associated with that financial institution.
+- [x] As a filer, I would like to be alerted if I try to complete my profile using a personal email address, so that I know to go back to Login.gov and login with my financial institution email address.
+- [x] As a filer, I would like each person on my team to have a separate account, so we don’t have to share login information.
+- [x] As a filer, I would like to choose which institution(s) I want to be associated with from a pre-populated list (based on email domain), so I don’t need to look up my financial institution’s LEI during the registration process.
 
 **Needs further review:** 
 - [ ] [Dev user story] As a filer, I want filings for my financial institution to be viewable only by people logged in and associated with my financial institution, so that only trusted users are seeing and modifying my filings.
