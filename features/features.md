@@ -1,12 +1,13 @@
 # CFPB shared data filing platform
 The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login through Login,gov, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.  
 
-#### Includes:
-- Authentication and authorization
-- User profile completion
-- Financial institution association
-- User profile management
-- Financial institution details
+## Pages: 
+- Shared landing (unauthenticated)
+- Login.gov account creation and sign in
+- Complete your user profile
+- Shared landing (authenticated)
+- Request changes to your user profile
+- View financial institution details
 
 ## User types / personas
 
@@ -73,10 +74,10 @@ The fist step in accessing the shared data filing platform will be to create an 
 - [ ]  As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
 - [ ]  As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
 
-## Create an account with Login.gov 
+### Create an account with Login.gov 
 When the user clicks "Create an account with Login.gov" they will be directed to the Login.gov landing page. The account creation process is 7 screens and includes email confirmation, creating a password, setting up an authentication method, adding an authentication app, and continuing to the CFPB website. 
 
-### Login.gov screens
+#### Login.gov screens
 1. Sign in / Create an account 
 2. Create your account 
 3. Confirm your email 
@@ -86,7 +87,10 @@ When the user clicks "Create an account with Login.gov" they will be directed to
 7. You've added your first authentication method
 8. Continue to the CFPB
 
-## Your account
+### Sign in with Login.gov 
+When the user clicks "Sign in with Login.gov" they will be directed to the Login.gov landing page. There they will enter their email address and password and click the sign in button. This will take them to the CFPB shared platform home (authenticated) page. 
+
+### Your account
 A user's email address will auto populate within the CFPB shared filing platform in the "Complete your user profile" page and the "Request changes to your user profile" pages. If a user wishes to make a change to the email address they use to sign in to Login.gov or add a new email address they will do so within Login.gov at https://secure.login.gov/account. Changes to email addresses will be handled in Login.gov and not in the CFPB shared filing platform.
 
 ## Complete your user profile (first time user)
