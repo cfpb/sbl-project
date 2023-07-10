@@ -66,6 +66,18 @@ Where should we store the source of truth for what each of these users can do in
 
 ## Complete user profile (first-time user)
 
+## Complete your user profile (first time user)
+- The user will arrive at this page on their first visit after creating their Login.gov account and/or logging in with Login.gov
+- Once the user has a user profile and is authenticated they will not see this page again. 
+- For an authenticated user any changes to their user profile will be handled on the "Request changes to your user profile" page. 
+
+On this form: 
+- The user will be asked to enter their First name and Last name 
+- Their email address will auto-populate based on the email address they used to sign in with Login.gov. 
+- They will be able to associate with one or more financial institutions either by selecting from a pre-populated list of financial institutions/LEIs that match their email domain or by manually searching and selecting from the full database.
+- Only the selections from the pre-populated list of financial institutions/LEIs that match their email domain will allow a user immediate access to the system.
+- Selections using the search and select go to SBL Help for review. 
+
 ### User stories
 - [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process.
 - [x] As a filer, I would like to be able to associate myself with one or more financial institutions, so that I can file on behalf of the institution(s) I am responsible for.
@@ -114,6 +126,7 @@ We currently have a success message that shows up the first time a new user is a
 **For the “Associate with a financial institution” what is the default list - do we show every institution in our database or do we narrow it down initially?** 
 - Show all FIs in database so users can search by financial institution name and/or LEI. This allows the user to select financial institution name and/or LEIs that don't match their email domain
 - (We will start with a non-prioritized, standard list (show all financial institutions in our database so that users can search by financial institution name and/or LEI ). We have concerns about the UX of a prioritized list. May add complexity without a need or benefit.
+- We have explored a design where the matches by email domain are pulled out of the search and select.
 
 **Can we get the email domains associated with all existing LEIs from GLEIF?** 
 - If so our database of known financial institutions and LEIs will match GLEIF’s data. 
@@ -128,32 +141,82 @@ We currently have a success message that shows up the first time a new user is a
 - + Add new email (requires email validation link, re-sign in with original email+password+2FA)
 - Can delete original email address
 
-### Financial institution association scenarios and results
+### Financial institution association (scenarios and results)
+(for financial institution association/email domain/email address):
 
-**1) The user has logged in to Login.gov with a personal email address.**
-- Build an explicit blacklist of personal email domains (gmail.com, yahoo.com, hotmail.com, etc.) to tell users up-front that we don't support non-FI email addresses
-- In this scenario if the email domain is in our blacklist an error message would show up under the email field that asks the user to go back to Login.gov and login with their FI email address.
+1) User logs in with Login.gov using their financial institution's email address. We have their email domain in our system. Their financial institution/LEI is in our database.
+2) User logs in with Login.gov using a personal email address.
+3)  User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do have their financial institution/LEI in our database. 
+4)  User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
+5) User logs in with Login.gov using their financial institution email address. We do have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
 
-#### The user has logged in to Login.gov with their financial institution email address but: 
+### Scenario 1: 
+User logs in with Login.gov using their financial institution's email address. We have their email domain in our system and their financial institution/LEI is in our database. 
 
-**2) We DO NOT have their financial institution's email domain in our system, but we DO have their financial institution/LEI.** 
-- In this scenario the user would use the search feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
-- A message displays on the complete user profile page that tells the user this approval process is occurring and that they will have to wait for an email from SBL Help that their account is approved and they are able to proceed.
+#### A. User selects from the financial institution/LEI(s) that match by email domain
+  - After user clicks "Submit" they are directed to the CFPB shared data filing platform landing page (authenticated)
+  - A success notification appears at the top of the CFPB shared data filing platform landing page (authenticated) page. 
+  - The user now has a user profile, is associated with a financial institution, and is authorized to proceed with filing data.  
 
-**3) We DO NOT have their financial institution's email domain OR their financial institution/LEI in our system.**
+| Initial screen | Selection made | Success notification |
+|------------|------------|------------|
+|<img width="776" alt="Screen Shot 2023-07-07 at 10 55 48 PM" src="https://github.cfpb.gov/storage/user/158/files/d83dcd4e-d1d3-441a-9d73-4a217cdf82f0">|<img width="774" alt="Screen Shot 2023-07-07 at 10 56 10 PM" src="https://github.cfpb.gov/storage/user/158/files/9adabe0c-3e74-42be-8fd4-e99e03c71ef5">|<img width="745" alt="Screen Shot 2023-07-07 at 9 20 57 PM" src="https://github.cfpb.gov/storage/user/158/files/81a3b0f6-afda-478f-98a4-c1ecca09d2b8">|
+
+#### B. User searches and selects from the full database
+   - After user clicks "Submit" a warning notification appears below indicating that the user's selection has been submitted to SBL Help for review and that they will have to wait for an email from SBL Help that their account is approved and they are able to proceed.
+   - The user does not proceed to the CFPB shared data filing platform landing page (authenticated) page.
+
+| Initial screen | Selection made | Warning notification |
+|------------|------------|------------|
+|<img width="776" alt="Screen Shot 2023-07-07 at 10 55 48 PM" src="https://github.cfpb.gov/storage/user/158/files/d83dcd4e-d1d3-441a-9d73-4a217cdf82f0">|<img width="774" alt="Screen Shot 2023-07-07 at 10 59 25 PM" src="https://github.cfpb.gov/storage/user/158/files/4f6db44e-51d2-4352-95a9-07e3dc59955d">|<img width="773" alt="Screen Shot 2023-07-07 at 10 59 58 PM" src="https://github.cfpb.gov/storage/user/158/files/bdbade54-7a9d-4d6b-8580-1d8484fb972d">|
+
+#### C. User selects from the financial institution/LEI(s) that match by email domain and searches and selects from the full database
+   - After the user clicks "Submit" they are directed to the CFPB shared data filing platform landing page (authenticated)
+   - This user's self-selection (from search and select) goes to SBL Help for review/approval
+   - The user now has a user profile, is associated with a financial institution, and is authorized to proceed with filing data (for only the financial institution(s) that they selected from the matches by email domain)
+   - A warning notification appears at the top of the CFPB shared data filing platform landing page (authenticated) page indicating that the user can proceed with filing for the financial institutions that were pulled from email domain matches but that the user's self-selection(s) have been submitted to SBL Help for review and that they will have to wait for an email indicating that their account is approved and they are able to proceed with filing for the additional institutions. 
+   
+| Initial screen | Selection made | Warning/Partial success|
+|------------|------------|------------|
+|![Screen Shot 2023-07-07 at 10 24 44 PM](https://github.cfpb.gov/storage/user/158/files/2182831f-ade6-4ecf-8cfd-82284d3d668f)|<img width="710" alt="Screen Shot 2023-07-07 at 11 06 36 PM" src="https://github.cfpb.gov/storage/user/158/files/8a6e211d-af06-40d3-b98b-127284e694c5">|<img width="673" alt="Screen Shot 2023-07-07 at 11 11 20 PM" src="https://github.cfpb.gov/storage/user/158/files/7a924bcd-a25a-4fcb-90a7-38bc9cefe3f3">|
+
+### Scenario 2: 
+User logs in with Login.gov using a personal email address. 
+- We would build an explicit deny list of personal email domains (gmail.com, yahoo.com, hotmail.com, etc.) to alert users up-front that we don't support non-financial institution email addresses
+- In this scenario, if the email domain is in our deny list, an error message would show up under the email field that asks the user to go back to Login.gov and login with their financial institution email address.
+
+| Initial screen | 
+|------------|
+|![Screen Shot 2023-07-08 at 12 41 33 AM](https://github.cfpb.gov/storage/user/158/files/23c24d76-170b-4191-a69f-0cc1403dc488)|
+
+### Scenario 3: 
+User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do have their financial institution/LEI in our database.
+- In this scenario the user would use the search and select feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
+- A notification displays on the complete user profile page indicating that the user's selection has been submitted to SBL Help for review and that they will have to wait for an email indicating that their account is approved and they are able to proceed.
+
+| Initial screen | Warning notification |  
+|------------| ------------|
+|![Screen Shot 2023-07-08 at 12 42 05 AM](https://github.cfpb.gov/storage/user/158/files/34cb5ecd-9102-46ed-af3f-c0dd9c174f42)|![Screen Shot 2023-07-08 at 12 56 09 AM](https://github.cfpb.gov/storage/user/158/files/5fc81299-fc18-4430-b6bf-c0d61bc760b6)|
+
+### Scenario 4: 
+User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
+
+- In this scenario the user would use the search and select feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
+- A notification displays on the complete user profile page indicating that the user's selection has been submitted to SBL Help for review and that they will have to wait for an email indicating that their account is approved and they are able to proceed.
 - This should only occur in the following cases:
   - The entity has not registered,
   - Our data from GLEIF does not contain the entity because they registered recently
 - In this scenario the error message should tell the user that they either need to register for an LEI with GLEIF, or that if they recently registered for an LEI it’s not in our system yet and they should check back in _____ days?
 
-**4) We DO have their email domain AND their financial institution/LEI in our system.**
-- This will predominantly be those filers from HMDA. This could also happen outside of just HMDA FIs if we're able to get domain data from GLEIF or NIC or ... somebody
-- In this scenario the user would use the search feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
-- Prioritizing email domain matches has been discussed but UI/UX/FEWD recommend seeing how the basic non-prioritized list functions before adding this additional level. We discussed and are concerned that prioritizing the ordering of the list may add complexity that isn't needed. 
+| Initial screen | No results found |  
+|------------| ------------|
+|![Screen Shot 2023-07-08 at 12 42 05 AM](https://github.cfpb.gov/storage/user/158/files/34cb5ecd-9102-46ed-af3f-c0dd9c174f42)|![Screen Shot 2023-07-08 at 12 41 51 AM](https://github.cfpb.gov/storage/user/158/files/4bcd33f5-97d5-4b2b-8cdc-83b6954ced88)|
 
-**5) We DO have their email domain in our system and we DO NOT have their financial institution/LEI in our system.**
+### Scenario 5:
+User logs in with Login.gov using their financial institution email address. We do have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
 - This scenario _probably_ isn't possible if we structure the data appropriately...and even if it is, it should be considered a bug if that state gets makes it out to the UI. It's a good one to think about, though. If we have Fis and domains as a many-to-many relationship...🤔 theoretically possible I suppose.
 - If the user logs in with their FI email and we do have their email domain in our system and do not have their FI/LEI in our system then this is a bug and the user should contact SBL Help.
+
 
 ### Notes
 1. This/these screen(s) should be very similar to the **Request changes to user profile** screen, perhaps just
