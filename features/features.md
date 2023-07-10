@@ -38,6 +38,7 @@ Where should we store the source of truth for what each of these users can do in
 
 
 ## Shared landing page (unauthenticated)
+The CFPB shared data filing platform landing page will be the first place a user lands before they have logged in to use the filing platform. Once the filer is logged in and have successfully completed their user profile they will be directed to the SBL or HMDA filing apps to file their data.
 
 ### User stories
 - [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
@@ -64,7 +65,29 @@ Where should we store the source of truth for what each of these users can do in
 - Inform the user of what they should do if they need technical help (they can go to the FAQ page or they can submit a question to SBL help via the help form).
 - Inform the user of the requirements for logging in and creating an account.
 
-## Complete user profile (first-time user)
+## Login.gov account creation and sign in
+The fist step in accessing the shared data filing platform will be to create an account and login with Login.gov. A user must login with their financial institution email address. Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.
+
+### User stories
+ - [ ] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
+- [ ]  As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
+- [ ]  As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
+
+## Create an account with Login.gov 
+When the user clicks "Create an account with Login.gov" they will be directed to the Login.gov landing page. The account creation process is 7 screens and includes email confirmation, creating a password, setting up an authentication method, adding an authentication app, and continuing to the CFPB website. 
+
+### Login.gov screens
+1. Sign in / Create an account 
+2. Create your account 
+3. Confirm your email 
+4. Create a strong password
+5. Authentication method setup 
+6. Add an authentication app
+7. You've added your first authentication method
+8. Continue to the CFPB
+
+## Your account
+A user's email address will auto populate within the CFPB shared filing platform in the "Complete your user profile" page and the "Request changes to your user profile" pages. If a user wishes to make a change to the email address they use to sign in to Login.gov or add a new email address they will do so within Login.gov at https://secure.login.gov/account. Changes to email addresses will be handled in Login.gov and not in the CFPB shared filing platform.
 
 ## Complete your user profile (first time user)
 - The user will arrive at this page on their first visit after creating their Login.gov account and/or logging in with Login.gov
@@ -158,45 +181,25 @@ User logs in with Login.gov using their financial institution's email address. W
   - A success notification appears at the top of the CFPB shared data filing platform landing page (authenticated) page. 
   - The user now has a user profile, is associated with a financial institution, and is authorized to proceed with filing data.  
 
-| Initial screen | Selection made | Success notification |
-|------------|------------|------------|
-|<img width="776" alt="Screen Shot 2023-07-07 at 10 55 48 PM" src="https://github.cfpb.gov/storage/user/158/files/d83dcd4e-d1d3-441a-9d73-4a217cdf82f0">|<img width="774" alt="Screen Shot 2023-07-07 at 10 56 10 PM" src="https://github.cfpb.gov/storage/user/158/files/9adabe0c-3e74-42be-8fd4-e99e03c71ef5">|<img width="745" alt="Screen Shot 2023-07-07 at 9 20 57 PM" src="https://github.cfpb.gov/storage/user/158/files/81a3b0f6-afda-478f-98a4-c1ecca09d2b8">|
-
 #### B. User searches and selects from the full database
    - After user clicks "Submit" a warning notification appears below indicating that the user's selection has been submitted to SBL Help for review and that they will have to wait for an email from SBL Help that their account is approved and they are able to proceed.
    - The user does not proceed to the CFPB shared data filing platform landing page (authenticated) page.
-
-| Initial screen | Selection made | Warning notification |
-|------------|------------|------------|
-|<img width="776" alt="Screen Shot 2023-07-07 at 10 55 48 PM" src="https://github.cfpb.gov/storage/user/158/files/d83dcd4e-d1d3-441a-9d73-4a217cdf82f0">|<img width="774" alt="Screen Shot 2023-07-07 at 10 59 25 PM" src="https://github.cfpb.gov/storage/user/158/files/4f6db44e-51d2-4352-95a9-07e3dc59955d">|<img width="773" alt="Screen Shot 2023-07-07 at 10 59 58 PM" src="https://github.cfpb.gov/storage/user/158/files/bdbade54-7a9d-4d6b-8580-1d8484fb972d">|
 
 #### C. User selects from the financial institution/LEI(s) that match by email domain and searches and selects from the full database
    - After the user clicks "Submit" they are directed to the CFPB shared data filing platform landing page (authenticated)
    - This user's self-selection (from search and select) goes to SBL Help for review/approval
    - The user now has a user profile, is associated with a financial institution, and is authorized to proceed with filing data (for only the financial institution(s) that they selected from the matches by email domain)
    - A warning notification appears at the top of the CFPB shared data filing platform landing page (authenticated) page indicating that the user can proceed with filing for the financial institutions that were pulled from email domain matches but that the user's self-selection(s) have been submitted to SBL Help for review and that they will have to wait for an email indicating that their account is approved and they are able to proceed with filing for the additional institutions. 
-   
-| Initial screen | Selection made | Warning/Partial success|
-|------------|------------|------------|
-|![Screen Shot 2023-07-07 at 10 24 44 PM](https://github.cfpb.gov/storage/user/158/files/2182831f-ade6-4ecf-8cfd-82284d3d668f)|<img width="710" alt="Screen Shot 2023-07-07 at 11 06 36 PM" src="https://github.cfpb.gov/storage/user/158/files/8a6e211d-af06-40d3-b98b-127284e694c5">|<img width="673" alt="Screen Shot 2023-07-07 at 11 11 20 PM" src="https://github.cfpb.gov/storage/user/158/files/7a924bcd-a25a-4fcb-90a7-38bc9cefe3f3">|
 
 ### Scenario 2: 
 User logs in with Login.gov using a personal email address. 
 - We would build an explicit deny list of personal email domains (gmail.com, yahoo.com, hotmail.com, etc.) to alert users up-front that we don't support non-financial institution email addresses
 - In this scenario, if the email domain is in our deny list, an error message would show up under the email field that asks the user to go back to Login.gov and login with their financial institution email address.
 
-| Initial screen | 
-|------------|
-|![Screen Shot 2023-07-08 at 12 41 33 AM](https://github.cfpb.gov/storage/user/158/files/23c24d76-170b-4191-a69f-0cc1403dc488)|
-
 ### Scenario 3: 
 User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do have their financial institution/LEI in our database.
 - In this scenario the user would use the search and select feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
 - A notification displays on the complete user profile page indicating that the user's selection has been submitted to SBL Help for review and that they will have to wait for an email indicating that their account is approved and they are able to proceed.
-
-| Initial screen | Warning notification |  
-|------------| ------------|
-|![Screen Shot 2023-07-08 at 12 42 05 AM](https://github.cfpb.gov/storage/user/158/files/34cb5ecd-9102-46ed-af3f-c0dd9c174f42)|![Screen Shot 2023-07-08 at 12 56 09 AM](https://github.cfpb.gov/storage/user/158/files/5fc81299-fc18-4430-b6bf-c0d61bc760b6)|
 
 ### Scenario 4: 
 User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
@@ -207,10 +210,6 @@ User logs in with Login.gov using their financial institution email address. We 
   - The entity has not registered,
   - Our data from GLEIF does not contain the entity because they registered recently
 - In this scenario the error message should tell the user that they either need to register for an LEI with GLEIF, or that if they recently registered for an LEI it’s not in our system yet and they should check back in _____ days?
-
-| Initial screen | No results found |  
-|------------| ------------|
-|![Screen Shot 2023-07-08 at 12 42 05 AM](https://github.cfpb.gov/storage/user/158/files/34cb5ecd-9102-46ed-af3f-c0dd9c174f42)|![Screen Shot 2023-07-08 at 12 41 51 AM](https://github.cfpb.gov/storage/user/158/files/4bcd33f5-97d5-4b2b-8cdc-83b6954ced88)|
 
 ### Scenario 5:
 User logs in with Login.gov using their financial institution email address. We do have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
