@@ -1,0 +1,37 @@
+name: User story
+description: Feature request written from the perspective of the end user
+title: As a [user type], I want to [take some action]
+labels:
+  - story
+projects:
+  - "cfpb/21"
+body:
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      description: Feature request written from the perspective of the end user
+      placeholder: As a [user type], I want to [take some action], so that [reason for action].
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: Feature request written from the perspective of the end user
+      placeholder: "- Given [some context], when [some action(s)], then [observable result(s)]"
+  - type: textarea
+    id: depends-on
+    attributes:
+      label: Depends on
+      description: Issues that must be completed before work can start on this user story.
+      placeholder: "- #123"
+  - type: textarea
+    id: technical-tasks
+    attributes:
+      label: Technical tasks
+      description: Links to development issues for implemeting this user story.
+      placeholder: "- [ ] https://github.com/cfpb/sbl-prototype/issues/1234"
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Additional details, wireframes, screenshots, etc.
