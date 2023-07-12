@@ -42,10 +42,8 @@ Where should we store the source of truth for what each of these users can do in
 The CFPB shared data filing platform landing page will be the first place a user lands before they have logged in to use the filing platform. Once the filer is logged in and have successfully completed their user profile they will be directed to the SBL or HMDA filing apps to file their data.
 
 ### User stories
-- [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
-- [x] As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
-- [x] As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
 - [x] As a filer, I want to create a shared user profile across CFPB data filing platforms, so that I can more easily manage my filings.
+- [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
 - [x] As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform.
 
 ### Technical requirements
@@ -70,9 +68,9 @@ The CFPB shared data filing platform landing page will be the first place a user
 The fist step in accessing the shared data filing platform will be to create an account and login with Login.gov. A user must login with their financial institution email address. Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.
 
 ### User stories
- - [ ] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
-- [ ]  As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
-- [ ]  As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
+- [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
+- [x] As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
+- [x] As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
 
 ### Create an account with Login.gov 
 When the user clicks "Create an account with Login.gov" they will be directed to the Login.gov landing page. The account creation process is 7 screens and includes email confirmation, creating a password, setting up an authentication method, adding an authentication app, and continuing to the CFPB website. 
