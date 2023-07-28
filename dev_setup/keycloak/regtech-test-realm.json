@@ -494,7 +494,7 @@
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "secret" : "**********",
+    "secret" : "local_test_only",
     "redirectUris" : [ ],
     "webOrigins" : [ ],
     "notBefore" : 0,
