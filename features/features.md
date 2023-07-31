@@ -2,12 +2,12 @@
 The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login through Login,gov, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.  
 
 ## Pages: 
-- Shared landing (unauthenticated)
-- Login.gov account creation and sign in
-- Complete your user profile
-- Shared landing (authenticated)
-- Request changes to your user profile
-- View financial institution details
+- [Shared landing (unauthenticated)]([https://www.google.com](https://github.com/cfpb/sbl-project/issues/7))
+- [Login.gov account creation and sign in](https://github.com/cfpb/sbl-project/issues/9)
+- [Complete your user profile](https://github.com/cfpb/sbl-project/issues/12)
+- [Shared landing (authenticated)](https://github.com/cfpb/sbl-project/issues/8)
+- [Request changes to your user profile](https://github.com/cfpb/sbl-project/issues/10)
+- [View financial institution details](https://github.com/cfpb/sbl-project/issues/11)
 
 ## User types / personas
 
