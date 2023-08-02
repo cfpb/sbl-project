@@ -1,6 +1,6 @@
 ---
 name: Epic
-about: Represent larger bodies of work that span multiple user stories across multiple sprints. These epics are represented as GitHub issues, labeled as epic. We use these issues for the initial research and discussion before we take on the underlying user stories.
+description: Represent larger bodies of work that span multiple user stories across multiple sprints. These epics are represented as GitHub issues, labeled as epic. We use these issues for the initial research and discussion before we take on the underlying user stories.
 title: "[EPIC]: [Title of Epic]"
 labels: epic
 projects: "cfpb/21"
