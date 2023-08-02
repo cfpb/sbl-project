@@ -38,33 +38,15 @@ Where should we store the source of truth for what each of these users can do in
 - [Filing platform roles matrix] (link to internal file)
 
 
-## Shared landing page (unauthenticated)
+## [Getting started shared landing page (unauthenticated)](https://github.com/cfpb/sbl-project/issues/7)
 The CFPB shared data filing platform landing page will be the first place a user lands before they have logged in to use the filing platform. Once the filer is logged in and have successfully completed their user profile they will be directed to the SBL or HMDA filing apps to file their data.
 
 ### User stories
-- [x] As a filer, I want to create a shared user profile across CFPB data filing platforms, so that I can more easily manage my filings.
-- [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
+- [X] [As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system](https://github.com/cfpb/sbl-project/issues/3).
+- [X] [As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform](https://github.com/cfpb/sbl-project/issues/4).
 - [x] As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform.
 
-### Technical requirements
-1. We need to select a mean of hosting static sites
-    - Option:
-        1. Nginx on Kubernetes
-        1. S3
-        - **Note:** This will influence how we implement frontend env-specific settings...or vice-versa.
-    - Questions:
-        1. Does CloudFront CDN provide any value?
-          
-### Content requirements
-- Orient the user to the fact that they are on a shared filing platform for lending data (e.g. SBL, HMDA, NBR).
-- Inform the user of what is needed to create an account (LEI), log in to the filing platform (Login.gov account), and begin the filing process.
-- Information on Login.gov and why we use it (keep information safe and secure).
-- Inform the user that in order to access the filing platform they will need to create a Login.gov account that is tied to their FI email address (not a personal email address).
-- Inform the user that they must log in to Login.gov using their financial institution email address. 
-- Inform the user of what they should do if they need technical help (they can go to the FAQ page or they can submit a question to SBL help via the help form).
-- Inform the user of the requirements for logging in and creating an account.
-
-## Login.gov account creation and sign in
+## [Login.gov account creation and sign in](https://github.com/cfpb/sbl-project/issues/9)
 The fist step in accessing the shared data filing platform will be to create an account and login with Login.gov. A user must login with their financial institution email address. Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.
 
 ### User stories
@@ -72,36 +54,7 @@ The fist step in accessing the shared data filing platform will be to create an 
 - [x] As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
 - [x] As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
 
-### Create an account with Login.gov 
-When the user clicks "Create an account with Login.gov" they will be directed to the Login.gov landing page. The account creation process is 7 screens and includes email confirmation, creating a password, setting up an authentication method, adding an authentication app, and continuing to the CFPB website. 
-
-#### Login.gov screens
-1. Sign in / Create an account 
-2. Create your account 
-3. Confirm your email 
-4. Create a strong password
-5. Authentication method setup 
-6. Add an authentication app
-7. You've added your first authentication method
-8. Continue to the CFPB
-
-### Sign in with Login.gov 
-When the user clicks "Sign in with Login.gov" they will be directed to the Login.gov landing page. There they will enter their email address and password and click the sign in button. This will take them to the CFPB shared platform home (authenticated) page. 
-
-### Your account
-A user's email address will auto populate within the CFPB shared filing platform in the "Complete your user profile" page and the "Request changes to your user profile" pages. If a user wishes to make a change to the email address they use to sign in to Login.gov or add a new email address they will do so within Login.gov at https://secure.login.gov/account. Changes to email addresses will be handled in Login.gov and not in the CFPB shared filing platform.
-
-## Complete your user profile (first time user)
-- The user will arrive at this page on their first visit after creating their Login.gov account and/or logging in with Login.gov
-- Once the user has a user profile and is authenticated they will not see this page again. 
-- For an authenticated user any changes to their user profile will be handled on the "Request changes to your user profile" page. 
-
-On this form: 
-- The user will be asked to enter their First name and Last name 
-- Their email address will auto-populate based on the email address they used to sign in with Login.gov. 
-- They will be able to associate with one or more financial institutions either by selecting from a pre-populated list of financial institutions/LEIs that match their email domain or by manually searching and selecting from the full database.
-- Only the selections from the pre-populated list of financial institutions/LEIs that match their email domain will allow a user immediate access to the system.
-- Selections using the search and select go to SBL Help for review. 
+## [Complete your user profile (first time user)](https://github.com/cfpb/sbl-project/issues/12)
 
 ### User stories
 - [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process.
@@ -117,16 +70,6 @@ On this form:
 - [ ] [Need further review] As a filer, I want to be able to log out of my account at the end of a session, to keep it secure. Add timeout period for session? Login/Logout in the header area?
 - [ ] [Need further review] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information. This is already built into the new system - Login.gov, user profile, etc.
 - [ ] [Needs further review] As a financial institution point of contact, I want there to be a credible process for ensuring that users are really associated with financial institutions, so that malicious actors can’t sabotage my filing process.  
-
-### Technical requirements
-1. User management API
-    1. Writes user data back to Keycloak
-1. Institutions API
-    1. Retrieve institution data by LEI, name, and email domain.
-
-### Content requirements: 
-- [ ] Inform the user of what they should do if their financial institution is not registered with GLEIF (need LEI)
-- [ ] Notification content/messaging for each of the possible financial institution association scenarios 
 
 ### Questions
 **What's the UX for a user who cannot self-associate with at least one FI? Can they even proceed into the app?** 
@@ -166,83 +109,18 @@ We currently have a success message that shows up the first time a new user is a
 - + Add new email (requires email validation link, re-sign in with original email+password+2FA)
 - Can delete original email address
 
-### Financial institution association (scenarios and results)
-(for financial institution association/email domain/email address):
-
-1) User logs in with Login.gov using their financial institution's email address. We have their email domain in our system. Their financial institution/LEI is in our database.
-2) User logs in with Login.gov using a personal email address.
-3)  User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do have their financial institution/LEI in our database. 
-4)  User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
-5) User logs in with Login.gov using their financial institution email address. We do have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
-
-### Scenario 1: 
-User logs in with Login.gov using their financial institution's email address. We have their email domain in our system and their financial institution/LEI is in our database. 
-
-#### A. User selects from the financial institution/LEI(s) that match by email domain
-  - After user clicks "Submit" they are directed to the CFPB shared data filing platform landing page (authenticated)
-  - A success notification appears at the top of the CFPB shared data filing platform landing page (authenticated) page. 
-  - The user now has a user profile, is associated with a financial institution, and is authorized to proceed with filing data.  
-
-#### B. User searches and selects from the full database
-   - After user clicks "Submit" a warning notification appears below indicating that the user's selection has been submitted to SBL Help for review and that they will have to wait for an email from SBL Help that their account is approved and they are able to proceed.
-   - The user does not proceed to the CFPB shared data filing platform landing page (authenticated) page.
-
-#### C. User selects from the financial institution/LEI(s) that match by email domain and searches and selects from the full database
-   - After the user clicks "Submit" they are directed to the CFPB shared data filing platform landing page (authenticated)
-   - This user's self-selection (from search and select) goes to SBL Help for review/approval
-   - The user now has a user profile, is associated with a financial institution, and is authorized to proceed with filing data (for only the financial institution(s) that they selected from the matches by email domain)
-   - A warning notification appears at the top of the CFPB shared data filing platform landing page (authenticated) page indicating that the user can proceed with filing for the financial institutions that were pulled from email domain matches but that the user's self-selection(s) have been submitted to SBL Help for review and that they will have to wait for an email indicating that their account is approved and they are able to proceed with filing for the additional institutions. 
-
-### Scenario 2: 
-User logs in with Login.gov using a personal email address. 
-- We would build an explicit deny list of personal email domains (gmail.com, yahoo.com, hotmail.com, etc.) to alert users up-front that we don't support non-financial institution email addresses
-- In this scenario, if the email domain is in our deny list, an error message would show up under the email field that asks the user to go back to Login.gov and login with their financial institution email address.
-
-### Scenario 3: 
-User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do have their financial institution/LEI in our database.
-- In this scenario the user would use the search and select feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
-- A notification displays on the complete user profile page indicating that the user's selection has been submitted to SBL Help for review and that they will have to wait for an email indicating that their account is approved and they are able to proceed.
-
-### Scenario 4: 
-User logs in with Login.gov using their financial institution email address. We do not have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
-
-- In this scenario the user would use the search and select feature to find their financial institution and/or LEI and select one or more which then routes to SBL Help for approval.
-- A notification displays on the complete user profile page indicating that the user's selection has been submitted to SBL Help for review and that they will have to wait for an email indicating that their account is approved and they are able to proceed.
-- This should only occur in the following cases:
-  - The entity has not registered,
-  - Our data from GLEIF does not contain the entity because they registered recently
-- In this scenario the error message should tell the user that they either need to register for an LEI with GLEIF, or that if they recently registered for an LEI it’s not in our system yet and they should check back in _____ days?
-
-### Scenario 5:
-User logs in with Login.gov using their financial institution email address. We do have their financial institution's email domain in our system. We do not have their financial institution/LEI in our system.
-- This scenario _probably_ isn't possible if we structure the data appropriately...and even if it is, it should be considered a bug if that state gets makes it out to the UI. It's a good one to think about, though. If we have Fis and domains as a many-to-many relationship...🤔 theoretically possible I suppose.
-- If the user logs in with their FI email and we do have their email domain in our system and do not have their FI/LEI in our system then this is a bug and the user should contact SBL Help.
-
-
 ### Notes
 1. This/these screen(s) should be very similar to the **Request changes to user profile** screen, perhaps just
    optimized for first-time users, and acting as more of a gate to insure the user is fully
    configured prior to entering the rest of the system.
 
-## Shared landing page (authenticated)
+## [Shared landing page (authenticated)](https://github.com/cfpb/sbl-project/issues/8)
 
 ### User stories
 - [x] As a filer who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I would like my financial institution details to be centrally managed, so that I don’t have to maintain the same information in multiple places. 
 - [x] As a filer  who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I want to be able to have a single user profile that is shared among the CFPB platforms, so that I don’t have to maintain the same information in multiple places. 
 
-### Content requirements
-Overview of what a user can do:
-- [x] Navigate to "File for SBL"
-- [x] Navigate to "File for HMDA"
-- [x] Access to "Request changes to user profile" page
-- [x] Access to "View financial institution details" page
-- [x] Notification that a user has successfully completed their user profile (appears on first visit)
-
-**Needs further review:** 
-- [ ] Indication that tells a user that they have successfully logged in to the platform (Login/Logout in header area)?
-- [ ] User can see notifications for actions they need to take.
-
-## Request changes to your user profile
+## [Request changes to your user profile](https://github.com/cfpb/sbl-project/issues/10)
 
 ### User stories
 - [x] As a filer, I want to view the list of financial institutions I’m associated with, so I know which financial institutions I need to file for.
@@ -251,24 +129,9 @@ Overview of what a user can do:
 - [x] As a filer, I would like to see list of all my associated financial institutions, so that I know which financial institutions I need to file for. 
 - [x] As a filer, I would like to select a financial institution from the list of financial institutions I'm associated with, so that I can view the individual financail to view the financial institution details. 
 
-### Content requirements
-A user can view:
-- First name
-- Last name
-- Email address 
-- Associated financial institutions
-- Instructions on how to request changes to their user profile details
+## [View financial institution details](https://github.com/cfpb/sbl-project/issues/11)
 
-### Questions
-**In what ways is the **Request changes to your user profile** different from the **Complete user profile** screen?**
-- The **Complete user profile** screen, is optimized for first-time users, and acting as more of a gate to insure the user is fully configured prior to entering the rest of the system.
-- The **Request changes to your user profile** should be used to check what user profile details we have on file and request any changes.
-- A user will first see the details that we have on file and then be able to fill out a form to make changes.
-- Changes will go to SBL help for processing.  
-
-## Financial institution details
-
-### User stories
+### User stories (make sure these match with what's in the Epic issue)
 - [ ] As a filer, I would like to view my financial institution data as the CFPB understands it.
 - [ ] As a filer, I would like clear instructions on how to change read-only financial institution fields.
 - [ ] As a filer, I would like to view the history of changes to my institution data.
@@ -283,14 +146,6 @@ A user can view:
 - [ ] Data will be _mostly_ read-only, with possible exceptions for:
     1. FI contact info (name, phone, email, etc.)
   
-### Questions
-1. What details should be in this list?
-    1. Name, LEI
-    1. Status: Active, Deactivated
-    1. Filing status for SBL and HMDA for the current filing season.
-    1. User association status? Only when waiting for approval?
-
-<br></br>
 # Small business lending data filing app
 
 #### Includes:
