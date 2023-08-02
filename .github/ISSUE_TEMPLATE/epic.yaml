@@ -8,11 +8,13 @@ body:
 - type: input
   id: milestone
   attributes:
+    label: Milestone
     description: The Milestone this Epic is associated with
     placeholder: Link to the milestone and add a brief overview of the milestone outcome
 - type: input
   id: Epic
   attributes:
+    label: Epic
     description: High-level overview of the Epic
     placeholder: 
 - type: textarea
