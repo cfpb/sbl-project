@@ -5,13 +5,13 @@ title: "[EPIC] <Title of Epic>"
 labels: ["epic"]
 projects: ["cfpb/21"]
 body:
-- type: input
+- type: textarea
   id: milestone
   attributes:
     label: Milestone
     description: The Milestone this Epic is associated with
     placeholder: Link to the milestone and add a brief overview of the milestone outcome
-- type: input
+- type: textarea
   id: Epic
   attributes:
     label: Epic
