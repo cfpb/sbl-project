@@ -1,4 +1,4 @@
-name: Epic
+name: "Epic"
 description: Represent larger bodies of work that span multiple user stories across multiple sprints. These epics are represented as GitHub issues, labeled as epic. We use these issues for the initial research and discussion before we take on the underlying user stories.
 title: [Epic] Title of epic
 labels:
