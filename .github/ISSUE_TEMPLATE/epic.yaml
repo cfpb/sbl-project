@@ -1,58 +1,68 @@
----
 name: Epic
 description: Represent larger bodies of work that span multiple user stories across multiple sprints. These epics are represented as GitHub issues, labeled as epic. We use these issues for the initial research and discussion before we take on the underlying user stories.
-title: "[EPIC]: [Title of Epic]"
-labels: epic
-projects: "cfpb/21"
----
-  
+title: "[EPIC] <Title of Epic>"
+labels: ["epic"]
+projects: ["cfpb/21"]
 body:
-  - type: input
-    id: milestone
-    attributes:
-      label: Milestone
-      description: The Milestone this Epic is associated with
-      placeholder: Link to the milestone and add a brief overview of the milestone outcome
-  - type: input
-    id: Epic
-    attributes:
-      label: Epic
-      description: High-level overview of the Epic
-      placeholder: 
-  - type: textarea
-    attributes:
-      label: User Stories
-      description: List the features we will implement as part of this Epic
-      placeholder: "- [ ] *user story*"
-  - type: textarea
-    id: tech-requirements
-    attributes:
-      label: Technical Requirements
-      description: What requirements need to be included from a technical or development persepctive
-      placeholder: "- [ ] *requirement 1*"
-  - type: textarea
-    id: content-requirements
-    attributes:
-      label: Content Requirements
-      description: What information and/or elements need to be included on the UI in this segment of work
-      placeholder: "- [ ] *requirement 1*"
-  - type: textarea
-    id: user-testing
-    attributes:
-      label: User Testing
-      description: Task ideation to plan for future user testing
-      placeholder: "- [ ] *task description*"
-  - type: textarea
-    id: designs
-    attributes:
-      label: Designs
-      description: Wireframes and mockups
-      placeholder: "*to be added when available*"
-  - type: textarea
-    id: administrative
-    attributes:
-      label: Administrative
-      description: Tasks, Acceptance Criteria, and Roles
-      placeholder: "#### Tasks: <br> #### Acceptance Criteria:  <br> #### Roles:"
-
-      
+- type: input
+  id: milestone
+  attributes:
+    label: Milestone
+    description: The Milestone this Epic is associated with
+    placeholder: Link to the milestone and add a brief overview of the milestone outcome
+- type: input
+  id: Epic
+  attributes:
+    label: Epic
+    description: High-level overview of the Epic
+    placeholder: 
+- type: textarea
+  attributes:
+    label: User Stories
+    description: List the features we will implement as part of this Epic
+    placeholder: "- [ ] user story"
+- type: textarea
+  id: tech-requirements
+  attributes:
+    label: Technical Requirements
+    description: What requirements need to be included from a technical or development persepctive
+    placeholder: "- [ ] requirement 1"
+- type: textarea
+  id: content-requirements
+  attributes:
+    label: Content Requirements
+    description: What information and/or elements need to be included on the UI in this segment of work
+    placeholder: "- [ ] requirement 1"
+- type: textarea
+  id: user-testing
+  attributes:
+    label: User Testing
+    description: Task ideation to plan for future user testing
+    placeholder: "- [ ] task description"
+- type: textarea
+  id: designs
+  attributes:
+    label: Designs
+    description: Wireframes and mockups
+    placeholder: "to be added when available"
+- type: markdown
+  id: administrative
+  attributes:
+    label: Administrative
+    description: Tasks, Acceptance Criteria, and Roles
+    value: "## Administrative"
+- type: markdown
+  id: tasks
+  attributes:
+    label: Tasks
+    value: "### Tasks"
+- type: markdown
+  id: acceptance-criteria
+  attributes:
+    label: Acceptance Criteria
+    value: "### Acceptance Criteria"  
+- type: markdown
+  id: roles
+  attributes:
+    label: Roles
+    value: "### Roles"
