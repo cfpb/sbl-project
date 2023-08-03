@@ -1,7 +1,7 @@
 # CFPB shared data filing platform
 The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login through Login,gov, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.  
 
-## Pages: 
+### Pages: 
 - [Shared landing (unauthenticated)](https://github.com/cfpb/sbl-project/issues/7)
 - [Login.gov account creation and sign in](https://github.com/cfpb/sbl-project/issues/9)
 - [Complete your user profile](https://github.com/cfpb/sbl-project/issues/12)
@@ -88,31 +88,26 @@ The fist step in accessing the shared data filing platform will be to create an 
 
 ## [View financial institution details](https://github.com/cfpb/sbl-project/issues/11)
 
-### User stories (make sure these match with what's in the Epic issue)
-- [ ] As a filer, I would like to view my financial institution data as the CFPB understands it.
-- [ ] As a filer, I would like clear instructions on how to change read-only financial institution fields.
-- [ ] As a filer, I would like to view the history of changes to my institution data.
+### User stories
+- [ ] As a filer, I would like to view my financial institution data as the CFPB understands it, so that I can make sure that my filing details will be accurate.
+- [ ] As a filer, I would like clear instructions on how to change read-only financial institution fields, so that I can correct any errors prior to filing. 
+- [ ] As a filer, I would like to view the history of changes to my institution data, so that...
     1. Who: person or automation w/ data source
     1. What: Which fields changed from what to what
     1. When: Timestamp
     1. Why: automation or human note
-- [ ] Common institution data across all RegTech apps.
-- [ ] Defaults to latest version of institution data.
-- [ ] Clearly delineates shared vs. HMDA and SBL-specific data fields
-- [ ] Full history of all data changes is available.
-- [ ] Data will be _mostly_ read-only, with possible exceptions for:
-    1. FI contact info (name, phone, email, etc.)
+ - [ ] As a filer, I would like a visual indication that a change has been made to my institution data (since the last time I logged in?)
   
 # Small business lending data filing app
 
-#### Includes:
+### Pages: 
 - Small business lending data filing home
 - Upload file
 - Review errors
 - Verify warnings
 - Sign and submit
 
-## Small business lending data filing home
+## [Small business lending data filing home](https://github.com/cfpb/sbl-project/issues/14)
 
 ### User stories
 - [ ] As a filer, I can see a list of active institutions I need to file for this filing season.
