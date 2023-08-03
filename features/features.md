@@ -71,49 +71,6 @@ The fist step in accessing the shared data filing platform will be to create an 
 - [ ] [Need further review] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information. This is already built into the new system - Login.gov, user profile, etc.
 - [ ] [Needs further review] As a financial institution point of contact, I want there to be a credible process for ensuring that users are really associated with financial institutions, so that malicious actors can’t sabotage my filing process.  
 
-### Questions
-**What's the UX for a user who cannot self-associate with at least one FI? Can they even proceed into the app?** 
-- No, their only option is to file an SBL Help ticket or wait for their institution to show up in the system (this would be if they have recently registered with GLEIF). 
-
-**What's the UX for a user who can self-associate with some FIs, but not all? Can they go into the app, and subsequent FI associations can just be handled in the **Request changes to user profile** page?**
-- Yes, they could do that. Or, in our current design they could also self associate in the "Complete user profile" page
-
-**Do we need a user-to-fi approval state that's visible to the user?**
-- Waiting-for-approval
-- Approved
-We currently have a success message that shows up the first time a new user is authenticated and completes their user profile. We have not discussed an approval state within the context of the "Complete user profile" page or the "Request changes to your user profile" but we should. We will probably also need notifications for when a user submits changes to SBH help (clicks "Request changes" button.
-
-**To what extent can we streamline the process of what HMDA does today?**
-- Auto-create a Salesforce ticket?
-- Proactively call users?
-- _Some_ means of viewing a queue/list of users who've logged in, but cannot use the system due no institution associations.
-
-**Is the email address used for anything other than associating a user with a financial institution?**
-- Submission confirmations go to the email address on file. 
-
-**For the “Associate with a financial institution” what is the default list - do we show every institution in our database or do we narrow it down initially?** 
-- Show all FIs in database so users can search by financial institution name and/or LEI. This allows the user to select financial institution name and/or LEIs that don't match their email domain
-- (We will start with a non-prioritized, standard list (show all financial institutions in our database so that users can search by financial institution name and/or LEI ). We have concerns about the UX of a prioritized list. May add complexity without a need or benefit.
-- We have explored a design where the matches by email domain are pulled out of the search and select.
-
-**Can we get the email domains associated with all existing LEIs from GLEIF?** 
-- If so our database of known financial institutions and LEIs will match GLEIF’s data. 
-- Still unknown. David is working on this. 
-
-**Is a user's email address in our system associated with the primary Login.gov email address at the time of completing their user profile or is it automatically updated in our system when a user changes their email in Login.gov?** 
-- Requires some testing with Login.gov; we should always have the user’s current Login.gov email address & not require them to complete a new user profile + re-do FI associations if their Login.gov email address changes (based on user id)
-- Based on this we should have messaging that lets a filer know that any changes to their email address should be made in Login.gov
-
-**Login.gov process for updating an email address:**
-- Go to Login.gov & log in with email+password+2FA
-- + Add new email (requires email validation link, re-sign in with original email+password+2FA)
-- Can delete original email address
-
-### Notes
-1. This/these screen(s) should be very similar to the **Request changes to user profile** screen, perhaps just
-   optimized for first-time users, and acting as more of a gate to insure the user is fully
-   configured prior to entering the rest of the system.
-
 ## [Shared landing page (authenticated)](https://github.com/cfpb/sbl-project/issues/8)
 
 ### User stories
@@ -165,18 +122,6 @@ We currently have a success message that shows up the first time a new user is a
 - [ ] As a filer, I can select an institution to view past filings.
 - [ ] As a filer, I can view the institution data snapshot for a past filing season.
 - [ ] As a filer, I can select an institution to restart a filing I've previously completed.
-
-### Content requirements: 
-- Comprehensive instructions on the steps of the filing process. 
-
-**Needs further review:** 
-- [ ] As a filer, I can see a list of inactive institutions I have filed for in the past.
-
-### Questions
-1. How much consideration do we need to give now to all of the 2nd year+ scenarios?
-    1. A filer is told by SEFL they need to re-file after an exam.
-    1. A filer didn't file for a past year.
-1. Are we going to have a 3-year window where we allow refiling like HMDA?
 
 ## Confirm financial institution details for given filing period
 
