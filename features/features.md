@@ -124,18 +124,6 @@ The fist step in accessing the shared data filing platform will be to create an 
 - [ ] As a filer, I can confirm my institution data is accurate for given filing period.
 - [ ] As a filer, I want clear instructions on what to do to if my institution data is inaccurate.
 
-### Questions
-1. Are there institution data fields that the user can fix themselves?
-    1. Can they do it on this screen, or do they go back to the **Institution profile**
-       page in RegTech Home?
-1. Does a user have to go through this screen every time the upload a new version?
-    1. Seems like the answer should be _no_, but then how does the flow work?
-
-### Notes
-1. This is one way SBL is different from HMDA. HMDA has the "Transmittal Sheet" as
-   the first record of their file, which contains their institution data for a given
-   filing season. So, we can't really "do what HMDA does" for this one.
-
 ## Upload file
 1. As a filer, I can upload my FI's SBLAR data for a given filing period.
 1. As a filer, I can view the status of my submission while it is being processed.
