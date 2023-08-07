@@ -359,7 +359,7 @@
     "requiredActions" : [ ],
     "realmRoles" : [ "default-roles-regtech" ],
     "clientRoles" : {
-      "realm-management" : [ "query-groups" ]
+      "realm-management" : [ "manage-users", "query-groups" ]
     },
     "notBefore" : 0,
     "groups" : [ ]
