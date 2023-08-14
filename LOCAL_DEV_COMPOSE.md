@@ -48,5 +48,5 @@ Only run development needed services. For front end development, all 3 services 
   ```
 - Exposed ports for each service is specified in [docker-compose.yml](./docker-compose.yml), for reference here:
   - PostgreSQL(`pg`) can be accessed from the host machine at port `5432`
-  - Keyclaok (`keycloak`) is accessible at `8880`
+  - Keycloak (`keycloak`) is accessible at `8880`
   - user-fi-management (`user_fi`) is accessible at `8881`
