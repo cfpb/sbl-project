@@ -25,7 +25,7 @@ to define the features we will implement for SBL.
 These user stories are represented as GitHub issues, labeled as
 [**story**](https://github.com/cfpb/sbl-project/issues?q=is%3Aopen+is%3Aissue+label%3Astory). During our Sprint Planning meetings, we 
 select User Stories for the upcoming Sprint that meet our
-**definition of ready**
+**definition of ready**.
 
 ### Definition of ready
 
@@ -91,14 +91,6 @@ has different needs.
 - [regtech-user-fi-management](https://github.com/cfpb/regtech-user-fi-management) - API for user and institution data in CFPB's RegTech systems
 - [sbl-frontend](https://github.com/cfpb/sbl-frontend/) - Web frontend for the CFPB's SBL filing system.
 - [sbl-prototype](https://github.com/cfpb/sbl-prototype) - Prototype of CFPB's RegTech Home and SBL filing apps
-
-### External contribution
-
-## Questions
-
-1. User testing?
-    1. Internal
-    1. External
 
 ## Open source licensing info
 1. [TERMS](TERMS.md)
