@@ -43,3 +43,17 @@ INSERT INTO financial_institution_domains ("domain",lei) VALUES
 	 ('test1.local','TEST1LEI'),
 	 ('test2.local','TEST2LEI'),
 	 ('test3.local','TEST3LEI');
+
+CREATE TABLE denied_domains (
+	"domain" varchar NOT NULL,
+	event_time timestamp NULL DEFAULT now(),
+	CONSTRAINT denied_domains_pkey PRIMARY KEY (domain)
+);
+
+CREATE UNIQUE INDEX  ix_denied_domains_domain ON denied_domains USING btree(domain);
+ALTER TABLE denied_domains OWNER TO fi;
+
+INSERT INTO denied_domains (domain) VALUES
+	 ('gmail.com'),
+	 ('yahoo.com'),
+	 ('aol.com');
