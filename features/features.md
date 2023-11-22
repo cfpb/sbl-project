@@ -42,28 +42,33 @@ Where should we store the source of truth for what each of these users can do in
 The CFPB shared data filing platform landing page will be the first place a user lands before they have logged in to use the filing platform. Once the filer is logged in and have successfully completed their user profile they will be directed to the SBL or HMDA filing apps to file their data.
 
 ### User stories
-- [X] [As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system](https://github.com/cfpb/sbl-project/issues/3).
-- [X] [As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform](https://github.com/cfpb/sbl-project/issues/4).
-- [x] As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform.
+- [X] [Story] [As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system](https://github.com/cfpb/sbl-project/issues/3).
+- [X] [Story] [As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform](https://github.com/cfpb/sbl-project/issues/4).
+- [x] [Story] As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform.
+
+Not prioritized for MVP:
+- [ ] Email signup
 
 ## [Login.gov account creation and sign in](https://github.com/cfpb/sbl-project/issues/9)
 The fist step in accessing the shared data filing platform will be to create an account and login with Login.gov. A user must login with their financial institution email address. Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.
 
 ### User stories
-- [x] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
-- [x] As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
-- [x] As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
+There are not issues in GH for these stories. Do we need to track this work in GH at all? 
+- [ ] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
+- [ ] As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
+- [ ] As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
 
 ## [Complete your user profile (first time user)](https://github.com/cfpb/sbl-project/issues/12)
 
 ### User stories
-- [x] As a filer, I would like to complete my user profile upon my first login, so that I can begin the filing process.
-- [x] As a filer, I would like to be able to associate myself with one or more financial institutions, so that I can file on behalf of the institution(s) I am responsible for.
-- [x] As a a filer, I would like to be able to search for and select my financial institution(s) by financial institution name and/or LEI, so that I can file on behalf of the institution(s) I am responsible for.
-- [x] As a filer whose institution is not already known to the CFPB, I want information on how to register my financial institution with GLEIF, so that I can create an account associated with that financial institution.
-- [x] As a filer, I would like to be alerted if I try to complete my profile using a personal email address, so that I know to go back to Login.gov and login with my financial institution email address.
-- [x] As a filer, I would like each person on my team to have a separate account, so we don’t have to share login information.
-- [x] As a filer, I would like to choose which institution(s) I want to be associated with from a pre-populated list (based on email domain), so I don’t need to look up my financial institution’s LEI during the registration process.
+- [ ] [Story] Complete user profile (first name + last name) upon first login #17
+- [ ] [Story] Prevent the completion of user profile with personal email address #18
+- [ ] [Story] Associate with pre-approved institution(s) via email domain #19
+- [ ] [Story] Next steps to take when financial institution does not yet have an LEI #23
+- [ ] [Story] Actionable feedback when incomplete user profile form is submitted #27
+
+Not prioritized for MVP: 
+- [ ] [Story] Self-associate from full financial institution database and submit for review #22
 
 **Needs further review:** 
 - [ ] [Dev user story] As a filer, I want filings for my financial institution to be viewable only by people logged in and associated with my financial institution, so that only trusted users are seeing and modifying my filings.
@@ -74,29 +79,29 @@ The fist step in accessing the shared data filing platform will be to create an 
 ## [Shared landing page (authenticated)](https://github.com/cfpb/sbl-project/issues/8)
 
 ### User stories
-- [x] As a filer who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I would like my financial institution details to be centrally managed, so that I don’t have to maintain the same information in multiple places. 
-- [x] As a filer  who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I want to be able to have a single user profile that is shared among the CFPB platforms, so that I don’t have to maintain the same information in multiple places. 
+GH story issues have not yet been created for this page. 
+- [ ] As a filer who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I would like my financial institution details to be centrally managed, so that I don’t have to maintain the same information in multiple places. 
+- [ ] As a filer  who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I want to be able to have a single user profile that is shared among the CFPB platforms, so that I don’t have to maintain the same information in multiple places. 
 
 ## [Request changes to your user profile](https://github.com/cfpb/sbl-project/issues/10)
 
 ### User stories
-- [x] As a filer, I want to view the list of financial institutions I’m associated with, so I know which financial institutions I need to file for.
-- [x] As a filer, I want to view the information contained in my user profile, so that I can make sure that it's accurate.
-- [x] As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.
-- [x] As a filer, I would like to see list of all my associated financial institutions, so that I know which financial institutions I need to file for. 
-- [x] As a filer, I would like to select a financial institution from the list of financial institutions I'm associated with, so that I can view the individual financail to view the financial institution details. 
+GH story issues have not yet been created for this page. 
+- [ ] As a filer, I want to view the information contained in my user profile, so that I can make sure that it's accurate.
+- [ ] As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.
+- [ ] As a filer, I want to view the list of financial institutions I’m associated with, so I know which financial institutions I need to file for.
+- [ ] As a filer, I would like to be able to select a financial institution from the list of financial institutions I'm associated with, so that I can view the individual financial institution details. 
+- [ ] As a filer, I want to update/change my email address, so that I can keep my FI email address current. 
 
 ## [View financial institution details](https://github.com/cfpb/sbl-project/issues/11)
 
 ### User stories
-- [ ] As a filer, I would like to view my financial institution data as the CFPB understands it, so that I can make sure that my filing details will be accurate.
-- [ ] As a filer, I would like clear instructions on how to change read-only financial institution fields, so that I can correct any errors prior to filing. 
-- [ ] As a filer, I would like to view the history of changes to my institution data, so that...
-    1. Who: person or automation w/ data source
-    1. What: Which fields changed from what to what
-    1. When: Timestamp
-    1. Why: automation or human note
- - [ ] As a filer, I would like a visual indication that a change has been made to my institution data (since the last time I logged in?)
+GH story issues have not yet been created for all of the user stories for this page. 
+- [ ] [Story] View financial institution details #37
+- [ ] [Story] Instructions on how to update data on financial institution details  #38
+- [ ] [Story] View institution data change history #39
+- As a filer, I would like to know where the CFPB obtained the data about my financial institution.
+- As a filer, I would like to review my Parent and Top Holder information to ensure it is accurate.
   
 # Small business lending data filing app
 
@@ -236,3 +241,4 @@ Who do we need to talk to about the experience within SBL help for the SBL help 
 - [ ] As an administrator, I want to be able to view the list of users’ associations.
 - [ ] As a filer, I want to get help with setting up my account, so that I can access the filing platform.
 - [ ] As a filer, I want there to be a credible process for ensuring that users are really associated with FIs, so that malicious actors can’t sabotage my filing process.
+
