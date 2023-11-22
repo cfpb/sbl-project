@@ -46,7 +46,7 @@ The CFPB shared data filing platform landing page will be the first place a user
 - [X] [Story] [As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform](https://github.com/cfpb/sbl-project/issues/4).
 - [x] [Story] As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform.
 
-Not prioritized for MVP:
+#### Not prioritized for MVP:
 - [ ] Email signup
 
 ## [Login.gov account creation and sign in](https://github.com/cfpb/sbl-project/issues/9)
@@ -61,14 +61,14 @@ There are not issues in GH for these stories. Do we need to track this work in G
 ## [Complete your user profile (first time user)](https://github.com/cfpb/sbl-project/issues/12)
 
 ### User stories
-- [ ] [Story] Complete user profile (first name + last name) upon first login #17
-- [ ] [Story] Prevent the completion of user profile with personal email address #18
-- [ ] [Story] Associate with pre-approved institution(s) via email domain #19
-- [ ] [Story] Next steps to take when financial institution does not yet have an LEI #23
-- [ ] [Story] Actionable feedback when incomplete user profile form is submitted #27
+- [ ] [Story: Complete user profile (first name + last name) upon first login](https://github.com/cfpb/sbl-project/issues/17) (#17)
+- [ ] [Story: Prevent the completion of user profile with personal email address](https://github.com/cfpb/sbl-project/issues/18) (#18)
+- [ ] [Story: Associate with pre-approved institution(s) via email domain](https://github.com/cfpb/sbl-project/issues/19) (#19)
+- [ ] [Story: Next steps to take when financial institution does not yet have an LEI](https://github.com/cfpb/sbl-project/issues/23) (#23)
+- [ ] [Story: Actionable feedback when incomplete user profile form is submitted](https://github.com/cfpb/sbl-project/issues/27) (#27)
 
-Not prioritized for MVP: 
-- [ ] [Story] Self-associate from full financial institution database and submit for review #22
+#### Not prioritized for MVP: 
+- [ ] [Story: Self-associate from full financial institution database and submit for review](https://github.com/cfpb/sbl-project/issues/22)(#22)
 
 **Needs further review:** 
 - [ ] [Dev user story] As a filer, I want filings for my financial institution to be viewable only by people logged in and associated with my financial institution, so that only trusted users are seeing and modifying my filings.
