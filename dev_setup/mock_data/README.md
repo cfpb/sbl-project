@@ -51,7 +51,7 @@ export RT_ACCESS_TOKEN=$(curl 'localhost:8880/realms/regtech/protocol/openid-con
 --data-urlencode 'client_id=regtech-client' | jq -r '.access_token')
 
 lei=your_mock_institution_lei
-domin=mock.domain
+domain=mock.domain
 
 curl "localhost:8888/v1/institutions/$lei/domains" -X POST \
   -H "Authorization: Bearer ${RT_ACCESS_TOKEN}" \
