@@ -3,7 +3,7 @@
   "lei": "TESTBANK456",
   "tax_id": "987654321",
   "rssd_id": 4321,
-  "primary_federal_regulator_id": "FRB",
+  "primary_federal_regulator_id": "FRS",
   "hmda_institution_type_id": "2",
   "sbl_institution_type_id": "2",
   "hq_address_street_1": "Test Address Street 2",
