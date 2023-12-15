@@ -347,6 +347,7 @@
     "emailVerified" : false,
     "firstName" : "",
     "lastName" : "",
+    "email" : "admin1@local.host",
     "credentials" : [ {
       "id" : "4bfd1ed2-1d51-41be-88f0-23e1c1c74914",
       "type" : "password",
@@ -389,6 +390,7 @@
     "emailVerified" : false,
     "firstName" : "",
     "lastName" : "",
+    "email" : "user1@local.host",
     "credentials" : [ {
       "id" : "633df0ae-312c-4bcc-9e5d-075c763e1eaf",
       "type" : "password",
