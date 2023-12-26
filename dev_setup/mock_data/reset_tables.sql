@@ -1,0 +1,3 @@
+DROP TABLE address_state, alembic_version,
+denied_domains, federal_regulator, financial_institution_domains,
+financial_institutions, hmda_institution_type, sbl_institution_type CASCADE;
