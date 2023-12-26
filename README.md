@@ -92,6 +92,10 @@ has different needs.
 - [sbl-frontend](https://github.com/cfpb/sbl-frontend/) - Web frontend for the CFPB's SBL filing system.
 - [sbl-prototype](https://github.com/cfpb/sbl-prototype) - Prototype of CFPB's RegTech Home and SBL filing apps
 
+### Development setup
+
+For local development, we use docker compose to run the supporting services. Please refer to [LOCAL_DEV_COMPOSE](./LOCAL_DEV_COMPOSE.md) for details.
+
 ## Open source licensing info
 1. [TERMS](TERMS.md)
 2. [LICENSE](LICENSE)

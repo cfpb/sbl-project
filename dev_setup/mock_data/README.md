@@ -10,14 +10,6 @@
 * Have `jq` cli installed: `brew install jq`
   * you may also need to set the PATH to include the homebrew directory: `export PATH=$PATH:$HOME/homebrew/bin`
 
-### Seed lookup tables
-___NOTE___: this is only needed prior to this GH [PR](https://github.com/cfpb/regtech-user-fi-management/pull/65) is merged
-
-Running the below script will populate the lookup tables that API isn't able to modify
-```bash
-./seed_db.sh
-```
-
 ### Create mock institutions
 With the script below, 3 institutions will be created; you may reference the information shown in the json files [test_bank_123.json](test_bank_123.json), [test_bank_456.json](test_bank_456.json), and [test_sub_bank_456.json](test_sub_bank_456.json)
 ```bash
