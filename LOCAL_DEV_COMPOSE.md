@@ -50,3 +50,7 @@ Only run development needed services. For front end development, all 3 services 
   - PostgreSQL(`pg`) can be accessed from the host machine at port `5432`
   - Keycloak (`keycloak`) is accessible at `8880`
   - user-fi-management (`user_fi`) is accessible at `8881`
+
+---
+## Mock data population
+With [user-fi-management](https://github.com/cfpb/regtech-user-fi-management), pre-populating the database with some mock institutions can aid front-end development. We've created some instructions, and some mock institution json files in [mock_data](./dev_setup/mock_data/) directory to help with that process.
