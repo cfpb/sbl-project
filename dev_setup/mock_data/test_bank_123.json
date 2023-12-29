@@ -1,6 +1,7 @@
 {
   "name": "Test Bank 123",
   "lei": "TESTBANK123",
+  "is_active": true,
   "tax_id": "123456789",
   "rssd_id": 1234,
   "primary_federal_regulator_id": "OCC",
