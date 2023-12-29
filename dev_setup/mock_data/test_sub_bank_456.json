@@ -1,6 +1,7 @@
 {
   "name": "Test Sub Bank 456",
   "lei": "TESTSUBBANK456",
+  "is_active": false,
   "tax_id": "765432198",
   "rssd_id": 2134,
   "primary_federal_regulator_id": "FDIC",
