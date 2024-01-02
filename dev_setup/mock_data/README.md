@@ -56,3 +56,35 @@ curl "localhost:8881/v1/institutions/$lei/domains" -X POST \
 Change `lei`, and `domain` to the appropriate values
 
 __NOTE__: These instructions are scripts works with the user_fi app through the docker compose setup of port `8881`, if you run the app locally instead via the instructions through user_fi's [README](https://github.com/cfpb/regtech-user-fi-management/blob/main/README.md), please change the port numbers `8881` to `8888`
+
+### Create users via Keycloak
+
+To test the system, users would need to be created; and these reside within Keycloak; and to access Keycloak, go to the url `http://localhost:8880/` in a browser.
+
+![Keycloak](readme_imgs/kc.png)
+
+We can access the admin page by clicking the `Administration Console`, you can log in with `admin` user with `admin` as password.
+
+Once logged in, you are created with the screen below:
+![KC Admin](readme_imgs/kc_admin.png)
+
+Click the realm drop down menu on the top left, and change selection from `master` to `regtech`
+![Realm Selection](readme_imgs/kc_admin_realm.png)
+
+Once the realm selection is done, click the `Users` tab from the left navigation panel
+![Users](readme_imgs/kc_users.png)
+
+There should be some mock users already, but new users can be added by clicking the `Add user` button to bring up the new user form
+![Add User](readme_imgs/kc_add_user.png)
+The only fields that are needed here are the `Username`, and `Email`; the `Email` should match the domain of one of the institutions created using the [create_institutions.sh](create_institutions.sh) script. These would be `testbank123.local`, `testbank456.local`, and `testsubbank456.local`. The `First name`, `Last name`, and `Groups` fields should be done through the `Complete your user profile` story.
+
+Once the user is created, select the new user, and go into the `Credentials` tab
+![User credentials](readme_imgs/kc_user_creds.png)
+Select `Set password`
+![Set password](readme_imgs/kc_set_pw.png)
+Type in the new password, and set `Temporary` to `Off` for testing.
+![Password Temp Off](readme_imgs/kc_pw_temp_off.png)
+
+Once these are done, the new user can be used to test the system locally by logging into the front end.
+
+**NOTE**: From the front end, when updates have been done to the user (i.e. finished updating names, and associations); the token needs to be refreshed before making additional subsequent requests to the APIs.
