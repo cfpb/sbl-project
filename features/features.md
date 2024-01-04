@@ -83,7 +83,7 @@ The fist step in accessing the shared data filing platform will be to create an 
 
 ### User stories
 #### MVP (Beta release)
-GH story issues have not yet been created for this page. 
+GH story issues have not yet been created for this epic.
 - [ ] As filer of SBL data, I can view my financial institution details, so that I can verify that I have the correct financial institution associations and take appropriate action if not. 
 - [ ] As filer of SBL data, I can launch the filing platform, so that I start the filing process. 
 - [ ] As filer of SBL data, I can view my user profile, so that I can confirm that the information is accurate. 
@@ -96,7 +96,7 @@ GH story issues have not yet been created for this page.
 
 ### User stories
 #### MVP (Beta release)
-GH story issues have not yet been created for this page. 
+GH story issues have not yet been created for this epic.
 - [ ] As a filer, I want to view the information contained in my user profile, so that I can make sure that it's accurate.
 - [ ] As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.
 - [ ] As a filer, I want to view the list of financial institutions I’m associated with, so I know which financial institutions I need to file for.
@@ -164,7 +164,7 @@ GH story issues have not yet been created for all of the user stories for this p
     - Validating data
     - Validation complete
 
-## Review errors and Verify warnings
+## Review warnings
 Should this be one section or should it be separated out between "Review errors" and "Verify warnings"?
 
 ### User stories
