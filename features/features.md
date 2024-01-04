@@ -7,7 +7,7 @@ The shared data filing platform will be used by filers of small business lending
 - [Complete your user profile](https://github.com/cfpb/sbl-project/issues/12)
 - [Shared landing (authenticated)](https://github.com/cfpb/sbl-project/issues/8)
 - [Request changes to your user profile](https://github.com/cfpb/sbl-project/issues/10)
-- [View financial institution details](https://github.com/cfpb/sbl-project/issues/11)
+- [View financial institution profile](https://github.com/cfpb/sbl-project/issues/11)
 
 ## User types / personas
 
@@ -41,51 +41,61 @@ Where should we store the source of truth for what each of these users can do in
 ## [Getting started shared landing page (unauthenticated)](https://github.com/cfpb/sbl-project/issues/7)
 The CFPB shared data filing platform landing page will be the first place a user lands before they have logged in to use the filing platform. Once the filer is logged in and have successfully completed their user profile they will be directed to the SBL or HMDA filing apps to file their data.
 
-### User stories
-- [X] [Story] [As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system](https://github.com/cfpb/sbl-project/issues/3).
-- [X] [Story] [As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform](https://github.com/cfpb/sbl-project/issues/4).
-- [x] [Story] As a filer, I want to know how to get help with setting up my account, so that I can access the filing platform.
+### User stories 
+#### MVP (Beta release)
+- [ ] [Story: Go to a website and log in to existing account](https://github.com/cfpb/sbl-project/issues/3) (#3)
+- [ ] [Story: Get help with setting up account](https://github.com/cfpb/sbl-project/issues/4) (#4)
+- [ ] [Story: Understand the CFPB's legal right to request information](https://github.com/cfpb/sbl-project/issues/29) (#29)
 
-#### Not prioritized for MVP:
-- [ ] Email signup
+#### Backlog
+- Add email signup
+- Add CFPB megamenu
+- Link from Small business lending database page to this page
 
 ## [Login.gov account creation and sign in](https://github.com/cfpb/sbl-project/issues/9)
 The fist step in accessing the shared data filing platform will be to create an account and login with Login.gov. A user must login with their financial institution email address. Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.
 
 ### User stories
-There are not issues in GH for these stories. Do we need to track this work in GH at all? 
-- [ ] As a filer, I want to be able to go to a website and log in to my existing account, so I can access the filing system.
-- [ ] As a filer, I want to be able to create a Login.gov account and assign my own password, so that I can start the registration and filing process with minimal hurdles.
-- [ ] As a filer, I would like to access the CFPB's filing platform with my Login.gov credentials, so that I can trust that my information is secure.
+#### MVP (Beta release)
+- [ ] [Story: CFPB logo appears on Login.gov pages](https://github.com/cfpb/sbl-project/issues/64) (#64)
+- [ ] [Story: CFPB text content appears on Login.gov pages](https://github.com/cfpb/sbl-project/issues/65) (#65)
+- [ ] [Story: Create a Login.gov account and assign password](https://github.com/cfpb/sbl-project/issues/74) (#74)
+- [ ] [Story: Access the CFPB's filing platform with Login.gov credentials](https://github.com/cfpb/sbl-project/issues/75) (#75)
 
 ## [Complete your user profile (first time user)](https://github.com/cfpb/sbl-project/issues/12)
 
 ### User stories
+#### MVP (Beta release)
 - [ ] [Story: Complete user profile (first name + last name) upon first login](https://github.com/cfpb/sbl-project/issues/17) (#17)
 - [ ] [Story: Prevent the completion of user profile with personal email address](https://github.com/cfpb/sbl-project/issues/18) (#18)
 - [ ] [Story: Associate with pre-approved institution(s) via email domain](https://github.com/cfpb/sbl-project/issues/19) (#19)
 - [ ] [Story: Next steps to take when financial institution does not yet have an LEI](https://github.com/cfpb/sbl-project/issues/23) (#23)
 - [ ] [Story: Actionable feedback when incomplete user profile form is submitted](https://github.com/cfpb/sbl-project/issues/27) (#27)
 
-#### Not prioritized for MVP: 
+#### Backlog
 - [ ] [Story: Self-associate from full financial institution database and submit for review](https://github.com/cfpb/sbl-project/issues/22)(#22)
-
-**Needs further review:** 
-- [ ] [Dev user story] As a filer, I want filings for my financial institution to be viewable only by people logged in and associated with my financial institution, so that only trusted users are seeing and modifying my filings.
-- [ ] [Need further review] As a filer, I want to be able to log out of my account at the end of a session, to keep it secure. Add timeout period for session? Login/Logout in the header area?
-- [ ] [Need further review] As a filer, I want each person on my team to have a separate account, so we don’t have to share login information. This is already built into the new system - Login.gov, user profile, etc.
-- [ ] [Needs further review] As a financial institution point of contact, I want there to be a credible process for ensuring that users are really associated with financial institutions, so that malicious actors can’t sabotage my filing process.  
+- [ ] Story: As a filer, I want filings for my financial institution to be viewable only by people logged in and associated with my financial institution, so that only trusted users are seeing and modifying my filings.
+- [ ] Story: As a filer, I want to be able to log out of my account at the end of a session, to keep it secure. Add timeout period for session? Login/Logout in the header area?
+- [ ] Story: As a filer, I want each person on my team to have a separate account, so we don’t have to share login information. This is already built into the new system - Login.gov, user profile, etc.
+- [ ] Story: As a financial institution point of contact, I want there to be a credible process for ensuring that users are really associated with financial institutions, so that malicious actors can’t sabotage my filing process.  
 
 ## [Shared landing page (authenticated)](https://github.com/cfpb/sbl-project/issues/8)
 
 ### User stories
+#### MVP (Beta release)
 GH story issues have not yet been created for this page. 
-- [ ] As a filer who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I would like my financial institution details to be centrally managed, so that I don’t have to maintain the same information in multiple places. 
-- [ ] As a filer  who submits both SBL and other data to CFPB (e.g. HMDA or NBR), I want to be able to have a single user profile that is shared among the CFPB platforms, so that I don’t have to maintain the same information in multiple places. 
+- [ ] As filer of SBL data, I can view my financial institution details, so that I can verify that I have the correct financial institution associations and take appropriate action if not. 
+- [ ] As filer of SBL data, I can launch the filing platform, so that I start the filing process. 
+- [ ] As filer of SBL data, I can view my user profile, so that I can confirm that the information is accurate. 
+- [ ] [As filer of SBL data, I can access additional resources, so that I can learn about relevant aspects of the filing process. ](https://github.com/cfpb/sbl-project/issues/79)
+- [ ] As filer of SBL data, I can Log out, so that I can ensure that my information is secure.
+
+#### Backlog
 
 ## [Request changes to your user profile](https://github.com/cfpb/sbl-project/issues/10)
 
 ### User stories
+#### MVP (Beta release)
 GH story issues have not yet been created for this page. 
 - [ ] As a filer, I want to view the information contained in my user profile, so that I can make sure that it's accurate.
 - [ ] As a filer, I want to be able to associate with additional financial institutions, so that I can file on behalf of all financial institutions that I am responsible for.
@@ -93,9 +103,16 @@ GH story issues have not yet been created for this page.
 - [ ] As a filer, I would like to be able to select a financial institution from the list of financial institutions I'm associated with, so that I can view the individual financial institution details. 
 - [ ] As a filer, I want to update/change my email address, so that I can keep my FI email address current. 
 
-## [View financial institution details](https://github.com/cfpb/sbl-project/issues/11)
+[Story: As a filer, I want to be able to view the information contained in my user profile] (https://github.com/cfpb/sbl-project/issues/68) #68
+ [Story: As a filer, I want to be able to associate with additional financial institutions] (https://github.com/cfpb/sbl-project/issues/69) #69
+ [Story: As a filer, I want to be able to view the list of financial institutions I’m associated with] (https://github.com/cfpb/sbl-project/issues/70 https://github.com/cfpb/sbl-project/issues/71) #70
+ [Story: As a filer, I want to be able to select a financial institution from the list of financial institutions I'm associated with] (https://github.com/cfpb/sbl-project/issues/71) #71
+  [Story: As a filer, I want to be able to update/change my email address] (https://github.com/cfpb/sbl-project/issues/72) #72
+
+## [View financial institution profile](https://github.com/cfpb/sbl-project/issues/11)
 
 ### User stories
+#### MVP (Beta release)
 GH story issues have not yet been created for all of the user stories for this page. 
 - [ ] [Story] View financial institution details #37
 - [ ] [Story] Instructions on how to update data on financial institution details  #38
@@ -107,6 +124,7 @@ GH story issues have not yet been created for all of the user stories for this p
 
 ### Pages: 
 - Small business lending data filing home
+- Review financial institution details
 - Upload file
 - Review errors
 - Verify warnings
@@ -115,6 +133,7 @@ GH story issues have not yet been created for all of the user stories for this p
 ## [Small business lending data filing home](https://github.com/cfpb/sbl-project/issues/14)
 
 ### User stories
+#### MVP (Beta release)
 - [ ] As a filer, I can see a list of active institutions I need to file for this filing season.
 - [ ] As a filer, I can see the current filing status for each of my institutions.
 - [ ] As a filer, I can easily tell when a filing season starts and ends.
@@ -123,17 +142,19 @@ GH story issues have not yet been created for all of the user stories for this p
 - [ ] As a filer, I can view the institution data snapshot for a past filing season.
 - [ ] As a filer, I can select an institution to restart a filing I've previously completed.
 
-## Confirm financial institution details for given filing period
-
+## Review financial institution details
 ### User stories
+#### MVP (Beta release)
 - [ ] As a filer, I can confirm my institution data is accurate for given filing period.
 - [ ] As a filer, I want clear instructions on what to do to if my institution data is inaccurate.
 
 ## Upload file
-1. As a filer, I can upload my FI's SBLAR data for a given filing period.
-1. As a filer, I can view the status of my submission while it is being processed.
-1. As a filer, I can view the results of my submission once processing is complete.
-1. As a filer, I can get clear error messages if the file failed to be processed.
+### User stories
+#### MVP (Beta release)
+- [ ] As a filer, I can upload my FI's SBLAR data for a given filing period.
+- [ ] As a filer, I can view the status of my submission while it is being processed.
+- [ ] As a filer, I can view the results of my submission once processing is complete.
+- [ ] As a filer, I can get clear error messages if the file failed to be processed.
 
 ### Questions
 1. What are the statuses visible to the end user?
@@ -147,6 +168,7 @@ GH story issues have not yet been created for all of the user stories for this p
 Should this be one section or should it be separated out between "Review errors" and "Verify warnings"?
 
 ### User stories
+#### MVP (Beta release)
 - [ ] As a filer, I can see a list of all validations raised on a given submission.
 - [ ] As a filer, I can cannot proceed with my submission if I have any error-level validations.
 - [ ] As a filer, I can proceed with my submission if I only have warning-level validations.
@@ -171,6 +193,7 @@ Should this be one section or should it be separated out between "Review errors"
 ## Sign and submit
 
 ### User stories
+#### MVP (Beta release)
 - [ ] As a filer, I want to submit ("sign" in HMDA-speak) a given submission as my SBL
    filing for a given filing season.
 - [ ] As a filer, I want an receipt-like identifier for my completed filing.
