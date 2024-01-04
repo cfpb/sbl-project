@@ -1,7 +1,7 @@
 # CFPB shared data filing platform
 The shared data filing platform will be used by filers of small business lending (SBL) and mortgage lending (HMDA) data to centrally manage their account (user profile, financial institution details, login through Login,gov, etc.). Once the filer is logged in and set up with an account they will be directed to the SBL or HMDA filing apps to file their data.  
 
-### Pages: 
+### Epics:
 - [Shared landing (unauthenticated)](https://github.com/cfpb/sbl-project/issues/7)
 - [Login.gov account creation and sign in](https://github.com/cfpb/sbl-project/issues/9)
 - [Complete your user profile](https://github.com/cfpb/sbl-project/issues/12)
@@ -122,12 +122,12 @@ GH story issues have not yet been created for all of the user stories for this p
   
 # Small business lending data filing app
 
-### Pages: 
+### Epics:
 - Small business lending data filing home
 - Review financial institution details
 - Upload file
-- Review errors
-- Verify warnings
+- Resolve errors
+- Review warnings
 - Sign and submit
 
 ## [Small business lending data filing home](https://github.com/cfpb/sbl-project/issues/14)
