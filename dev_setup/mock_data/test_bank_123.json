@@ -6,7 +6,7 @@
   "rssd_id": 1234,
   "primary_federal_regulator_id": "OCC",
   "hmda_institution_type_id": "1",
-  "sbl_institution_type_id": "1",
+  "sbl_institution_type_ids": ["1"],
   "hq_address_street_1": "Test Address Street 1",
   "hq_address_street_2": "",
   "hq_address_city": "Test City 1",
