@@ -6,7 +6,7 @@
   "rssd_id": 4321,
   "primary_federal_regulator_id": "FRS",
   "hmda_institution_type_id": "2",
-  "sbl_institution_type_id": "2",
+  "sbl_institution_type_ids": ["2"],
   "hq_address_street_1": "Test Address Street 2",
   "hq_address_street_2": "",
   "hq_address_city": "Test City 2",
