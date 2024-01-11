@@ -1247,7 +1247,7 @@
       "authorizationUrl" : "https://idp.int.identitysandbox.gov/openid_connect/authorize?acr_values=http%3A%2F%2Fidmanagement.gov%2Fns%2Fassurance%2Fial%2F1",
       "clientAuthMethod" : "private_key_jwt",
       "disableUserInfo" : "false",
-      "syncMode" : "IMPORT",
+      "syncMode" : "FORCE",
       "passMaxAge" : "false",
       "allowedClockSkew" : "3",
       "defaultScope" : "email"
