@@ -8,24 +8,27 @@ As with most local development, some support services need to be running to supp
 - Optional Github repository:
   - Additional RegTech developed modules may need to be added to support local development:
     - [user-fi-management](https://github.com/cfpb/regtech-user-fi-management) may be needed for front end development, it is used for user management, and institutions api.
+    - [sbl-filing-api](https://github.com/cfpb/sbl-filing-api) may be needed for front end development, it is used for filing SBL submissions.
   - If additional repository modules are needed as support services, the following folder structure should be followed, so [docker-compose.yml](./docker-compose.yml) can find and build the module with the correct relative path:
     ```
     code-root
     ├── regtech-user-fi-management
+    ├── sbl-filing-api
     └── sbl-project (current repository)
     ```
 
 ---
 ## Running the support services
-The [docker-compose.yml](./docker-compose.yml) currently contains 3 support services, 2 open source third party services, and 1 RegTech developed service:
+The [docker-compose.yml](./docker-compose.yml) currently contains 4 support services - 2 open source third party services, and 2 RegTech developed services:
 - [PostgreSQL](https://www.postgresql.org/) as the database storage
 - [Keycloak](https://www.keycloak.org/) for authentication and authorization
 - [user-fi-management](https://github.com/cfpb/regtech-user-fi-management) for user management, and institutions api.
+- [sbl-filing-api](https://github.com/cfpb/sbl-filing-api) for filing SBL submissions
 
-Only run development needed services. For front end development, all 3 services are likely to be needed; if development is done on [user-fi-management](https://github.com/cfpb/regtech-user-fi-management), then only `PostgreSQL` and `Keycloak` are needed.
+Only run development needed services. For front end development, all 4 services are likely to be needed; if development is done on [user-fi-management](https://github.com/cfpb/regtech-user-fi-management) and/or [sbl-filing-api](https://github.com/cfpb/sbl-filing-api), then only `PostgreSQL` and `Keycloak` are needed.
 - To run all services, simply issue command
   ```bash
-  docker compose up -d
+  docker compose up -d --remove-orphans --build
   ```
 - If only some of the services are needed, check what services are availabe in [docker-compose.yml](./docker-compose.yml), then run the command specifying the services. e.g. to start up `PostgreSQL` and `Keycloak`, issue the command
   ```bash
@@ -33,6 +36,8 @@ Only run development needed services. For front end development, all 3 services 
   ```
   - in [docker-compose.yml](./docker-compose.yml), `PostgreSQL` service is named `pg`, and `Keycloak` is named `keycloak`
   - the `-d` flag in the command is to run the containers in detached mode, so your development terminal is not inundated with logs
+  - the `--remove-orphans` flag removes containers not defined in the compose file.  Good way to clean up dangling containers.
+  - the `--build` flag ensures the latest image is built for the supporting repos and not using Docker cached images
 - To stop the containers, simply issue the command
   ```bash
   docker compose stop

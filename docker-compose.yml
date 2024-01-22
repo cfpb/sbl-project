@@ -40,12 +40,31 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
       - ./dev_setup/db/:/docker-entrypoint-initdb.d/:ro
+      - ./dev_setup/mock_data:/mock_data
   user_fi:
     build: ../regtech-user-fi-management
     ports:
       - 8881:8888
     env_file:
-      - ./dev_setup/local.env
+      - ./dev_setup/common.env
+      - ./dev_setup/user-fi.local.env
+    #healthcheck:
+    #  test: ["CMD-SHELL", "wget --output-document - http://localhost:8888/docs"]
+    #  interval: 10s
+    #  timeout: 5s
+    #  retries: 5
+    depends_on:
+      keycloak:
+        condition: service_healthy
+      pg:
+        condition: service_healthy
+  filing:
+    build: ../sbl-filing-api
+    ports:
+      - 8882:8888
+    env_file:
+      - ./dev_setup/common.env
+      - ./dev_setup/filing.local.env
     healthcheck:
       test: ["CMD-SHELL", "wget --output-document - http://localhost:8888/docs"]
       interval: 10s
