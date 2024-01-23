@@ -1,0 +1,43 @@
+name: New user story
+description: Feature request written from the perspective of the end user
+title: '[Story] Start with verb that describes user action (pull from the "I want to" part of the user story)'
+labels:
+  - story
+projects:
+  - "cfpb/21"
+body:
+  - type: textarea
+    id: epic
+    attributes:
+      label: Epic
+      description: Link to parent epic, represented as GitHub issue
+      value: |
+        Epic issue includes overview, complete list of user stories, technical and content requirements, user testing task ideation, and current design mock-ups.
+        
+        Add link to the parent epic
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      description: Feature request written from the perspective of the end user
+      value: As a [user type], I want to [take some action], so that [reason for action].
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: A set of predefined requirements that must be met to mark a user story complete
+      value: Given [some context or conditions], when [the action that is performed], then [the expected observable outcome or behavior].
+  - type: textarea
+    id: technical-tasks
+    attributes:
+      label: Technical tasks
+      value: |
+        Developers should create technical tasks and add links (below) prior to sprint planning.
+        
+        #### Front end
+        - [ ] Task (link)
+        - [ ] Task (link)
+ 
+        #### Back end
+        - [ ] Task (link)
+        - [ ] Task (link)
