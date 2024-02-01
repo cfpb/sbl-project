@@ -40,7 +40,6 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
       - ./dev_setup/db/:/docker-entrypoint-initdb.d/:ro
-      - ./dev_setup/mock_data:/mock_data
   user_fi:
     build: ../regtech-user-fi-management
     ports:
