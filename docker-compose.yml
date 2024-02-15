@@ -74,6 +74,31 @@ services:
         condition: service_healthy
       pg:
         condition: service_healthy
+
+  mail_api:
+    build: ../regtech-mail-api
+    depends_on:
+      keycloak:
+        condition: service_healthy
+    ports:
+      - 8765:8765
+    env_file:
+      - ./dev_setup/common.env
+    environment:
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      FROM_ADDR: noreply@localhost.localdomain
+      TO: cases@localhost.localdomain
+
+  mailpit:
+    image: axllent/mailpit
+    ports:
+      - 8025:8025
+      - 1025:1025
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
 volumes:
   db:
     driver: local

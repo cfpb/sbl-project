@@ -89,6 +89,7 @@ has different needs.
 - [regtech-data-validator](https://github.com/cfpb/regtech-data-validator) - Data validation tool for CFPB's RegTech systems.
 - [regtech-frontend]() - Web frontend for CFPB's RegTech home app
 - [regtech-user-fi-management](https://github.com/cfpb/regtech-user-fi-management) - API for user and institution data in CFPB's RegTech systems
+- [regtech-mail-api](https://github.com/cfpb/regtech-mail-api) - API for sending mail via SMTP, either to Mailpit or through AWS SES
 - [sbl-filing-api](https://github.com/cfpb/sbl-filing-api) - API for filing SBL submissions
 - [sbl-frontend](https://github.com/cfpb/sbl-frontend/) - Web frontend for the CFPB's SBL filing system.
 - [sbl-prototype](https://github.com/cfpb/sbl-prototype) - Prototype of CFPB's RegTech Home and SBL filing apps
