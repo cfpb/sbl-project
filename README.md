@@ -85,13 +85,14 @@ has different needs.
 
 ### Development repositories
 
-- [design-stories](https://github.com/cfpb/design-stories) - React implementation of [CFPB's Design System](https://cfpb.github.io/design-system/).
-- [regtech-data-validator](https://github.com/cfpb/regtech-data-validator) - Data validation tool for CFPB's RegTech systems.
-- [regtech-frontend]() - Web frontend for CFPB's RegTech home app
-- [regtech-user-fi-management](https://github.com/cfpb/regtech-user-fi-management) - API for user and institution data in CFPB's RegTech systems
-- [sbl-filing-api](https://github.com/cfpb/sbl-filing-api) - API for filing SBL submissions
-- [sbl-frontend](https://github.com/cfpb/sbl-frontend/) - Web frontend for the CFPB's SBL filing system.
-- [sbl-prototype](https://github.com/cfpb/sbl-prototype) - Prototype of CFPB's RegTech Home and SBL filing apps
+- [design-system-react](https://github.com/cfpb/design-system-react) - React implementation of [CFPB's Design System](https://cfpb.github.io/design-system/)
+- [regtech-api-commons](https://github.com/cfpb/regtech-api-commons) - Shared FastAPI components for CFPB's RegTech services
+- [regtech-data-validator](https://github.com/cfpb/regtech-data-validator) - Data validation tool for CFPB's RegTech services
+- [regtech-deployments](https://github.com/cfpb/regtech-deployments) - Shared Kubernetes resources for CFPB's RegTech services
+- [regtech-mail-api](https://github.com/cfpb/regtech-mail-api) - REST API for sending emails
+- [regtech-user-fi-management](https://github.com/cfpb/regtech-user-fi-management) - REST API for user and institution data in CFPB's RegTech systems
+- [sbl-filing-api](https://github.com/cfpb/sbl-filing-api) - REST API for filing SBL submissions
+- [sbl-frontend](https://github.com/cfpb/sbl-frontend/) - Web frontend for the CFPB's SBL filing system
 
 ### Development setup
 
