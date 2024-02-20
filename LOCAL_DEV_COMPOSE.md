@@ -9,9 +9,11 @@ As with most local development, some support services need to be running to supp
   - Additional RegTech developed modules may need to be added to support local development:
     - [user-fi-management](https://github.com/cfpb/regtech-user-fi-management) may be needed for front end development, it is used for user management, and institutions api.
     - [sbl-filing-api](https://github.com/cfpb/sbl-filing-api) may be needed for front end development, it is used for filing SBL submissions.
+    - [regtech-mail-api](https://github.com/cfpb/regtech-mail-api) may be needed to test the frontend sending mail to SBL Help.
   - If additional repository modules are needed as support services, the following folder structure should be followed, so [docker-compose.yml](./docker-compose.yml) can find and build the module with the correct relative path:
     ```
     code-root
+    ├── regtech-mail-api
     ├── regtech-user-fi-management
     ├── sbl-filing-api
     └── sbl-project (current repository)
@@ -24,8 +26,10 @@ The [docker-compose.yml](./docker-compose.yml) currently contains 4 support serv
 - [Keycloak](https://www.keycloak.org/) for authentication and authorization
 - [user-fi-management](https://github.com/cfpb/regtech-user-fi-management) for user management, and institutions api.
 - [sbl-filing-api](https://github.com/cfpb/sbl-filing-api) for filing SBL submissions
+- [mail-api](https://github.com/cfpb/regtech-mail-api) for sending mail via SMTP to Mailpit or through AWS SES
+- [mailpit](https://mailpit.axllent.org/) "dead-end" SMTP server for testing the mail-api
 
-Only run development needed services. For front end development, all 4 services are likely to be needed; if development is done on [user-fi-management](https://github.com/cfpb/regtech-user-fi-management) and/or [sbl-filing-api](https://github.com/cfpb/sbl-filing-api), then only `PostgreSQL` and `Keycloak` are needed.
+Only run development needed services. For front end development, all 4 services are likely to be needed; if development is done on [user-fi-management](https://github.com/cfpb/regtech-user-fi-management), [sbl-filing-api](https://github.com/cfpb/sbl-filing-api), or [mail-api](https://github.com/cfpb/regtech-mail-api) then only `PostgreSQL` and `Keycloak` are needed.
 - To run all services, simply issue command
   ```bash
   docker compose up -d --remove-orphans --build
@@ -55,6 +59,9 @@ Only run development needed services. For front end development, all 4 services 
   - PostgreSQL(`pg`) can be accessed from the host machine at port `5432`
   - Keycloak (`keycloak`) is accessible at `8880`
   - user-fi-management (`user_fi`) is accessible at `8881`
+  - sbl-filing (`filing`) is accessible at `8882`
+  - regtech-mail-api (`mail_api`) is accessible at `8765`
+  - mailpit (`mailpit`) is accessible at `1025` for SMTP, `8025` for the web interface (http://localhost:8025/)
 
 ---
 ## Mock data population
