@@ -390,7 +390,7 @@
     "emailVerified" : false,
     "firstName" : "",
     "lastName" : "",
-    "email" : "user1@local.host",
+    "email" : "user1@testbank123.local",
     "credentials" : [ {
       "id" : "633df0ae-312c-4bcc-9e5d-075c763e1eaf",
       "type" : "password",
