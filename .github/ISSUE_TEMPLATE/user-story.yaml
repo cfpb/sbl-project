@@ -14,19 +14,21 @@ body:
       value: |
         Epic issue includes overview, complete list of user stories, technical and content requirements, user testing task ideation, and current design mock-ups.
         
-        Add link to the parent epic
+        - <link to parent epic> 
   - type: textarea
     id: story
     attributes:
       label: User story
       description: Feature request written from the perspective of the end user
-      value: As a [user type], I want to [take some action], so that [reason for action].
+      value: |
+        - As a [user type], I want to [take some action], so that [reason for action].
   - type: textarea
     id: acceptance-criteria
     attributes:
       label: Acceptance criteria
       description: A set of predefined requirements that must be met to mark a user story complete
-      value: Given [some context or conditions], when [the action that is performed], then [the expected observable outcome or behavior].
+      value: |
+        - Given [some context or conditions], when [the action that is performed], then [the expected observable outcome or behavior].
   - type: textarea
     id: technical-tasks
     attributes:
