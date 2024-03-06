@@ -1,12 +1,16 @@
 {
   "name": "Test Bank 123",
-  "lei": "TESTBANK123",
+  "lei": "123456789TESTBANK123",
   "is_active": true,
-  "tax_id": "123456789",
+  "tax_id": "88-9123123",
   "rssd_id": 1234,
   "primary_federal_regulator_id": "OCC",
   "hmda_institution_type_id": "1",
-  "sbl_institution_types": ["1", "2", {"id": "13", "details": "Test SBL Type"}],
+  "sbl_institution_types": [
+    "1",
+    "2",
+    { "id": "13", "details": "Test SBL Type" }
+  ],
   "hq_address_street_1": "Test Address Street 1",
   "hq_address_street_2": "",
   "hq_address_city": "Test City 1",
