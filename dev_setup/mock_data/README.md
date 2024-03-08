@@ -56,3 +56,12 @@ curl "localhost:8881/v1/institutions/$lei/domains" -X POST \
 Change `lei`, and `domain` to the appropriate values
 
 __NOTE__: These instructions are scripts works with the user_fi app through the docker compose setup of port `8881`, if you run the app locally instead via the instructions through user_fi's [README](https://github.com/cfpb/regtech-user-fi-management/blob/main/README.md), please change the port numbers `8881` to `8888`
+
+### Filing Period insert
+To get an initial Filing Period into the filing database (which Filings, Submissions, and Contact Info are all children of), run the following commands after running docker compose up (see  [LOCAL_DEV_COMPOSE](./LOCAL_DEV_COMPOSE.md)):
+  1. cd into dev_setup/mock_data
+  2. Run `sh insert_filing_period.sh`
+
+This script uses docker commands to insert a filing period in the database, in case you don't have postgres/psql installed locally.  If you do, you can simply run:
+  1. `psql -U filing_user -h localhost filing -f filing_period_insert.sql`
+  2. Enter password of filing_user when prompted
