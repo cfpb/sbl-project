@@ -40,7 +40,7 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
       - ./dev_setup/db/:/docker-entrypoint-initdb.d/:ro
-  user_fi:
+  user-fi:
     build: ../regtech-user-fi-management
     ports:
       - 8881:8888
@@ -75,7 +75,7 @@ services:
       pg:
         condition: service_healthy
 
-  mail_api:
+  mail-api:
     build: ../regtech-mail-api
     depends_on:
       keycloak:

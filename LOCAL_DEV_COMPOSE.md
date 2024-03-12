@@ -53,14 +53,14 @@ Only run development needed services. For front end development, all 4 services 
   - the `-v` flag removes any volumes created by docker compose, this makes sure the services that attaches a volume, like `PostgreSQL`, gets the data wiped as well.
 - If a RegTech module needs to have the image rebuilt because there was an update to the codebase, we can use the `docker compose build` command with the service name, e.g.
   ```bash
-  docker compose build user_fi
+  docker compose build user-fi
   ```
 - Exposed ports for each service is specified in [docker-compose.yml](./docker-compose.yml), for reference here:
   - PostgreSQL(`pg`) can be accessed from the host machine at port `5432`
   - Keycloak (`keycloak`) is accessible at `8880`
-  - user-fi-management (`user_fi`) is accessible at `8881`
+  - user-fi-management (`user-fi`) is accessible at `8881`
   - sbl-filing (`filing`) is accessible at `8882`
-  - regtech-mail-api (`mail_api`) is accessible at `8765`
+  - regtech-mail-api (`mail-api`) is accessible at `8765`
   - mailpit (`mailpit`) is accessible at `1025` for SMTP, `8025` for the web interface (http://localhost:8025/)
 
 ---
