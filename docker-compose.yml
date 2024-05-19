@@ -99,6 +99,13 @@ services:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
 
+  sbl-frontend:
+    build: ../sbl-frontend
+    ports:
+      - 8898:8080
+    env_file:
+      - ./dev_setup/frontend.local.env
+
 volumes:
   db:
     driver: local
