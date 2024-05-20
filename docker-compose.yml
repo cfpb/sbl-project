@@ -99,6 +99,15 @@ services:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
 
+  sbl-locust:
+    build: ../sbl-filing-api/locust-load-test
+    ports:
+      - 8089:8089
+    env_file:
+      - ./dev_setup/common.env
+    environment:
+      MODE: single
+
 volumes:
   db:
     driver: local
