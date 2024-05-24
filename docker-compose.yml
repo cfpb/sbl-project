@@ -26,6 +26,7 @@ services:
     depends_on:
       pg:
         condition: service_healthy
+    profiles: [locust, backend, mail]
   pg:
     image: postgres
     ports:
@@ -40,6 +41,7 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
       - ./dev_setup/db/:/docker-entrypoint-initdb.d/:ro
+    profiles: [locust, backend, mail]
   user-fi:
     build: ../regtech-user-fi-management
     ports:
@@ -57,6 +59,7 @@ services:
         condition: service_healthy
       pg:
         condition: service_healthy
+    profiles: [backend]
   filing:
     build: ../sbl-filing-api
     ports:
@@ -74,6 +77,7 @@ services:
         condition: service_healthy
       pg:
         condition: service_healthy
+    profiles: [locust, backend]
 
   mail-api:
     build: ../regtech-mail-api
@@ -89,6 +93,7 @@ services:
       SMTP_PORT: 1025
       FROM_ADDR: noreply@localhost.localdomain
       TO: cases@localhost.localdomain
+    profiles: [mail]
 
   mailpit:
     image: axllent/mailpit
@@ -98,6 +103,7 @@ services:
     environment:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    profiles: [mail]
 
   sbl-locust:
     build: ../sbl-filing-api/locust-load-test
@@ -107,6 +113,7 @@ services:
       - ./dev_setup/common.env
     environment:
       MODE: single
+    profiles: [locust]
 
 volumes:
   db:
