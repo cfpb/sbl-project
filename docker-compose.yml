@@ -67,9 +67,6 @@ services:
     env_file:
       - ./dev_setup/common.env
       - ./dev_setup/filing.local.env
-    volumes:
-      - .:/usr/app/reports
-      - ./upload:/usr/app/upload
     healthcheck:
       test: ["CMD-SHELL", "wget --output-document - http://localhost:8888/docs"]
       interval: 10s

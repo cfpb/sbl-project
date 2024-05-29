@@ -21,18 +21,32 @@ As with most local development, some support services need to be running to supp
 
 ---
 ## Running the support services
-The [docker-compose.yml](./docker-compose.yml) currently contains 4 support services - 2 open source third party services, and 2 RegTech developed services:
+The [docker-compose.yml](./docker-compose.yml) currently contains 7 support services - 4 open source third party services, and 3 RegTech developed services:
 - [PostgreSQL](https://www.postgresql.org/) as the database storage
 - [Keycloak](https://www.keycloak.org/) for authentication and authorization
+- [Locust](https://locust.io/) for load balance testing of the filing-api
 - [user-fi-management](https://github.com/cfpb/regtech-user-fi-management) for user management, and institutions api.
 - [sbl-filing-api](https://github.com/cfpb/sbl-filing-api) for filing SBL submissions
 - [mail-api](https://github.com/cfpb/regtech-mail-api) for sending mail via SMTP to Mailpit or through AWS SES
 - [mailpit](https://mailpit.axllent.org/) "dead-end" SMTP server for testing the mail-api
 
-Only run development needed services. For front end development, all 4 services are likely to be needed; if development is done on [user-fi-management](https://github.com/cfpb/regtech-user-fi-management), [sbl-filing-api](https://github.com/cfpb/sbl-filing-api), or [mail-api](https://github.com/cfpb/regtech-mail-api) then only `PostgreSQL` and `Keycloak` are needed.
+The [docker-compose.yml](./docker-compose.yml) is broken into profiles:
+- backend - Runs Postgres, Keycloak, user-fi-management, sbl-filing-api, mail-api and mailpit
+- locust - Runs Postgres, Keycloak, Locust, and sbl-filing-api
+
+Only run development needed services. For front end development, the 6 backend services are likely to be needed; if development is done on [user-fi-management](https://github.com/cfpb/regtech-user-fi-management), [sbl-filing-api](https://github.com/cfpb/sbl-filing-api), or [mail-api](https://github.com/cfpb/regtech-mail-api) then only `PostgreSQL` and `Keycloak` are needed.
 - To run all services, simply issue command
   ```bash
-  docker compose up -d --remove-orphans --build
+  docker compose --profile '*' up -d --remove-orphans --build
+  ```
+  This will launch every service defined in the [docker-compose.yml](./docker-compose.yml)
+- To run just the backend services (no Locust)
+  ```bash
+  docker compose --profile backend up -d --remove-orphans --build
+  ```
+- To run Locust load testing
+  ```bash
+  docker compose --profile locust up -d --remove-orphans --build
   ```
 - If only some of the services are needed, check what services are availabe in [docker-compose.yml](./docker-compose.yml), then run the command specifying the services. e.g. to start up `PostgreSQL` and `Keycloak`, issue the command
   ```bash
@@ -44,11 +58,11 @@ Only run development needed services. For front end development, all 4 services 
   - the `--build` flag ensures the latest image is built for the supporting repos and not using Docker cached images
 - To stop the containers, simply issue the command
   ```bash
-  docker compose stop
+  docker compose --profile <name of profile loaded> stop
   ```
 - If you would like to completely destroy the containers and the volumes, so they can be recreated with fresh data:
   ```bash
-  docker compose down -v
+  docker compose --profile <name of profile loaded> down -v
   ```
   - the `-v` flag removes any volumes created by docker compose, this makes sure the services that attaches a volume, like `PostgreSQL`, gets the data wiped as well.
 - If a RegTech module needs to have the image rebuilt because there was an update to the codebase, we can use the `docker compose build` command with the service name, e.g.
@@ -62,6 +76,7 @@ Only run development needed services. For front end development, all 4 services 
   - sbl-filing (`filing`) is accessible at `8882`
   - regtech-mail-api (`mail-api`) is accessible at `8765`
   - mailpit (`mailpit`) is accessible at `1025` for SMTP, `8025` for the web interface (http://localhost:8025/)
+  - locust (`locust`) is accessible at `8089` for the web interface (http://localhost:8089/)
 
 ---
 ## Mock data population
