@@ -26,7 +26,7 @@ services:
     depends_on:
       pg:
         condition: service_healthy
-    profiles: [locust, backend, mail]
+    profiles: [locust, backend]
   pg:
     image: postgres
     ports:
@@ -41,7 +41,7 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
       - ./dev_setup/db/:/docker-entrypoint-initdb.d/:ro
-    profiles: [locust, backend, mail]
+    profiles: [locust, backend]
   user-fi:
     build: ../regtech-user-fi-management
     ports:
@@ -67,6 +67,9 @@ services:
     env_file:
       - ./dev_setup/common.env
       - ./dev_setup/filing.local.env
+    volumes:
+      - .:/usr/app/reports
+      - ./upload:/usr/app/upload
     healthcheck:
       test: ["CMD-SHELL", "wget --output-document - http://localhost:8888/docs"]
       interval: 10s
@@ -93,7 +96,7 @@ services:
       SMTP_PORT: 1025
       FROM_ADDR: noreply@localhost.localdomain
       TO: cases@localhost.localdomain
-    profiles: [mail]
+    profiles: [backend]
 
   mailpit:
     image: axllent/mailpit
@@ -103,7 +106,7 @@ services:
     environment:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
-    profiles: [mail]
+    profiles: [backend]
 
   sbl-locust:
     build: ../sbl-filing-api/locust-load-test
