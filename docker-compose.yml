@@ -115,6 +115,14 @@ services:
       MODE: single
     profiles: [locust]
 
+  sbl-frontend:
+    build: ../sbl-frontend
+    ports:
+      - 8898:8080
+    env_file:
+      - ./dev_setup/frontend.local.env
+    profiles: [frontend]
+
 volumes:
   db:
     driver: local
