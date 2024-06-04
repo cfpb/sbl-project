@@ -278,24 +278,24 @@
   },
   "groups" : [ {
     "id" : "09c71475-d901-4f43-a6bf-597ea31c4e9c",
-    "name" : "TEST1LEI100000000000",
-    "path" : "/TEST1LEI100000000000",
+    "name" : "123456789TESTBANK123",
+    "path" : "/123456789TESTBANK123",
     "attributes" : { },
     "realmRoles" : [ ],
     "clientRoles" : { },
     "subGroups" : [ ]
   }, {
     "id" : "c6503b46-dda7-482c-8db4-00ffc2eae2d6",
-    "name" : "TEST2LEI200000000000",
-    "path" : "/TEST2LEI200000000000",
+    "name" : "123456789TESTBANK456",
+    "path" : "/123456789TESTBANK456",
     "attributes" : { },
     "realmRoles" : [ ],
     "clientRoles" : { },
     "subGroups" : [ ]
   }, {
     "id" : "fb646fd6-090f-4968-9f30-9b20341b010b",
-    "name" : "TEST3LEI300000000000",
-    "path" : "/TEST3LEI300000000000",
+    "name" : "123456TESTBANKSUB456",
+    "path" : "/123456TESTBANKSUB456",
     "attributes" : { },
     "realmRoles" : [ ],
     "clientRoles" : { },
