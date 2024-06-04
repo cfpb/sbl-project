@@ -12,10 +12,10 @@
   "hq_address_city": "Test City 3",
   "hq_address_state_code": "FL",
   "hq_address_zip": "11111",
-  "parent_lei": "PARENTTESTBANK456",
+  "parent_lei": "012PARENTTESTBANK456",
   "parent_legal_name": "PARENT TEST SUB BANK 456",
   "parent_rssd_id": 21435,
-  "top_holder_lei": "TOPHOLDERLEI456",
+  "top_holder_lei": "01234TOPHOLDERLEI456",
   "top_holder_legal_name": "TOP HOLDER LEI SUB BANK 456",
   "top_holder_rssd_id": 321654
 }
