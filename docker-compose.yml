@@ -113,6 +113,8 @@ services:
       - ./dev_setup/common.env
     environment:
       MODE: single
+      USER_INDEX: 100
+      SBLAR_REPO: https://api.github.com/repos/cfpb/sbl-test-data/contents/locust-sblars
     profiles: [locust]
 
   sbl-frontend:
