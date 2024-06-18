@@ -10,7 +10,7 @@ export RT_ACCESS_TOKEN=$(curl 'localhost:8880/realms/regtech/protocol/openid-con
 
 curl localhost:8881/v1/admin/me -H "Authorization: Bearer ${RT_ACCESS_TOKEN}" | jq -r '.'
 
-inst_json_files=( $(curl -v https://api.github.com/repos/cfpb/sbl-test-data/contents/financial_institutions\?ref\=5-add-test-financial-institution-jsons-to-repo | jq -r '.[].download_url') )
+inst_json_files=( $(curl -v https://api.github.com/repos/cfpb/sbl-test-data/contents/financial_institutions | jq -r '.[].download_url') )
 
 for file in "${inst_json_files[@]}"
 do
