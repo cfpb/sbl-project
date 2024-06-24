@@ -278,24 +278,24 @@
   },
   "groups" : [ {
     "id" : "09c71475-d901-4f43-a6bf-597ea31c4e9c",
-    "name" : "TEST1LEI",
-    "path" : "/TEST1LEI",
+    "name" : "123456789TESTBANK123",
+    "path" : "/123456789TESTBANK123",
     "attributes" : { },
     "realmRoles" : [ ],
     "clientRoles" : { },
     "subGroups" : [ ]
   }, {
     "id" : "c6503b46-dda7-482c-8db4-00ffc2eae2d6",
-    "name" : "TEST2LEI",
-    "path" : "/TEST2LEI",
+    "name" : "123456789TESTBANK456",
+    "path" : "/123456789TESTBANK456",
     "attributes" : { },
     "realmRoles" : [ ],
     "clientRoles" : { },
     "subGroups" : [ ]
   }, {
     "id" : "fb646fd6-090f-4968-9f30-9b20341b010b",
-    "name" : "TEST3LEI",
-    "path" : "/TEST3LEI",
+    "name" : "123456TESTBANKSUB456",
+    "path" : "/123456TESTBANKSUB456",
     "attributes" : { },
     "realmRoles" : [ ],
     "clientRoles" : { },

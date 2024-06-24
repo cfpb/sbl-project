@@ -13,16 +13,17 @@ export RT_ACCESS_TOKEN=$(curl "${auth_base}/realms/regtech/protocol/openid-conne
 
 curl $user_fi_base/v1/admin/me -H "Authorization: Bearer ${RT_ACCESS_TOKEN}" | jq -r '.'
 
-inst_json_files=( 'test_bank_123.json' 'test_bank_456.json' 'test_sub_bank_456.json' )
+inst_json_files=( $(curl -v https://api.github.com/repos/cfpb/sbl-test-data/contents/financial_institutions | jq -r '.[].download_url') )
 
 for file in "${inst_json_files[@]}"
 do
-  lei=$(cat $file | jq -r '.lei')
+  json=$(curl $file | jq '.')
+  lei=$(echo $json | jq -r '.lei')
   domain=$(echo $lei | tr '[:upper:]' '[:lower:]').local
   curl $user_fi_base/v1/institutions/ -X POST \
       -H "Authorization: Bearer ${RT_ACCESS_TOKEN}" \
       -H 'Content-Type: application/json' \
-      --data-binary "@$file" | jq -r '.'
+      -d "$json" | jq -r '.'
   curl $user_fi_base/v1/institutions/$lei/domains -X POST \
       -H "Authorization: Bearer ${RT_ACCESS_TOKEN}" \
       -H 'Content-Type: application/json' \
