@@ -125,6 +125,20 @@ services:
       - ./dev_setup/frontend.local.env
     profiles: [frontend]
 
+  cleanup:
+    build: ../regtech-cleanup-api
+    ports:
+      - 8883:8888
+    env_file:
+      - ./dev_setup/common.env
+      - ./dev_setup/filing.local.env
+      - ./dev_setup/user-fi.local.env
+    depends_on:
+      filing:
+        condition: service_healthy
+      user-fi:
+        condition: service_healthy
+    profiles: [backend]
 volumes:
   db:
     driver: local
