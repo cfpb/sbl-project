@@ -43,17 +43,18 @@ services:
       - ./dev_setup/db/:/docker-entrypoint-initdb.d/:ro
     profiles: [locust, backend]
   user-fi:
+    platform: linux/amd64
     build: ../regtech-user-fi-management
     ports:
       - 8881:8888
     env_file:
       - ./dev_setup/common.env
       - ./dev_setup/user-fi.local.env
-    #healthcheck:
-    #  test: ["CMD-SHELL", "wget --output-document - http://localhost:8888/docs"]
-    #  interval: 10s
-    #  timeout: 5s
-    #  retries: 5
+    healthcheck:
+      test: ["CMD-SHELL", "wget --output-document - http://0.0.0.0:8888/docs"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     depends_on:
       keycloak:
         condition: service_healthy
@@ -80,6 +81,7 @@ services:
     profiles: [locust, backend]
 
   mail-api:
+    platform: linux/amd64
     build: ../regtech-mail-api
     depends_on:
       keycloak:
@@ -126,6 +128,7 @@ services:
     profiles: [frontend]
 
   cleanup:
+    platform: linux/amd64
     build: ../regtech-cleanup-api
     ports:
       - 8883:8888
@@ -133,6 +136,7 @@ services:
       - ./dev_setup/common.env
       - ./dev_setup/filing.local.env
       - ./dev_setup/user-fi.local.env
+      - ./dev_setup/cleanup.env
     depends_on:
       filing:
         condition: service_healthy
