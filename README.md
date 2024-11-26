@@ -57,14 +57,6 @@ multiple sprints. These epics are represented as GitHub issues, labeled as
 [**epic**](https://github.com/cfpb/sbl-project/issues?q=is%3Aopen+is%3Aissue+epic). We use these issues for the initial research and
 discussion before we take on the underlying user stories.
 
-### UX and design
-
-We also do most of our UX and design on **epic** issues. This work includes
-producing wireframes and mockups, gathering background information, and
-user research. We don't start work on any user stories until this upfront
-work has been completed.
-
-
 ## Milestones
 
 We use [**Milestones**](https://github.com/cfpb/sbl-project/milestones)
@@ -76,14 +68,14 @@ view
 
 ## Development tasks
 
-We use GitHub issues to track our development tasks as well. These
-issues live in separate repos alongside their corresponding code.
+We use GitHub issues to track our development and UX tasks. These
+issues live in separate repos alongside their corresponding code (where applicable).
 These issues will frequently be associated with [story](#user-stories) 
 issues, but can also be indepedent tasks, such as bug fixes. These
 issues do not follow any consistent labeling scheme as each repo
 has different needs.
 
-### Development repositories
+### Development and UX repositories
 
 - [design-system-react](https://github.com/cfpb/design-system-react) - React implementation of [CFPB's Design System](https://cfpb.github.io/design-system/)
 - [regtech-api-commons](https://github.com/cfpb/regtech-api-commons) - Shared FastAPI components for CFPB's RegTech services
@@ -93,6 +85,7 @@ has different needs.
 - [regtech-user-fi-management](https://github.com/cfpb/regtech-user-fi-management) - REST API for user and institution data in CFPB's RegTech systems
 - [sbl-filing-api](https://github.com/cfpb/sbl-filing-api) - REST API for filing SBL submissions
 - [sbl-frontend](https://github.com/cfpb/sbl-frontend/) - Web frontend for the CFPB's SBL filing system
+- [sbl-frontend](https://github.com/cfpb/sbl-ux/) - Repository for tracking UX work related to the small business lending project.
 
 ### Development setup
 
