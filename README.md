@@ -24,7 +24,7 @@ We use [User Stories](https://www.atlassian.com/agile/project-management/user-st
 to define the features we will implement for SBL.
 These user stories are represented as GitHub issues, labeled as
 [**story**](https://github.com/cfpb/sbl-project/issues?q=is%3Aopen+is%3Aissue+label%3Astory). During our Sprint Planning meetings, we 
-select User Stories for the upcoming Sprint that meet our
+select user stories for the upcoming Sprint that meet our
 **definition of ready**.
 
 ### Definition of ready
