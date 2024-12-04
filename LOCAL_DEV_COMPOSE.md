@@ -78,12 +78,6 @@ Only run development needed services. For front end development, the 6 backend s
   - mailpit (`mailpit`) is accessible at `1025` for SMTP, `8025` for the web interface (http://localhost:8025/)
   - locust (`locust`) is accessible at `8089` for the web interface (http://localhost:8089/)
 
-## NOTE FOR MAC CHIPS!
-
-Due to issues with polars in the data-validator, which is used by the filing-api, running in the Rosetta emulator (which is the emulator docker uses on mac to simulate an AMD environment),
-docker-compose and the sbl-filing-api Dockerfile are set to use an IS_MAC environment variable/--build-arg to determine if the filing service docker build should install polars-lts-cpu or
-not.  So if you are on a Mac chip, you must either `export IS_MAC=true` or start the docker compose command with that environment variable, like `IS_MAC=true docker compose --profile....`
-
 ---
 ## Mock data population
 With [user-fi-management](https://github.com/cfpb/regtech-user-fi-management), pre-populating the database with some mock institutions can aid front-end development. We've created some instructions, and some mock institution json files in [mock_data](./dev_setup/mock_data/) directory to help with that process.

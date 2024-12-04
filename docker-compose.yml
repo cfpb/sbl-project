@@ -63,14 +63,9 @@ services:
     profiles: [backend]
   filing:
     platform: linux/amd64
-    build: 
-        context: ../sbl-filing-api
-        args:
-          IS_MAC: ${IS_MAC:-false}
+    build: ../sbl-filing-api
     ports:
       - 8882:8888
-    environment:
-      - IS_MAC=${IS_MAC:-false}
     env_file:
       - ./dev_setup/common.env
       - ./dev_setup/filing.local.env
