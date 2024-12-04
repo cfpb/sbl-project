@@ -51,7 +51,7 @@ services:
       - ./dev_setup/common.env
       - ./dev_setup/user-fi.local.env
     healthcheck:
-      test: ["CMD-SHELL", "wget --output-document - http://0.0.0.0:8888/docs"]
+      test: ["CMD-SHELL", "wget --output-document - http://0.0.0.0:8888/v1/institutions/healthcheck"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -62,6 +62,7 @@ services:
         condition: service_healthy
     profiles: [backend]
   filing:
+    platform: linux/amd64
     build: ../sbl-filing-api
     ports:
       - 8882:8888
@@ -69,7 +70,7 @@ services:
       - ./dev_setup/common.env
       - ./dev_setup/filing.local.env
     healthcheck:
-      test: ["CMD-SHELL", "wget --output-document - http://0.0.0.0:8888/docs"]
+      test: ["CMD-SHELL", "wget --output-document - http://0.0.0.0:8888/v1/filing/healthcheck"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -85,6 +86,11 @@ services:
   mail-api:
     platform: linux/amd64
     build: ../regtech-mail-api
+    healthcheck:
+      test: ["CMD-SHELL", "wget --output-document - http://0.0.0.0:8765/public/healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     depends_on:
       keycloak:
         condition: service_healthy
