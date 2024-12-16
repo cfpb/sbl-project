@@ -101,6 +101,8 @@ services:
       SMTP_PORT: 1025
       FROM_ADDR: noreply@localhost.localdomain
       TO: cases@localhost.localdomain
+      BETA_BODY_TEMPLATE: "Congratulations! This email confirms that {signer_name} submitted a filing on {formatted_date}. The confirmation number for this filing is {confirmation_id}.{line_break}The beta platform is for testing purposes only and user-supplied data may be removed at any time. Email our support staff at sblhelp@cfpb.gov to share feedback or return to the platform to upload a new file and continue testing."
+      PROD_BODY_TEMPLATE: "Congratulations! This email confirms that {signer_name} submitted a filing on {formatted_date}. The confirmation number for this filing is {confirmation_id}.{line_break}If you have any questions or need additional support, email our support staff at sblhelp@cfpb.gov."
     profiles: [backend]
 
   mailpit:
