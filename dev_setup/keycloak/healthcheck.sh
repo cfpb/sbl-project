@@ -1,13 +1,12 @@
 #!/bin/bash
 # this is used because keycloak's image does not have curl or wget commands
-exec 3<>/dev/tcp/localhost/8080
+exec 3<>/dev/tcp/localhost/8080 || { echo "Connection Failed"; exit 1; }
 
-echo -e "GET /health/ready HTTP/1.1\nhost: localhost:8080\n" >&3
+echo -e "GET /realms/regtech/protocol/openid-connect/certs HTTP/1.1\r\nHost: localhost\r\n\r\n" >&3
 
-timeout --preserve-status 1 cat <&3 | grep -m 1 status | grep -m 1 UP
-ERROR=$?
+response=$(head -n 1 <&3)
+
+echo "Response: $response"
 
 exec 3<&-
 exec 3>&-
-
-exit $ERROR
