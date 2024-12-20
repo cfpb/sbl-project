@@ -34,7 +34,7 @@ body:
     attributes:
       label: Tasks
       value: |
-        Team members should create task issues in their respective repos and add links to those tasks below.
+        Team members should create task issues in their respective repos and add links to those tasks below. Please delete any task that is not being used. 
 
         #### UX
         - [ ] Task (link)
