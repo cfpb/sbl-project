@@ -12,7 +12,7 @@ body:
       label: Epic
       description: Link to parent epic, represented as GitHub issue
       value: |
-        Epic issue includes overview, complete list of user stories, technical and content requirements, user testing task ideation, and current design mock-ups.
+        Epic issue includes overview, complete list of user stories, user testing task ideation, and final design mock-ups.
         
         - <link to parent epic> 
   - type: textarea
@@ -32,10 +32,18 @@ body:
   - type: textarea
     id: technical-tasks
     attributes:
-      label: Technical tasks
+      label: Tasks
       value: |
-        Developers should create technical tasks and add links (below) prior to sprint planning.
-        
+        Team members should create task issues in their respective repos and add links to those tasks below. Please delete any task that is not being used. 
+
+        #### UX
+        - [ ] Task (link)
+        - [ ] Task (link)
+
+        #### Data
+        - [ ] Task (link)
+        - [ ] Task (link)
+
         #### Front end
         - [ ] Task (link)
         - [ ] Task (link)
