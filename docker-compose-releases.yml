@@ -1,0 +1,163 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0.5
+    ports:
+      - "8880:8080"
+    environment:
+      KC_HOSTNAME: localhost
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://pg:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak
+      KC_HEALTH_ENABLED: "true"
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - ./dev_setup/keycloak/regtech-test-realm.json:/opt/keycloak/data/import/regtech-test-realm.json:ro
+      - ./dev_setup/keycloak/healthcheck.sh:/mnt/healthcheck.sh
+    command: start-dev --import-realm
+    healthcheck:
+      test: ["CMD-SHELL", "bash /mnt/healthcheck.sh"]
+      interval: 5s
+      timeout: 2s
+      retries: 15
+    depends_on:
+      pg:
+        condition: service_healthy
+    profiles: [locust, backend]
+  pg:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: admin
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./dev_setup/db/:/docker-entrypoint-initdb.d/:ro
+    profiles: [locust, backend]
+  user-fi:
+    platform: linux/amd64
+    image: sbl-project-user-fi:latest
+    #build: ../regtech-user-fi-management
+    ports:
+      - 8881:8888
+    env_file:
+      - ./dev_setup/common.env
+      - ./dev_setup/user-fi.local.env
+    healthcheck:
+      test: ["CMD-SHELL", "wget --output-document - http://0.0.0.0:8888/v1/institutions/healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      keycloak:
+        condition: service_healthy
+      pg:
+        condition: service_healthy
+    profiles: [backend]
+  filing:
+    platform: linux/amd64
+    image: sbl-project-filing:latest
+    #build: ../sbl-filing-api
+    ports:
+      - 8882:8888
+    env_file:
+      - ./dev_setup/common.env
+      - ./dev_setup/filing.local.env
+    healthcheck:
+      test: ["CMD-SHELL", "wget --output-document - http://0.0.0.0:8888/v1/filing/healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      keycloak:
+        condition: service_healthy
+      pg:
+        condition: service_healthy
+    volumes:
+      - /tmp/filing_uploads:/usr/app/upload/upload
+    profiles: [locust, backend]
+
+  mail-api:
+    platform: linux/amd64
+    image: sbl-project-mail-api:latest
+    #build: ../regtech-mail-api
+    healthcheck:
+      test: ["CMD-SHELL", "wget --output-document - http://0.0.0.0:8765/public/healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      keycloak:
+        condition: service_healthy
+    ports:
+      - 8765:8765
+    env_file:
+      - ./dev_setup/common.env
+    environment:
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      FROM_ADDR: noreply@localhost.localdomain
+      TO: cases@localhost.localdomain
+      BETA_BODY_TEMPLATE: "Congratulations! This email confirms that {signer_name} submitted a filing on {formatted_date}. The confirmation number for this filing is {confirmation_id}.{line_break}The beta platform is for testing purposes only and user-supplied data may be removed at any time. Email our support staff at sblhelp@cfpb.gov to share feedback or return to the platform to upload a new file and continue testing."
+      PROD_BODY_TEMPLATE: "Congratulations! This email confirms that {signer_name} submitted a filing on {formatted_date}. The confirmation number for this filing is {confirmation_id}.{line_break}If you have any questions or need additional support, email our support staff at sblhelp@cfpb.gov."
+    profiles: [backend]
+
+  mailpit:
+    image: axllent/mailpit
+    ports:
+      - 8025:8025
+      - 1025:1025
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    profiles: [backend]
+
+  sbl-locust:
+    build: ../sbl-filing-api/locust-load-test
+    ports:
+      - 8889:8089
+    env_file:
+      - ./dev_setup/common.env
+    environment:
+      MODE: single
+      USER_INDEX: 100
+      SBLAR_REPO: https://api.github.com/repos/cfpb/sbl-test-data/contents/locust-sblars
+    profiles: [locust]
+
+  sbl-frontend:
+    image: sbl-project-sbl-frontend:latest
+    #build: ../sbl-frontend
+    ports:
+      - 8898:8080
+    env_file:
+      - ./dev_setup/frontend.local.env
+    profiles: [frontend]
+
+  cleanup:
+    platform: linux/amd64
+    image: sbl-project-cleanup:latest
+    #build: ../regtech-cleanup-api
+    ports:
+      - 8883:8888
+    env_file:
+      - ./dev_setup/common.env
+      - ./dev_setup/filing.local.env
+      - ./dev_setup/user-fi.local.env
+      - ./dev_setup/cleanup.env
+    volumes:
+      - /tmp/filing_uploads:/usr/app/upload/upload
+    depends_on:
+      filing:
+        condition: service_healthy
+      user-fi:
+        condition: service_healthy
+    profiles: [backend]
+volumes:
+  db:
+    driver: local
