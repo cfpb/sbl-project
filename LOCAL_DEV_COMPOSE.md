@@ -34,6 +34,8 @@ The [docker-compose.yml](./docker-compose.yml) is broken into profiles:
 - backend - Runs Postgres, Keycloak, user-fi-management, sbl-filing-api, mail-api and mailpit
 - locust - Runs Postgres, Keycloak, Locust, and sbl-filing-api
 
+> **NOTE** When running `docker-compose`, you now have the option to use released images by removing the `--build`` option in the command
+
 Only run development needed services. For front end development, the 6 backend services are likely to be needed; if development is done on [user-fi-management](https://github.com/cfpb/regtech-user-fi-management), [sbl-filing-api](https://github.com/cfpb/sbl-filing-api), or [mail-api](https://github.com/cfpb/regtech-mail-api) then only `PostgreSQL` and `Keycloak` are needed.
 - To run all services, simply issue command
   ```bash
@@ -79,5 +81,6 @@ Only run development needed services. For front end development, the 6 backend s
   - locust (`locust`) is accessible at `8089` for the web interface (http://localhost:8089/)
 
 ---
+
 ## Mock data population
 With [user-fi-management](https://github.com/cfpb/regtech-user-fi-management), pre-populating the database with some mock institutions can aid front-end development. We've created some instructions, and some mock institution json files in [mock_data](./dev_setup/mock_data/) directory to help with that process.
