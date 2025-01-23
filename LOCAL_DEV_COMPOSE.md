@@ -35,6 +35,7 @@ The [docker-compose.yml](./docker-compose.yml) is broken into profiles:
 - locust - Runs Postgres, Keycloak, Locust, and sbl-filing-api
 
 > **NOTE** When running `docker-compose`, you now have the option to use released images by removing the `--build`` option in the command
+> If you plan in running compose with the released images, you **MUST* run the [PullImages](./dev_setup/pull_images) script. This script will pull and properly tag the images that docker-compose is expecting. The script will run `docker login` for the CFPB Github Container Registry.
 
 Only run development needed services. For front end development, the 6 backend services are likely to be needed; if development is done on [user-fi-management](https://github.com/cfpb/regtech-user-fi-management), [sbl-filing-api](https://github.com/cfpb/sbl-filing-api), or [mail-api](https://github.com/cfpb/regtech-mail-api) then only `PostgreSQL` and `Keycloak` are needed.
 - To run all services, simply issue command
