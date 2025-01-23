@@ -36,7 +36,7 @@ The [docker-compose.yml](./docker-compose.yml) is broken into profiles:
 
 > **NOTE** When running `docker-compose`, you now have the option to use released images by removing the `--build` option in the command
 
-> If you plan in running compose with the released images, you **MUST* run the `pull_images` script linked below. This script will pull and properly tag the images that docker-compose is expecting. The script will run `docker login` for the CFPB Github Container Registry.
+> If you plan on running compose with the released images, you **MUST** run the `pull_images` script linked below. This script will pull and properly tag the images that docker-compose is expecting. The script will run `docker login` for the CFPB Github Container Registry.
 
 [Pull Images Script](./dev_setup/pull_images)
 
